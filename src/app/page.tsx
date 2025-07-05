@@ -1,3 +1,9 @@
+import { Title } from "./components";
+
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <Title tag="h1" size="h1">
+      Wählen Sie ein Buch
+    </Title>
+  );
 }
