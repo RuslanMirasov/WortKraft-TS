@@ -1,0 +1,9 @@
+{
+  "greeting": "Hallo",
+  "navigation": {
+    "library": "Bibliothek",
+    "search": "Suche",
+    "bookmarks": "Meine Liste",
+    "statistic": "Statistik"
+  }
+}

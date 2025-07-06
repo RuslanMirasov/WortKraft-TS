@@ -1,0 +1,72 @@
+.Navigation {
+  display: flex;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  background: var(--white);
+  padding: 150px 30px 30px 30px;
+  width: 100%;
+  max-width: 220px;
+  height: calc(100% - 40px);
+  box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+
+  menu {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+
+    li {
+      width: 100%;
+      a,
+      button {
+        display: flex;
+        position: relative;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        gap: 14px;
+        padding: 12px 0px;
+
+        &:hover {
+          .Text {
+            color: var(--green);
+          }
+        }
+      }
+
+      &.Logout {
+        margin-top: auto;
+        .Icon {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+.Icon {
+  display: flex;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  transition: color 0.2s ease-in-out 0s;
+  svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+  }
+}
+
+.Text {
+  font-size: 20px;
+  transition: color 0.2s ease-in-out 0s;
+}

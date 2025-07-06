@@ -1,0 +1,9 @@
+{
+  "greeting": "Hi",
+  "navigation": {
+    "library": "Library",
+    "search": "Search",
+    "bookmarks": "My own list",
+    "statistic": "Statistic"
+  }
+}

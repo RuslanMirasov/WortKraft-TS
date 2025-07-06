@@ -1,0 +1,26 @@
+@use "./../../styles/index" as *;
+
+.Header {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 40px 20px 0px 50px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.Logo {
+  display: inline-flex;
+  position: relative;
+  flex-direction: column;
+  pointer-events: all;
+  gap: 4px;
+  svg {
+    width: myclamp(104px, 150px, 1280px, 1280px);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "greeting": "Привіт",
+  "navigation": {
+    "library": "Бібліотека",
+    "search": "Пошук",
+    "bookmarks": "Cвій список",
+    "statistic": "Статистика"
+  }
+}

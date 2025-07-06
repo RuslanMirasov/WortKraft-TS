@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
 import localFont from "next/font/local";
-import "./styles/globals.scss";
+import "./../styles/globals.scss";
+import { Header, Navigation } from "./../components";
 
 const sfProDisplayLight = localFont({
-  src: "./fonts/sf-pro-display-light.woff",
+  src: "./../fonts/sf-pro-display-light.woff",
   variable: "--light",
   weight: "600",
   display: "swap",
@@ -11,7 +17,7 @@ const sfProDisplayLight = localFont({
 });
 
 const sfProDisplayRegular = localFont({
-  src: "./fonts/sf-pro-display-regular.woff",
+  src: "./../fonts/sf-pro-display-regular.woff",
   variable: "--regular",
   weight: "700",
   display: "swap",
@@ -53,17 +59,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="de">
+    <html lang={locale}>
       <body
         className={`body ${sfProDisplayLight.variable} ${sfProDisplayRegular.variable}`}
       >
-        {children}
+        <NextIntlClientProvider>
+          <Header />
+          <Navigation />
+          <main className="main">{children}</main>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
