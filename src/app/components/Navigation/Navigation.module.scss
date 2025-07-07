@@ -30,6 +30,7 @@
         align-content: center;
         gap: 14px;
         padding: 12px 0px;
+        user-select: none;
 
         &:hover {
           .Text {
@@ -67,6 +68,6 @@
 }
 
 .Text {
-  font-size: 20px;
+  font-size: 18px;
   transition: color 0.2s ease-in-out 0s;
 }

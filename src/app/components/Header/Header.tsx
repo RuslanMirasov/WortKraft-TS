@@ -9,6 +9,7 @@ const Header = () => {
         <Icon name="logo" size="120" />
       </Link>
       <LanguageSwitcher />
+      <p>Profile</p>
     </header>
   );
 };

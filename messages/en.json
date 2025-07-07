@@ -4,6 +4,7 @@
     "library": "Library",
     "search": "Search",
     "bookmarks": "My own list",
-    "statistic": "Statistic"
+    "statistic": "Statistic",
+    "logout": "Logout"
   }
 }

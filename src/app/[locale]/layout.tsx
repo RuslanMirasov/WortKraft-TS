@@ -67,6 +67,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -76,7 +77,7 @@ export default async function LocaleLayout({
       <body
         className={`body ${sfProDisplayLight.variable} ${sfProDisplayRegular.variable}`}
       >
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale}>
           <Header />
           <Navigation />
           <main className="main">{children}</main>

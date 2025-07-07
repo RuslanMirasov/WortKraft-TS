@@ -1,30 +1,71 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Icon } from "../../components";
 import css from "./LanguageSwitcher.module.scss";
 
-const LanguageSwitcher = () => {
-  const [open, setOpen] = useState(false);
-  const [language, setLanguage] = useState("de");
+type SupportedLocale = "de" | "en" | "uk";
 
-  const switchLanguage = (language: string) => {
-    setLanguage(language);
-    setOpen(false);
-  };
+const LanguageSwitcher = () => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale() as SupportedLocale;
+  const [open, setOpen] = useState(false);
+
+  const switcherRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        switcherRef.current &&
+        !switcherRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
+  const switchLanguage = useCallback(
+    (targetLocale: SupportedLocale) => {
+      if (targetLocale === locale) {
+        setOpen(false);
+        return;
+      }
+
+      const segments = pathname.split("/");
+      segments[1] = targetLocale;
+      const newPath = segments.join("/") || "/";
+
+      document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`;
+      setOpen(false);
+      router.push(newPath);
+    },
+    [pathname, router, locale]
+  );
+
+  const toggleOpen = useCallback(() => {
+    setOpen((prev) => !prev);
+  }, []);
 
   return (
-    <div className={css.LanguageSwitcher}>
-      <div
-        className={css.Select}
-        onClick={() => setOpen((prev) => (prev ? false : true))}
-      >
-        <Icon name={language} />
-        {language === "de" && <span>Deutsch</span>}
-        {language === "en" && <span>English</span>}
-        {language === "uk" && <span>Українська</span>}
+    <button className={css.LanguageSwitcher} ref={switcherRef}>
+      <div className={css.Select} onClick={toggleOpen}>
+        <Icon name={locale} />
+        {locale === "de" && <span>Deutsch</span>}
+        {locale === "en" && <span>English</span>}
+        {locale === "uk" && <span>Українська</span>}
 
-        <div className={css.Arrow}>
+        <div className={`${css.Arrow} ${open ? css.Open : ""}`}>
           <Icon name="arrow" />
         </div>
       </div>
@@ -51,7 +92,7 @@ const LanguageSwitcher = () => {
           </li>
         </ul>
       )}
-    </div>
+    </button>
   );
 };
 

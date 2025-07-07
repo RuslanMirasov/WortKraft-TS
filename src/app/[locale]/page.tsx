@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <button style={{ display: "block", margin: "0 auto" }}>
-        t("bookmarks")
+        {t("bookmarks")}
       </button>
     </>
   );

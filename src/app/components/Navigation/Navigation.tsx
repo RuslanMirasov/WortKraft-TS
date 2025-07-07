@@ -18,7 +18,7 @@ const Navigation = () => {
           </Link>
         </li>
         <li>
-          <Link href="./">
+          <Link href="./profile">
             <span className={css.Icon}>
               <Icon name="search" />
             </span>
@@ -41,14 +41,6 @@ const Navigation = () => {
 
             <span className={css.Text}>{t("statistic")}</span>
           </Link>
-        </li>
-        <li className={css.Logout}>
-          <button>
-            <span className={css.Icon}>
-              <Icon name="logout" />
-            </span>
-            <span className={css.Text}>Logout</span>
-          </button>
         </li>
       </menu>
     </nav>
