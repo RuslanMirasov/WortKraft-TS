@@ -1,0 +1,136 @@
+.Button {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  border-radius: 60px;
+  padding: 10px 60px 10px 24px;
+  min-height: 60px;
+  color: var(--white);
+  background: var(--black);
+  transition: background-color 0.3s, color 0.3s, transform 0.3s, opacity 0.3s;
+  border: none;
+  outline: none;
+  opacity: 1;
+  cursor: pointer;
+  user-select: none;
+  span {
+    display: inline-block;
+    text-align: left;
+    flex: 1;
+    font-family: var(--regular);
+    font-size: 24px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    &.Loading {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    background: rgb(48, 173, 64);
+  }
+}
+
+.Small {
+  min-height: 40px;
+  span {
+    font-size: 14px;
+  }
+  .Icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.Red {
+  background: var(--invalid);
+  &:hover,
+  &:focus {
+    background: var(--invalid);
+  }
+}
+
+.White {
+  background: var(--white);
+  color: var(--black);
+  &:hover,
+  &:focus {
+    background: var(--black);
+    color: var(--white);
+  }
+}
+
+.Orange {
+  background: var(--orange);
+  color: var(--white);
+  &:hover,
+  &:focus {
+    background: var(--green);
+    color: var(--white);
+  }
+}
+
+.Green {
+  background: var(--green);
+  &:hover,
+  &:focus {
+    background: var(--green);
+  }
+}
+
+.Full {
+  width: 100%;
+}
+
+.Icon {
+  display: flex;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  right: 0px;
+  top: 0px;
+}
+
+.Loading {
+  pointer-events: none;
+  svg {
+    opacity: 0;
+  }
+  span {
+    opacity: 0;
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    border-radius: 20px;
+    border-left: 1px solid var(--white-color);
+    border-top: 1px solid var(--white-color);
+    border-right: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    animation: spin 0.3s linear infinite;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -3,23 +3,30 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-
 import localFont from "next/font/local";
 import "./../styles/globals.scss";
-import { Header, Navigation } from "./../components";
+import { Header, Popup, Main } from "./../components";
 
-const sfProDisplayLight = localFont({
-  src: "./../fonts/sf-pro-display-light.woff",
+const dmsansLight = localFont({
+  src: "./../fonts/dmsans-light.woff2",
   variable: "--light",
-  weight: "600",
+  weight: "300",
   display: "swap",
   preload: true,
 });
 
-const sfProDisplayRegular = localFont({
-  src: "./../fonts/sf-pro-display-regular.woff",
+const dmsansRegular = localFont({
+  src: "./../fonts/dmsans-regular.woff2",
   variable: "--regular",
-  weight: "700",
+  weight: "400",
+  display: "swap",
+  preload: true,
+});
+
+const robotoMedium = localFont({
+  src: "./../fonts/roboto-medium.woff2",
+  variable: "--roboto-medium",
+  weight: "500",
   display: "swap",
   preload: true,
 });
@@ -75,12 +82,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body
-        className={`body ${sfProDisplayLight.variable} ${sfProDisplayRegular.variable}`}
+        className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${robotoMedium.variable}`}
       >
         <NextIntlClientProvider locale={locale}>
           <Header />
-          <Navigation />
-          <main className="main">{children}</main>
+
+          <Main>{children}</Main>
+          <Popup />
         </NextIntlClientProvider>
       </body>
     </html>

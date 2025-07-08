@@ -1,0 +1,52 @@
+.Text {
+  display: block;
+  width: 100%;
+  color: var(--black);
+  font-family: var(--regular);
+  line-height: 1.4;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  white-space: pre-line;
+
+  &.Light {
+    font-family: var(--light);
+    font-weight: 300;
+  }
+
+  &.Small {
+    font-size: 14px;
+  }
+
+  &.Big {
+    font-size: 24px;
+  }
+
+  &.Green {
+    color: var(--green);
+  }
+
+  &.Red {
+    color: var(--red);
+  }
+
+  &.Orange {
+    color: var(--orange);
+  }
+
+  &.White {
+    color: var(--white);
+  }
+
+  &.Grey {
+    color: var(--grey);
+  }
+
+  &.Center {
+    text-align: center;
+  }
+
+  &.Right {
+    text-align: right;
+  }
+}

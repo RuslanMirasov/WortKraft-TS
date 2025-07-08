@@ -1,0 +1,43 @@
+.ButtonProfile {
+  display: inline-flex;
+  max-width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+
+  p {
+    display: block;
+    flex: 1;
+    position: relative;
+    span {
+      display: block;
+      font-size: 18px;
+      line-height: 1.2;
+      &:first-child {
+        display: block;
+        font-size: 14px;
+        color: var(--grey);
+      }
+      &:last-child {
+        max-width: 130px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: 0.2s;
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    p {
+      span {
+        &:last-child {
+          color: var(--red);
+        }
+      }
+    }
+  }
+}

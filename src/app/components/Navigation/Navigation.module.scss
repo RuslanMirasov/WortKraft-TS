@@ -1,22 +1,16 @@
 .Navigation {
   display: flex;
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  background: var(--white);
-  padding: 150px 30px 30px 30px;
+  position: relative;
   width: 100%;
-  max-width: 220px;
-  height: calc(100% - 40px);
-  box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
+  pointer-events: all;
 
   menu {
     display: flex;
     position: relative;
     flex-direction: column;
     width: 100%;
-
+    border-top: 1px solid var(--hr);
+    padding-top: 16px;
     li {
       width: 100%;
       a,
