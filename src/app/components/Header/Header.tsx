@@ -22,7 +22,7 @@ const Header = () => {
       <Navigation />
 
       <div className={css.ProfileButtons}>
-        {/* <ButtonLogin onClick={() => openPopup("login")}>Anmeldung</ButtonLogin> */}
+        <ButtonLogin onClick={() => openPopup("login")}>Anmeldung</ButtonLogin>
         <ButtonProfile />
       </div>
     </header>
