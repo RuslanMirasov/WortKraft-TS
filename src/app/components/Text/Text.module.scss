@@ -53,4 +53,11 @@
   &.Right {
     text-align: right;
   }
+
+  &.Clickable {
+    display: inline-block;
+    width: auto;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

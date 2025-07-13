@@ -1,6 +1,11 @@
 import { create } from "zustand";
 
-export type PopupIds = "login" | "register" | "confirmation" | "error";
+export type PopupIds =
+  | "login"
+  | "register"
+  | "confirmation"
+  | "error"
+  | "password";
 
 export interface Popup {
   id: PopupIds;

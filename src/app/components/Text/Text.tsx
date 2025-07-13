@@ -1,6 +1,7 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, MouseEvent } from "react";
 import clsx from "clsx";
 import css from "./Text.module.scss";
+import Link from "next/link";
 
 interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
   color?: "green" | "red" | "orange" | "white" | "grey";
@@ -8,6 +9,8 @@ interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
   size?: "big" | "small" | "subtitle";
   light?: boolean;
   children: React.ReactNode;
+  href?: string;
+  onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
 const Text: React.FC<TextPropTypes> = ({
@@ -17,6 +20,8 @@ const Text: React.FC<TextPropTypes> = ({
   light,
   children,
   className,
+  href,
+  onClick,
 }) => {
   const classes = clsx(
     css.Text,
@@ -31,9 +36,19 @@ const Text: React.FC<TextPropTypes> = ({
     align === "center" && css.Center,
     align === "right" && css.Right,
     light && css.Light,
+    onClick && css.Clickable,
+    href && css.Clickable,
     className
   );
-  return <p className={classes}>{children}</p>;
+  return href ? (
+    <Link href={href} className={classes} onClick={onClick}>
+      {children}
+    </Link>
+  ) : (
+    <p className={classes} onClick={onClick}>
+      {children}
+    </p>
+  );
 };
 
 export default Text;

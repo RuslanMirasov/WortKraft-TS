@@ -1,4 +1,4 @@
-import { Title, Button, Text, ButtonGoogle } from "..";
+import { Title, Button, Text, ButtonGoogle, LoginForm } from "..";
 import { usePopup } from "@/stores/popup-store";
 
 const PopupLogin = () => {
@@ -9,25 +9,26 @@ const PopupLogin = () => {
       <Title tag="h2" size="h5">
         Anmeldung
       </Title>
+
       <Text color="grey" size="subtitle" align="center">
         Melden Sie sich an, um Ihren Lernfortschritt zu speichern
       </Text>
-      <Text color="red" size="subtitle" align="right" light>
-        Passwort vergessen?
-      </Text>
-      <Button size="small" variant="green" icon="arrow-right">
-        Sign in
-      </Button>
+
+      <LoginForm />
 
       <hr />
-      <Text color="grey" size="subtitle" align="center">
+
+      <Text color="grey" size="small" align="center">
         Kein Konto?
       </Text>
+
       <ButtonGoogle />
+
       <Button
         onClick={() => openPopup("register")}
         size="small"
         icon="arrow-right"
+        full
       >
         Registrieren
       </Button>

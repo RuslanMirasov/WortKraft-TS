@@ -66,7 +66,7 @@ const LanguageSwitcher = () => {
         {locale === "uk" && <span>Українська</span>}
 
         <div className={`${css.Arrow} ${open ? css.Open : ""}`}>
-          <Icon name="arrow" />
+          <Icon name="arrow-down" />
         </div>
       </div>
 

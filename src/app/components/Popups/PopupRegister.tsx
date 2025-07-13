@@ -1,4 +1,4 @@
-import { Title, Button, Text } from "..";
+import { Title, Button, Text, RegistrationForm } from "..";
 import { usePopup } from "@/stores/popup-store";
 
 const PopupRegister = () => {
@@ -11,7 +11,7 @@ const PopupRegister = () => {
       <Text color="grey" size="small" align="center">
         Registrieren Sie sich, um Ihren Lernfortschritt zu speichern
       </Text>
-
+      <RegistrationForm />
       <hr />
       <Text color="grey" size="small" align="center">
         Bereits registriert?
@@ -20,6 +20,7 @@ const PopupRegister = () => {
         onClick={() => openPopup("login")}
         size="small"
         icon="arrow-right"
+        full
       >
         Anmelden
       </Button>

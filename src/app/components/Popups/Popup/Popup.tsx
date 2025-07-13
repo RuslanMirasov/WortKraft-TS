@@ -4,7 +4,12 @@ import { createPortal } from "react-dom";
 import { useEffect } from "react";
 import { usePopup } from "@/stores/popup-store";
 import css from "./Popup.module.scss";
-import { Icon, PopupLogin, PopupRegister } from "../../../components";
+import {
+  Icon,
+  PopupLogin,
+  PopupRegister,
+  PopupPassword,
+} from "../../../components";
 
 const Popup = () => {
   const { currentPopup, closePopup, isBackdropOpen, isPopupOpen } = usePopup();
@@ -60,11 +65,14 @@ const Popup = () => {
   return createPortal(
     <section
       className={`${css.Backdrop} ${isBackdropOpen ? css.Open : ""}`}
-      onClick={currentPopup?.options?.freeze ? undefined : closePopup}
+      onMouseDown={currentPopup?.options?.freeze ? undefined : closePopup}
+      onTouchStart={currentPopup?.options?.freeze ? undefined : closePopup}
     >
       <div
         className={`${css.Popup} ${isPopupOpen ? css.Open : ""}`}
         onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
+        onTouchStart={(e) => e.stopPropagation()}
       >
         {!currentPopup?.options?.freeze && (
           <button className={css.PopupClose} onClick={closePopup}>
@@ -73,6 +81,7 @@ const Popup = () => {
         )}
         {currentPopup?.id === "login" && <PopupLogin />}
         {currentPopup?.id === "register" && <PopupRegister />}
+        {currentPopup?.id === "password" && <PopupPassword />}
       </div>
     </section>,
     document.body

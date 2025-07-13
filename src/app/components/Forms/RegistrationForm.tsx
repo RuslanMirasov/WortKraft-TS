@@ -1,0 +1,48 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { registrationSchema, RegistrationFormData } from '@/zod-schemas';
+import { Form, Input, Button } from '..';
+
+const RegistrationForm = () => {
+  const form = useForm<RegistrationFormData>({
+    resolver: zodResolver(registrationSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+    },
+  });
+
+  const onSubmit = async (data: RegistrationFormData) => {
+    console.log('Данные формы:', data);
+  };
+
+  return (
+    <Form form={form} onSubmit={onSubmit}>
+      <Input type="text" name="name" placeholder="Имя" />
+      <Input
+        type="select"
+        name="language"
+        placeholder="Select your language"
+        required
+        options={[
+          { value: 'EN', label: 'English' },
+          { value: 'FR', label: 'Français' },
+          { value: 'UA', label: 'Українська' },
+          { value: 'PL', label: 'Polski' },
+          { value: 'IT', label: 'Italiano' },
+          { value: 'ES', label: 'Español' },
+          { value: 'TR', label: 'Türkçe' },
+          { value: 'RU', label: 'Русский' },
+        ]}
+      />
+      <Input type="email" name="email" required placeholder="E-mail" />
+      <Input type="password" name="password" required placeholder="Password" />
+      <Button size="small" variant="green" icon="arrow-right" full>
+        Create accaunt
+      </Button>
+    </Form>
+  );
+};
+
+export default RegistrationForm;
