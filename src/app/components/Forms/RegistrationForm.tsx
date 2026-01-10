@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, RegistrationFormData } from '@/zod-schemas';
-import { Form, Input, Button } from '..';
+import { Form, Input, Button, Text } from '..';
 
 const RegistrationForm = () => {
   const form = useForm<RegistrationFormData>({
@@ -10,6 +10,7 @@ const RegistrationForm = () => {
       name: '',
       email: '',
       password: '',
+      agree: false,
     },
   });
 
@@ -36,8 +37,12 @@ const RegistrationForm = () => {
           { value: 'RU', label: 'Русский' },
         ]}
       />
+
       <Input type="email" name="email" required placeholder="E-mail" />
       <Input type="password" name="password" required placeholder="Password" />
+      <Input type="checkbox" name="agree" required>
+        Mit Klick auf den Button stimmen Sie den <Text href="./profile">Datenschutzbestimmungen</Text> zu
+      </Input>
       <Button size="small" variant="green" icon="arrow-right" full>
         Create accaunt
       </Button>

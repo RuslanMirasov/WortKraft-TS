@@ -1,39 +1,43 @@
 import { z } from 'zod';
 
-const nameValidator = z
+const name = z
   .string()
   .optional()
   .refine(val => !val || (val.length >= 2 && !/\d/.test(val)), {
     message: 'Имя должно содержать минимум 2 буквы и не содержать цифр',
   });
 
-const emailValidator = z.string().min(1, 'Email обязателен').email('Некорректный email');
+const email = z.string().min(1, 'Email обязателен').email('Некорректный email');
 
-const passwordValidator = z
+const password = z
   .string()
-  .min(8, 'Пароль должен содержать минимум 8 символов')
+  .min(6, 'Пароль должен содержать минимум 6 символов')
   .regex(/[A-Z]/, 'Пароль должен содержать заглавную букву')
   .regex(/[a-z]/, 'Пароль должен содержать строчную букву')
   .regex(/[0-9]/, 'Пароль должен содержать цифру');
 
-const languageValidator = z.string().min(1, 'Язык обязателен');
-const subjectValidator = z.string().optional();
+const language = z.string().min(1, 'Язык обязателен');
+const subject = z.string().optional();
+const agree = z.boolean().refine(value => value === true, {
+  message: 'Необходимо согласие с условиями использования',
+});
 
 export const loginSchema = z.object({
-  email: emailValidator,
-  password: passwordValidator,
+  email,
+  password,
 });
 
 export const registrationSchema = z.object({
-  name: nameValidator,
-  language: languageValidator,
-  email: emailValidator,
-  password: passwordValidator,
+  name,
+  language,
+  email,
+  password,
+  agree,
 });
 
 export const passwordSchema = z.object({
-  subject: subjectValidator,
-  email: emailValidator,
+  subject,
+  email,
 });
 
 export type LoginFormData = z.infer<typeof loginSchema>;

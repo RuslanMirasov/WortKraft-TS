@@ -43,4 +43,12 @@ export interface InputSelectProps extends BaseInputProps {
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export type InputProps = TextInputProps | TextareaProps | InputSelectProps;
+export interface InputCheckboxProps extends BaseInputProps {
+  type: 'checkbox';
+  checked?: boolean;
+  children?: React.ReactNode;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string | number;
+}
+
+export type InputProps = TextInputProps | TextareaProps | InputSelectProps | InputCheckboxProps;

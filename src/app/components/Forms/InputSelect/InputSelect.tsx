@@ -59,7 +59,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
     };
 
     if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside, true); // capture phase
+      document.addEventListener('mousedown', handleClickOutside, true);
     }
 
     return () => {
@@ -80,7 +80,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
             }
           }}
         >
-          <Text className={`${css.Label} ${selectedOption ? css.Selected : ''}`} light size="small" color="grey">
+          <Text className={css.Label} light size="small" color={selectedOption ? 'black' : 'grey'}>
             {selectedOption ? selectedOption.label : placeholder}
           </Text>
           <span className={css.Icon}>
@@ -90,7 +90,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
 
         {isOpen && (
           <div className={css.Dropdown}>
-            <div className={css.DropdownScrollArea}>
+            <div className={`${css.DropdownScrollArea} custom-scrollbar`}>
               <ul>
                 {options.map((option, index) => (
                   <li key={index} onClick={() => handleOptionClick(option.value)}>

@@ -12,15 +12,10 @@ interface IconPropTypes {
 }
 
 const Logo: React.FC<SvgPropTypes> = ({ size = 125 }) => (
-  <svg
-    width={size}
-    viewBox="0 0 125 34"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} viewBox="0 0 125 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <mask
       id="mask0_509_2199"
-      style={{ maskType: "luminance" }}
+      style={{ maskType: 'luminance' }}
       maskUnits="userSpaceOnUse"
       x="24"
       y="15"
@@ -74,19 +69,8 @@ const Logo: React.FC<SvgPropTypes> = ({ size = 125 }) => (
 );
 
 const Home: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12.0002 3.54541V19.7727"
-      stroke={stroke}
-      strokeWidth="2"
-      strokeMiterlimit="10"
-    />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.0002 3.54541V19.7727" stroke={stroke} strokeWidth="2" strokeMiterlimit="10" />
     <path
       d="M12 3.54545C12 2.13909 10.8417 1 9.41173 1H3.58822C2.15823 1 1 2.13909 1 3.54545V16.2727C1 17.6791 2.15823 18.8182 3.58822 18.8182H9.41173C10.8417 18.8182 12 19.9573 12 21.3636V22"
       stroke={stroke}
@@ -103,36 +87,19 @@ const Home: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Search: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M10.7023 20.3778C16.0608 20.3778 20.4047 16.0399 20.4047 10.6889C20.4047 5.33786 16.0608 1 10.7023 1C5.34388 1 1 5.33786 1 10.6889C1 16.0399 5.34388 20.3778 10.7023 20.3778Z"
       stroke={stroke}
       strokeWidth="2"
       strokeLinejoin="round"
     />
-    <path
-      d="M23.1768 23.1461L17.6326 17.6096"
-      stroke={stroke}
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
+    <path d="M23.1768 23.1461L17.6326 17.6096" stroke={stroke} strokeWidth="2" strokeLinejoin="round" />
   </svg>
 );
 
 const Bookmark: React.FC<SvgPropTypes> = ({ stroke, fill }) => (
-  <svg
-    width="19"
-    height="25"
-    viewBox="0 0 19 25"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="19" height="25" viewBox="0 0 19 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M2.50309 22.8858C1.83643 23.2739 1 22.793 1 22.0216V2.5C1 1.94772 1.44772 1.5 2 1.5H17C17.5523 1.5 18 1.94771 18 2.5V21.9584C18 22.7367 17.1501 23.2166 16.4836 22.8147L11.1991 19.6279C10.2604 19.0618 9.08784 19.0527 8.14056 19.6042L2.50309 22.8858Z"
       fill={fill}
@@ -143,13 +110,7 @@ const Bookmark: React.FC<SvgPropTypes> = ({ stroke, fill }) => (
 );
 
 const Statistic: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M11.9985 23C17.9521 23 23 17.9454 23 12C23 6.05461 17.9521 1 11.9985 1C6.04488 1 1 6.05461 1 12C1 17.9454 6.04488 23 11.9985 23Z"
       stroke={stroke}
@@ -162,12 +123,7 @@ const Statistic: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
       strokeWidth="1.5"
       strokeLinejoin="round"
     />
-    <path
-      d="M10.6541 10.4225L5.7207 5.49585"
-      stroke={stroke}
-      strokeWidth="1.5"
-      strokeLinejoin="round"
-    />
+    <path d="M10.6541 10.4225L5.7207 5.49585" stroke={stroke} strokeWidth="1.5" strokeLinejoin="round" />
     <path
       d="M8.13037 5.21718C9.26544 4.54594 10.5844 4.16602 11.9985 4.16602C16.2027 4.16602 19.6079 7.56651 19.6079 11.7649"
       stroke={stroke}
@@ -184,13 +140,7 @@ const Statistic: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const ArrowDown: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M19.5 8.25L12 15.75L4.5 8.25"
       stroke={stroke}
@@ -202,13 +152,7 @@ const ArrowDown: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const ArrowLeft: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M15.75 19.5L8.25 12L15.75 4.5"
       stroke={stroke}
@@ -220,13 +164,7 @@ const ArrowLeft: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const ArrowRight: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M16.7081 11.2929C17.0986 11.6834 17.0986 12.3166 16.7081 12.7071L10.3441 19.0711C9.9536 19.4616 9.32043 19.4616 8.92991 19.0711C8.53938 18.6805 8.53938 18.0474 8.92991 17.6569L14.5868 12L8.92991 6.34315C8.53938 5.95262 8.53939 5.31946 8.92991 4.92893C9.32043 4.53841 9.9536 4.53841 10.3441 4.92893L16.7081 11.2929ZM15 11L16.001 11L16.001 13L15 13L15 11Z"
       fill={stroke}
@@ -235,13 +173,7 @@ const ArrowRight: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Confirm: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M4.5 12.75L10.5 18.75L19.5 5.25"
       stroke={stroke}
@@ -253,13 +185,7 @@ const Confirm: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Error: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M11.9998 9.00006V12.7501M2.69653 16.1257C1.83114 17.6257 2.91371 19.5001 4.64544 19.5001H19.3541C21.0858 19.5001 22.1684 17.6257 21.303 16.1257L13.9487 3.37819C13.0828 1.87736 10.9167 1.87736 10.0509 3.37819L2.69653 16.1257ZM11.9998 15.7501H12.0073V15.7576H11.9998V15.7501Z"
       stroke={stroke}
@@ -271,13 +197,7 @@ const Error: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const PasswordShow: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M2.03555 12.3224C1.96647 12.1151 1.9664 11.8907 2.03536 11.6834C3.42372 7.50972 7.36079 4.5 12.0008 4.5C16.6387 4.5 20.5742 7.50692 21.9643 11.6776C22.0334 11.8849 22.0335 12.1093 21.9645 12.3166C20.5761 16.4903 16.6391 19.5 11.9991 19.5C7.36119 19.5 3.42564 16.4931 2.03555 12.3224Z"
       stroke={stroke}
@@ -296,13 +216,7 @@ const PasswordShow: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const PasswordHide: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M3.97993 8.22257C3.05683 9.31382 2.35242 10.596 1.93436 12.0015C3.22565 16.338 7.24311 19.5 11.9991 19.5C12.9917 19.5 13.9521 19.3623 14.8623 19.1049M6.22763 6.22763C7.88389 5.13558 9.86771 4.5 12 4.5C16.756 4.5 20.7734 7.66205 22.0647 11.9985C21.3528 14.3919 19.8106 16.4277 17.772 17.772M6.22763 6.22763L3 3M6.22763 6.22763L9.87868 9.87868M17.772 17.772L21 21M17.772 17.772L14.1213 14.1213M14.1213 14.1213C14.6642 13.5784 15 12.8284 15 12C15 10.3431 13.6569 9 12 9C11.1716 9 10.4216 9.33579 9.87868 9.87868M14.1213 14.1213L9.87868 9.87868"
       stroke={stroke}
@@ -314,13 +228,7 @@ const PasswordHide: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Lock: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 18 18"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M12.5742 8.2041H5.2207C4.40845 8.2041 3.75 8.87055 3.75 9.69266V14.5305C3.75 15.3526 4.40845 16.0191 5.2207 16.0191H12.5742C13.3864 16.0191 14.0449 15.3526 14.0449 14.5305V9.69266C14.0449 8.87055 13.3864 8.2041 12.5742 8.2041Z"
       stroke={stroke}
@@ -337,13 +245,7 @@ const Lock: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Logout: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M2.81448 3.27687L11.2905 6.73778C11.9095 6.9925 12.3167 7.60162 12.3167 8.28272V20.3377C12.3167 21.4785 11.2199 22.2758 10.1611 21.9104L3.10226 19.4462C2.44525 19.2136 2 18.5824 2 17.8736V4.66123C2 3.74202 2.7276 3 3.62896 3H14.4887C15.39 3 16.1176 3.74202 16.1176 4.66123V17.3974C16.1176 18.3166 15.39 19.0586 14.4887 19.0586H12.3167"
       stroke={stroke}
@@ -353,23 +255,13 @@ const Logout: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
       d="M10.2356 14.875C10.8853 14.875 11.412 14.3433 11.412 13.6875C11.412 13.0317 10.8853 12.5 10.2356 12.5C9.58581 12.5 9.05908 13.0317 9.05908 13.6875C9.05908 14.3433 9.58581 14.875 10.2356 14.875Z"
       fill={stroke}
     />
-    <path
-      d="M19.647 8.9375L21.9999 11.3125L19.647 13.6875"
-      stroke={stroke}
-      strokeLinejoin="round"
-    />
+    <path d="M19.647 8.9375L21.9999 11.3125L19.647 13.6875" stroke={stroke} strokeLinejoin="round" />
     <path d="M21.9998 11.3125H17.2939" stroke={stroke} strokeMiterlimit="10" />
   </svg>
 );
 
 const Login: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M21.1923 21.7086L12.7869 18.0655C12.1731 17.7974 11.7692 17.1562 11.7692 16.4392L11.7692 3.74975C11.7692 2.549 12.8569 1.70964 13.9069 2.09434L20.9069 4.6882C21.5585 4.93301 22 5.59751 22 6.3436L22 20.2513C22 21.2189 21.2785 22 20.3846 22L9.61538 22C8.72154 22 8 21.2189 8 20.2513L8 6.84489C8 5.87729 8.72154 5.09622 9.61538 5.09622H11.7692"
       stroke={stroke}
@@ -379,60 +271,27 @@ const Login: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
       d="M14 10C13.4477 10 13 10.4477 13 11C13 11.5523 13.4477 12 14 12C14.5523 12 15 11.5523 15 11C15 10.4477 14.5523 10 14 10Z"
       fill={stroke}
     />
-    <path
-      d="M3.35303 10L5.70597 12.375L3.35303 14.75"
-      stroke={stroke}
-      strokeLinejoin="round"
-    />
+    <path d="M3.35303 10L5.70597 12.375L3.35303 14.75" stroke={stroke} strokeLinejoin="round" />
     <path d="M1.00017 12.375H5.70605" stroke={stroke} strokeMiterlimit="10" />
   </svg>
 );
 
 const AvatarPlus: React.FC<SvgPropTypes> = ({ size = 32 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="16" cy="16" r="16" fill="#292B2D" />
     <path d="M16 23V9" stroke="white" strokeWidth="2" strokeLinecap="round" />
-    <path
-      d="M23 16L9 16"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
+    <path d="M23 16L9 16" stroke="white" strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
 const Close: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M6 18L18 6M6 6L18 18"
-      stroke={stroke}
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 18L18 6M6 6L18 18" stroke={stroke} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const Next: React.FC<SvgPropTypes> = ({ size = 16, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 16 16"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M15.7071 8.70711C16.0976 8.31658 16.0976 7.68342 15.7071 7.29289L9.34315 0.928932C8.95262 0.538408 8.31946 0.538408 7.92893 0.928932C7.53841 1.31946 7.53841 1.95262 7.92893 2.34315L13.5858 8L7.92893 13.6569C7.53841 14.0474 7.53841 14.6805 7.92893 15.0711C8.31946 15.4616 8.95262 15.4616 9.34315 15.0711L15.7071 8.70711ZM0 9H15V7H0V9Z"
       fill={stroke}
@@ -441,13 +300,7 @@ const Next: React.FC<SvgPropTypes> = ({ size = 16, stroke }) => (
 );
 
 const Sound: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M14 2.60227V21.4004C14 21.9217 13.3474 22.1914 12.9419 21.8438L6.78353 16.5046C6.5491 16.3009 6.24498 16.187 5.92819 16.187H3.90074C2.849 16.187 2 15.384 2 14.3893V9.61935C2 8.62462 2.849 7.82164 3.90074 7.82164H5.92819C6.24498 7.82164 6.5491 7.70778 6.78353 7.50404L12.9419 2.15883C13.3474 1.80528 14 2.08093 14 2.60227Z"
       stroke={stroke}
@@ -472,33 +325,13 @@ const Sound: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
 );
 
 const Stop: React.FC<SvgPropTypes> = ({ size = 20, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect
-      x="2"
-      y="2"
-      width={size}
-      height={size}
-      rx="4"
-      stroke={stroke}
-      strokeWidth="3"
-    />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width={size} height={size} rx="4" stroke={stroke} strokeWidth="3" />
   </svg>
 );
 
 const User: React.FC<SvgPropTypes> = ({ size = 20, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M12 16C10.2208 16 8.15137 14.0948 7.32486 11.4287C6.65608 11.4165 6.08194 10.6617 6.00623 9.69391C5.94314 8.76261 6.36586 7.96522 6.97785 7.81913C7.14189 4.16696 8.18922 2 12 2C15.8108 2 16.8581 4.16696 17.0221 7.81913C17.6341 7.96522 18.0569 8.76261 17.9938 9.69391C17.9181 10.6617 17.3439 11.4165 16.6751 11.4287C15.8486 14.0948 13.7792 16 12 16Z"
       stroke={stroke}
@@ -513,13 +346,7 @@ const User: React.FC<SvgPropTypes> = ({ size = 20, stroke }) => (
 );
 
 const Pencil: React.FC<SvgPropTypes> = ({ size = 20, stroke }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M16.8617 4.48667L18.5492 2.79917C19.2814 2.06694 20.4686 2.06694 21.2008 2.79917C21.9331 3.53141 21.9331 4.71859 21.2008 5.45083L10.5822 16.0695C10.0535 16.5981 9.40144 16.9868 8.68489 17.2002L6 18L6.79978 15.3151C7.01323 14.5986 7.40185 13.9465 7.93052 13.4178L16.8617 4.48667ZM16.8617 4.48667L19.5 7.12499M18 14V18.75C18 19.9926 16.9926 21 15.75 21H5.25C4.00736 21 3 19.9926 3 18.75V8.24999C3 7.00735 4.00736 5.99999 5.25 5.99999H10"
       stroke={stroke}
@@ -531,13 +358,7 @@ const Pencil: React.FC<SvgPropTypes> = ({ size = 20, stroke }) => (
 );
 
 const Dialog: React.FC<SvgPropTypes> = ({ size = 30, stroke, fill }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 30 30"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="15" cy="15" r="15" fill={fill} />
     <path
       d="M15.3999 17.0833C14.2249 17.0833 12.8583 15.7792 12.3124 13.9542C11.8708 13.9458 11.4916 13.4292 11.4416 12.7667C11.3999 12.1292 11.6791 11.5833 12.0833 11.4833C12.1916 8.98333 12.8833 7.5 15.3999 7.5C17.9166 7.5 18.6083 8.98333 18.7166 11.4833C19.1208 11.5833 19.3999 12.1292 19.3583 12.7667C19.3083 13.4292 18.9291 13.9458 18.4874 13.9542C17.9416 15.7792 16.5749 17.0833 15.3999 17.0833Z"
@@ -555,23 +376,13 @@ const Dialog: React.FC<SvgPropTypes> = ({ size = 30, stroke, fill }) => (
 );
 
 const Arrow: React.FC<SvgPropTypes> = ({ size = 11, stroke }) => (
-  <svg
-    width={size}
-    viewBox="0 0 11 6"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M1 0.5L5.5 5.5L10 0.5" stroke={stroke} strokeLinejoin="round" />
   </svg>
 );
 
 const De: React.FC<SvgPropTypes> = ({ size = 26 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 26 26"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
     <circle cx="13" cy="13" r="13" fill="white" />
     <clipPath id="clip">
       <circle cx="13" cy="13" r="13" />
@@ -585,12 +396,7 @@ const De: React.FC<SvgPropTypes> = ({ size = 26 }) => (
 );
 
 const Ua: React.FC<SvgPropTypes> = ({ size = 26 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 26 26"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
     <circle cx="13" cy="13" r="13" fill="white" />
     <clipPath id="clip">
       <circle cx="13" cy="13" r="13" />
@@ -603,13 +409,7 @@ const Ua: React.FC<SvgPropTypes> = ({ size = 26 }) => (
 );
 
 const En: React.FC<SvgPropTypes> = ({ size = 26 }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 26 26"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width={size} height={size} viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="13" cy="13" r="13" fill="#0052B4" />
     <path
       d="M13.0078 9.00684L19.9814 2.03223C21.5815 3.05302 22.9426 4.41489 23.9639 6.01465L16.9902 12.9893L23.9727 19.9717C22.9533 21.5729 21.593 22.9353 19.9941 23.958L13.0078 16.9717L6.01367 23.9658C4.41372 22.9445 3.05214 21.5827 2.03125 19.9824L9.02539 12.9893L2.04004 6.00391C3.06272 4.40525 4.42536 3.04471 6.02637 2.02539L13.0078 9.00684Z"
@@ -631,13 +431,7 @@ const En: React.FC<SvgPropTypes> = ({ size = 26 }) => (
 );
 
 const Google: React.FC<SvgPropTypes> = ({ size = 20 }) => (
-  <svg
-    width={size}
-    height={size}
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 48 48"
-  >
+  <svg width={size} height={size} version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
     <path
       fill="#EA4335"
       d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
@@ -658,44 +452,51 @@ const Google: React.FC<SvgPropTypes> = ({ size = 20 }) => (
   </svg>
 );
 
-const Icon: React.FC<IconPropTypes> = ({
-  name,
-  fill = "currentColor",
-  stroke = "currentColor",
-  size,
-}) => {
+const Checkbox: React.FC<SvgPropTypes> = ({ size = 24, fill = '#ffffff', stroke = '2' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 12L10.5 16L18 8" stroke={fill} strokeWidth={stroke} strokeLinecap="round" />
+  </svg>
+);
+
+const Radio: React.FC<SvgPropTypes> = ({ size = 24, fill = '#4CB210' }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="8" fill={fill} />
+  </svg>
+);
+
+const Icon: React.FC<IconPropTypes> = ({ name, fill = 'currentColor', stroke = 'currentColor', size }) => {
   return (
     <>
-      {name === "logo" && <Logo size={size} fill={fill} stroke={stroke} />}
-      {name === "user" && <User size={size} fill={fill} stroke={stroke} />}
-      {name === "pencil" && <Pencil size={size} stroke={stroke} />}
-      {name === "home" && <Home size={size} stroke={stroke} />}
-      {name === "search" && <Search size={size} stroke={stroke} />}
-      {name === "bookmark" && (
-        <Bookmark size={size} stroke={stroke} fill={fill} />
-      )}
-      {name === "statistic" && <Statistic size={size} stroke={stroke} />}
-      {name === "arrow-down" && <ArrowDown size={size} stroke={stroke} />}
-      {name === "arrow-left" && <ArrowLeft size={size} stroke={stroke} />}
-      {name === "arrow-right" && <ArrowRight size={size} stroke={stroke} />}
-      {name === "confirm" && <Confirm size={size} stroke={stroke} />}
-      {name === "close" && <Close size={size} stroke={stroke} />}
-      {name === "error" && <Error size={size} stroke={stroke} />}
-      {name === "password-show" && <PasswordShow size={size} stroke={stroke} />}
-      {name === "password-hide" && <PasswordHide size={size} stroke={stroke} />}
-      {name === "lock" && <Lock size={size} stroke={stroke} />}
-      {name === "login" && <Login size={size} stroke={stroke} />}
-      {name === "logout" && <Logout size={size} stroke={stroke} />}
-      {name === "avatar-plus" && <AvatarPlus size={size} stroke={stroke} />}
-      {name === "next" && <Next size={size} stroke={stroke} />}
-      {name === "sound" && <Sound size={size} stroke={stroke} />}
-      {name === "stop" && <Stop size={size} stroke={stroke} />}
-      {name === "dialog" && <Dialog size={size} stroke={stroke} fill={fill} />}
-      {name === "arrow" && <Arrow size={size} stroke={stroke} />}
-      {name === "de" && <De size={size} />}
-      {name === "uk" && <Ua size={size} />}
-      {name === "en" && <En size={size} />}
-      {name === "google" && <Google size={size} />}
+      {name === 'logo' && <Logo size={size} fill={fill} stroke={stroke} />}
+      {name === 'user' && <User size={size} fill={fill} stroke={stroke} />}
+      {name === 'pencil' && <Pencil size={size} stroke={stroke} />}
+      {name === 'home' && <Home size={size} stroke={stroke} />}
+      {name === 'search' && <Search size={size} stroke={stroke} />}
+      {name === 'bookmark' && <Bookmark size={size} stroke={stroke} fill={fill} />}
+      {name === 'statistic' && <Statistic size={size} stroke={stroke} />}
+      {name === 'arrow-down' && <ArrowDown size={size} stroke={stroke} />}
+      {name === 'arrow-left' && <ArrowLeft size={size} stroke={stroke} />}
+      {name === 'arrow-right' && <ArrowRight size={size} stroke={stroke} />}
+      {name === 'confirm' && <Confirm size={size} stroke={stroke} />}
+      {name === 'close' && <Close size={size} stroke={stroke} />}
+      {name === 'error' && <Error size={size} stroke={stroke} />}
+      {name === 'password-show' && <PasswordShow size={size} stroke={stroke} />}
+      {name === 'password-hide' && <PasswordHide size={size} stroke={stroke} />}
+      {name === 'lock' && <Lock size={size} stroke={stroke} />}
+      {name === 'login' && <Login size={size} stroke={stroke} />}
+      {name === 'logout' && <Logout size={size} stroke={stroke} />}
+      {name === 'avatar-plus' && <AvatarPlus size={size} stroke={stroke} />}
+      {name === 'next' && <Next size={size} stroke={stroke} />}
+      {name === 'sound' && <Sound size={size} stroke={stroke} />}
+      {name === 'stop' && <Stop size={size} stroke={stroke} />}
+      {name === 'dialog' && <Dialog size={size} stroke={stroke} fill={fill} />}
+      {name === 'arrow' && <Arrow size={size} stroke={stroke} />}
+      {name === 'de' && <De size={size} />}
+      {name === 'uk' && <Ua size={size} />}
+      {name === 'en' && <En size={size} />}
+      {name === 'google' && <Google size={size} />}
+      {name === 'checkbox' && <Checkbox size={size} fill={fill} stroke={stroke} />}
+      {name === 'radio' && <Radio size={size} fill={fill} />}
     </>
   );
 };

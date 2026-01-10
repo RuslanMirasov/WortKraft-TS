@@ -1,0 +1,84 @@
+.Checkbox {
+  display: block;
+  &.Disabled {
+    opacity: 0.5;
+    > * {
+      pointer-events: none;
+    }
+  }
+  input {
+    display: none;
+    &:checked {
+      + .Label {
+        &:before {
+          border: 1px solid var(--green);
+          background: var(--green);
+        }
+        svg {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+.Label {
+  cursor: pointer;
+  position: relative;
+  padding-left: 30px;
+  text-align: left;
+  font-size: 12px;
+  padding-top: 2px;
+  svg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    transform: scale(0);
+    transition: 0.4s;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    background: var(--white);
+    transition: 0.3s;
+  }
+  a {
+    display: inline;
+    font-size: 12px;
+    color: var(--black);
+    transition: 0.2s;
+    &:hover {
+      color: var(--grey);
+    }
+  }
+}
+
+.Error {
+  display: block;
+  position: relative;
+  width: 100%;
+  font-size: 10px;
+  color: var(--invalid);
+  text-align: left;
+  animation: fadeIn 0.5s;
+  margin-top: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(5px, 0px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}

@@ -46,10 +46,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  &.Selected {
-    color: var(--black);
-    opacity: 1;
-  }
 }
 
 .Icon {
