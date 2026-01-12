@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { passwordSchema, PasswordFormData } from '@/zod-schemas';
-import { Form, Input, Button, InputSelect } from '..';
+import { Form, Input, Button } from '..';
 
 const PasswordForm = () => {
   const form = useForm<PasswordFormData>({

@@ -10,8 +10,8 @@
   --black: #292b2d;
   --red: #fc142c;
   --invalid: #fc142c;
-  --grey-light: #f5f5f7;
-  --hr: #d3d3d3;
+  --grey-light: #f0f0f0;
+  --hr: #dfdfdf;
   --grey: #999a9b;
   --white: #ffffff;
   --green: #4cb210;
@@ -39,11 +39,6 @@ a {
 
 html {
   height: 100%;
-}
-
-body {
-  color: var(--black);
-  background: var(--grey-light);
 }
 
 body,
@@ -95,11 +90,12 @@ hr {
   display: flex;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  color: var(--black);
+  background: var(--white);
   overflow-x: hidden;
   overflow-y: auto;
   &.locked {

@@ -16,8 +16,8 @@ export { default as PopupPassword } from './Popups/PopupPassword';
 // Buttons
 export { default as Button } from './Buttons/Button/Button';
 export { default as ButtonGoogle } from './Buttons/ButtonGoogle/ButtonGoogle';
-export { default as ButtonLogin } from './Buttons/ButtonLogin/ButtonLogin';
 export { default as ButtonProfile } from './Buttons/ButtonProfile/ButtonProfile';
+export { default as ButtonMenu } from './Buttons/ButtonMenu/ButtonMenu';
 
 // Forms
 export { default as Form } from './Forms/Form/Form';

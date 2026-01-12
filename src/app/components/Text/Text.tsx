@@ -4,7 +4,7 @@ import css from './Text.module.scss';
 import Link from 'next/link';
 
 interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
-  color?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'black';
+  color?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   align?: 'center' | 'right';
   size?: 'big' | 'small' | 'subtitle';
   light?: boolean;
@@ -21,6 +21,7 @@ const Text: React.FC<TextPropTypes> = ({ color, align, size, light, children, cl
     color === 'orange' && css.Orange,
     color === 'white' && css.White,
     color === 'grey' && css.Grey,
+    color === 'grey-light' && css.GreyLight,
     color === 'black' && css.Black,
     size === 'small' && css.Small,
     size === 'big' && css.Big,

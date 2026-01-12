@@ -1,11 +1,6 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-export type PopupIds =
-  | "login"
-  | "register"
-  | "confirmation"
-  | "error"
-  | "password";
+export type PopupIds = 'login' | 'register' | 'confirmation' | 'error' | 'password';
 
 export interface Popup {
   id: PopupIds;
@@ -21,11 +16,7 @@ interface PopupStore {
   isBackdropOpen: boolean;
   isPopupOpen: boolean;
 
-  openPopup: (
-    popupId: PopupIds,
-    props?: Record<string, any>,
-    options?: Popup["options"]
-  ) => void;
+  openPopup: (popupId: PopupIds, props?: Record<string, any>, options?: Popup['options']) => void;
   closePopup: () => void;
   setIsBackdropOpen: (isOpen: boolean) => void;
   setIsPopupOpen: (isOpen: boolean) => void;
@@ -69,11 +60,11 @@ export const usePopup = create<PopupStore>((set, get) => ({
     }, 400);
   },
 
-  setIsBackdropOpen: (isOpen) => {
+  setIsBackdropOpen: isOpen => {
     set({ isBackdropOpen: isOpen });
   },
 
-  setIsPopupOpen: (isOpen) => {
+  setIsPopupOpen: isOpen => {
     set({ isPopupOpen: isOpen });
   },
 }));

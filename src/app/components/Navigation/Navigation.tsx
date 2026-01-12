@@ -1,46 +1,32 @@
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { Icon } from "../../components";
-import css from "./Navigation.module.scss";
+import { useTranslations } from 'next-intl';
+import { ButtonMenu } from '../../components';
+import css from './Navigation.module.scss';
 
 const Navigation = () => {
-  const t = useTranslations("navigation");
+  const t = useTranslations('navigation');
 
   return (
     <nav className={css.Navigation}>
       <menu>
         <li>
-          <Link href="./">
-            <span className={css.Icon}>
-              <Icon name="home" />
-            </span>
-            <span className={css.Text}>{t("library")}</span>
-          </Link>
+          <ButtonMenu href="./" icon="home">
+            {t('library')}
+          </ButtonMenu>
         </li>
         <li>
-          <Link href="./profile">
-            <span className={css.Icon}>
-              <Icon name="search" />
-            </span>
-            <span className={css.Text}>{t("search")}</span>
-          </Link>
+          <ButtonMenu href="./bookmarks" icon="bookmark">
+            {t('bookmarks')}
+          </ButtonMenu>
         </li>
         <li>
-          <Link href="./">
-            <span className={css.Icon}>
-              <Icon name="bookmark" fill="rgba(0,0,0,0)" />
-            </span>
-            <span className={css.Text}>{t("bookmarks")}</span>
-          </Link>
+          <ButtonMenu href="./search" icon="search">
+            {t('search')}
+          </ButtonMenu>
         </li>
         <li>
-          <Link href="./">
-            <span className={css.Icon}>
-              <Icon name="statistic" />
-            </span>
-
-            <span className={css.Text}>{t("statistic")}</span>
-          </Link>
+          <ButtonMenu href="./statistic" icon="statistic">
+            {t('statistic')}
+          </ButtonMenu>
         </li>
       </menu>
     </nav>

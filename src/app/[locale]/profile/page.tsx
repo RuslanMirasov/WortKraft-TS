@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
-import { Title, InputSelect } from "./../../components";
+import { useTranslations } from 'next-intl';
+import { Title } from './../../components';
 
 export default function Profile() {
-  const t = useTranslations("navigation");
+  const t = useTranslations('navigation');
 
   return (
     <>

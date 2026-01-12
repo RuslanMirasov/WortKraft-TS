@@ -1,37 +1,38 @@
-"use client";
+'use client';
 
-import { useRouter, usePathname } from "next/navigation";
-import { useLocale } from "next-intl";
-import { useState, useRef, useEffect, useCallback } from "react";
-import { Icon } from "../../components";
-import css from "./LanguageSwitcher.module.scss";
+import { useRouter, usePathname } from 'next/navigation';
+import { useLocale } from 'next-intl';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { Icon } from '../../components';
+import clsx from 'clsx';
+import css from './LanguageSwitcher.module.scss';
 
-type SupportedLocale = "de" | "en" | "uk";
+type SupportedLocale = 'de' | 'en' | 'uk';
+type LanguageSwitcherTypes = {
+  minify?: boolean;
+};
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher: React.FC<LanguageSwitcherTypes> = ({ minify = false }) => {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale() as SupportedLocale;
   const [open, setOpen] = useState(false);
-
   const switcherRef = useRef<HTMLButtonElement>(null);
+  const classes = clsx(css.LanguageSwitcher, minify && css.Minify);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        switcherRef.current &&
-        !switcherRef.current.contains(event.target as Node)
-      ) {
+      if (switcherRef.current && !switcherRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
 
     if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [open]);
 
@@ -42,9 +43,9 @@ const LanguageSwitcher = () => {
         return;
       }
 
-      const segments = pathname.split("/");
+      const segments = pathname.split('/');
       segments[1] = targetLocale;
-      const newPath = segments.join("/") || "/";
+      const newPath = segments.join('/') || '/';
 
       document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`;
       setOpen(false);
@@ -54,18 +55,18 @@ const LanguageSwitcher = () => {
   );
 
   const toggleOpen = useCallback(() => {
-    setOpen((prev) => !prev);
+    setOpen(prev => !prev);
   }, []);
 
   return (
-    <button className={css.LanguageSwitcher} ref={switcherRef}>
+    <button className={classes} ref={switcherRef}>
       <div className={css.Select} onClick={toggleOpen}>
         <Icon name={locale} />
-        {locale === "de" && <span>Deutsch</span>}
-        {locale === "en" && <span>English</span>}
-        {locale === "uk" && <span>Українська</span>}
+        {locale === 'de' && <span>Deutsch</span>}
+        {locale === 'en' && <span>English</span>}
+        {locale === 'uk' && <span>Українська</span>}
 
-        <div className={`${css.Arrow} ${open ? css.Open : ""}`}>
+        <div className={`${css.Arrow} ${open ? css.Open : ''}`}>
           <Icon name="arrow-down" />
         </div>
       </div>
@@ -73,19 +74,19 @@ const LanguageSwitcher = () => {
       {open && (
         <ul className={css.List}>
           <li>
-            <div className={css.Select} onClick={() => switchLanguage("de")}>
+            <div className={css.Select} onClick={() => switchLanguage('de')}>
               <Icon name="de" />
               <span>Deutsch</span>
             </div>
           </li>
           <li>
-            <div className={css.Select} onClick={() => switchLanguage("en")}>
+            <div className={css.Select} onClick={() => switchLanguage('en')}>
               <Icon name="en" />
               <span>English</span>
             </div>
           </li>
           <li>
-            <div className={css.Select} onClick={() => switchLanguage("uk")}>
+            <div className={css.Select} onClick={() => switchLanguage('uk')}>
               <Icon name="uk" />
               <span>Українська</span>
             </div>

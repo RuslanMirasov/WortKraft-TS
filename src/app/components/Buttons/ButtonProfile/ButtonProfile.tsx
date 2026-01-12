@@ -1,24 +1,29 @@
 import Link from 'next/link';
-import { Avatar } from '../../../components';
+import { Avatar, Text } from '../../../components';
 import { useTranslations } from 'next-intl';
 import css from './ButtonProfile.module.scss';
 
 const ButtonProfile = () => {
   const t = useTranslations();
   const profile = {
-    name: 'Mirasov Ruslan',
-    email: 'info@mirasov.dev',
+    name: 'Ruslan Mirasov',
+    email: 'olga-mariupol33@gmail.com',
     image: '',
+    status: 'admin',
   };
 
-  const { name, email, image } = profile;
+  const { name, email, image, status } = profile;
   return (
     <Link href="./profile" className={css.ButtonProfile}>
       <Avatar email={email} name={name} image={image} />
-      <p>
-        <span>{t('greeting')}</span>
-        <span>{name}</span>
-      </p>
+      <div className={css.Texts}>
+        <Text color="black">{name || email}</Text>
+        <Text size="small" color="green">
+          {status == 'free' && 'Free accaunt'}
+          {status == 'pro' && 'Pro'}
+          {status == 'admin' && 'Admin'}
+        </Text>
+      </div>
     </Link>
   );
 };
