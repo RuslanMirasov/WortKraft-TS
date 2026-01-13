@@ -9,7 +9,7 @@ const Navigation = () => {
     <nav className={css.Navigation}>
       <menu>
         <li>
-          <ButtonMenu href="./" icon="home">
+          <ButtonMenu href="./" icon="home" active>
             {t('library')}
           </ButtonMenu>
         </li>

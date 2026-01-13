@@ -1,6 +1,7 @@
 'use client';
 
 import type { HTMLAttributes } from 'react';
+import { useSidebarStore } from '@/stores/sidebar-store';
 import { Icon } from '../../../components';
 import Link from 'next/link';
 import clsx from 'clsx';
@@ -14,7 +15,8 @@ interface ButtonMenuTypes extends HTMLAttributes<HTMLButtonElement> {
 }
 
 const ButtonMenu: React.FC<ButtonMenuTypes> = ({ href = null, icon = null, active = false, children, onClick }) => {
-  const classes = clsx(css.ButtonMenu, active && css.Active);
+  const minify = useSidebarStore(s => s.minify);
+  const classes = clsx(css.ButtonMenu, active && css.Active, minify && css.Minify);
 
   return href ? (
     <Link href={href} className={classes}>

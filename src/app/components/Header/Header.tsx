@@ -29,7 +29,7 @@ const Header = () => {
       </div>
 
       <div className={`${css.Inner} ${css.Bb}`}>
-        <LanguageSwitcher minify={minify} />
+        <LanguageSwitcher />
       </div>
 
       <div className={`${css.Inner}`}>

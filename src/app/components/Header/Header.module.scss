@@ -15,12 +15,16 @@
   background: var(--white);
   box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.05);
   border-right: 1px solid var(--hr);
+  transition: width 0.3s;
 
   &.Minify {
+    width: 70px;
     .SideButton {
       transform: translate(100%, 0%);
     }
     .Logo {
+      margin-right: auto;
+      margin-left: 12px;
       p {
         display: none;
       }
@@ -61,6 +65,7 @@
   justify-content: center;
   gap: 4px;
   height: 40px;
+  //transition: margin-left 0.3s;
   svg {
     width: 46px;
     flex-shrink: 0;
