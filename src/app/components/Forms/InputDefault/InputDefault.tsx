@@ -1,7 +1,9 @@
-import { useFormContext } from "react-hook-form";
-import { TextInputProps } from "@/types/inputs";
-import { Label } from "./../../../components";
-import css from "./InputDefault.module.scss";
+'use client';
+
+import { useFormContext } from 'react-hook-form';
+import { TextInputProps } from '@/types/inputs';
+import { Label } from './../../../components';
+import css from './InputDefault.module.scss';
 
 const InputDefault: React.FC<TextInputProps> = ({
   name,
@@ -38,7 +40,7 @@ const InputDefault: React.FC<TextInputProps> = ({
     min,
     max,
     disabled,
-    className: `${css.Input} ${error ? css.Invalid : ""}`,
+    className: `${css.Input} ${error ? css.Invalid : ''}`,
     ...registerProps,
     ...(onChange && { onChange }),
     ...(onInput && { onInput }),
@@ -54,7 +56,7 @@ const InputDefault: React.FC<TextInputProps> = ({
     <Label
       label={label}
       required={required}
-      error={typeof error === "string" ? error : (error as any)?.message}
+      error={typeof error === 'string' ? error : (error as any)?.message}
       icon={icon}
     >
       <input {...inputProps} />

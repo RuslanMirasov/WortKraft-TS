@@ -1,5 +1,7 @@
-import { useFormContext } from "react-hook-form";
-import { InputHiddenProps } from "@/types/inputs";
+'use client';
+
+import { useFormContext } from 'react-hook-form';
+import { InputHiddenProps } from '@/types/inputs';
 
 const InputHidden: React.FC<InputHiddenProps> = ({ name, value, onChange }) => {
   let formContext;

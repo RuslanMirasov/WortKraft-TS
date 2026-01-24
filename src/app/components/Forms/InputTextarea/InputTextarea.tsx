@@ -1,7 +1,9 @@
-import { useFormContext } from "react-hook-form";
-import { TextareaProps } from "@/types/inputs";
-import { Label } from "./../../../components";
-import css from "./InputTextarea.module.scss";
+'use client';
+
+import { useFormContext } from 'react-hook-form';
+import { TextareaProps } from '@/types/inputs';
+import { Label } from './../../../components';
+import css from './InputTextarea.module.scss';
 
 const InputTextarea: React.FC<TextareaProps> = ({
   name,
@@ -12,7 +14,7 @@ const InputTextarea: React.FC<TextareaProps> = ({
   rows = 4,
   cols,
   maxLength,
-  resize = "vertical",
+  resize = 'vertical',
   value,
   error: propsError,
   onChange,
@@ -38,8 +40,8 @@ const InputTextarea: React.FC<TextareaProps> = ({
     cols,
     maxLength,
     disabled,
-    className: `${css.Textarea} ${error ? css.Invalid : ""} ${
-      css[`Resize${resize.charAt(0).toUpperCase() + resize.slice(1)}`] || ""
+    className: `${css.Textarea} ${error ? css.Invalid : ''} ${
+      css[`Resize${resize.charAt(0).toUpperCase() + resize.slice(1)}`] || ''
     }`,
     ...registerProps,
     ...(onChange && { onChange }),
@@ -53,11 +55,7 @@ const InputTextarea: React.FC<TextareaProps> = ({
   };
 
   return (
-    <Label
-      label={label}
-      required={required}
-      error={typeof error === "string" ? error : (error as any)?.message}
-    >
+    <Label label={label} required={required} error={typeof error === 'string' ? error : (error as any)?.message}>
       <textarea {...textareaProps} />
     </Label>
   );
