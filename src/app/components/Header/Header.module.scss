@@ -1,5 +1,3 @@
-@use './../../styles/index' as *;
-
 .Header {
   display: flex;
   flex-direction: column;
@@ -16,9 +14,11 @@
   box-shadow: 2px 0px 20px rgba(0, 0, 0, 0.05);
   border-right: 1px solid var(--hr);
   transition: width 0.3s;
+  overflow: hidden;
 
   &.Minify {
     width: 70px;
+    overflow: visible;
     .SideButton {
       transform: translate(100%, 0%);
     }
