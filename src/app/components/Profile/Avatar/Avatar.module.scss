@@ -11,8 +11,31 @@
   border-radius: 14px;
   overflow: hidden;
   z-index: 1;
-  background: var(--green);
+  background: var(--orange);
   flex-shrink: 0;
+  &.green {
+    background: var(--green);
+  }
+
+  &.red {
+    background: var(--red);
+  }
+
+  &.orange {
+    background: var(--orange);
+  }
+
+  &.white {
+    background: var(--white);
+  }
+
+  &.black {
+    background: var(--black);
+  }
+
+  &.grey {
+    background: var(--grey);
+  }
 
   &:before {
     content: '';

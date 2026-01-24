@@ -1,0 +1,78 @@
+.Input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--grey);
+  border-radius: 48px;
+  outline: none;
+  padding: 0px 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 14px;
+  font-family: var(--light);
+  color: var(--black);
+  font-weight: 300;
+}
+.Input:focus {
+  border: 1px solid var(--orange);
+}
+.Input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.Input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.Input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.Input:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+.Input:focus::placeholder {
+  opacity: 0;
+}
+.Input.Invalid {
+  border: 1px solid var(--invalid);
+}
+.Input.Invalid:focus {
+  border: 1px solid var(--invalid);
+}
+.Input::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--grey);
+  font-family: var(--light);
+  font-weight: 300;
+}
+.Input::-moz-placeholder {
+  opacity: 1;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--grey);
+  font-family: var(--light);
+  font-weight: 300;
+}
+.Input:-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--grey);
+  font-family: var(--light);
+  font-weight: 300;
+}
+.Input::-ms-input-placeholder {
+  opacity: 1;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--grey);
+  font-family: var(--light);
+  font-weight: 300;
+}
+.Input::placeholder {
+  opacity: 1;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: var(--grey);
+  font-family: var(--light);
+  font-weight: 300;
+}

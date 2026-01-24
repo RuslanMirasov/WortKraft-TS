@@ -14,17 +14,17 @@ const ButtonProfile = () => {
     name: 'Ruslan Mirasov',
     email: 'olga-mariupol33@gmail.com',
     image: '',
-    status: 'pro',
+    status: 'admin',
   };
 
   const { name, email, image, status } = profile;
 
   return (
     <Link href="./profile" className={classes}>
-      <Avatar email={email} name={name} image={image} />
+      <Avatar email={email} name={name} image={image} bg={status !== 'free' ? 'green' : 'orange'} />
       <div className={css.Texts}>
         <Text color="black">{name || email}</Text>
-        <Text size="small" color="green">
+        <Text size="small" color={status !== 'free' ? 'green' : 'grey-light'}>
           {status == 'free' && 'Free accaunt'}
           {status == 'pro' && 'Pro'}
           {status == 'admin' && 'Admin'}
