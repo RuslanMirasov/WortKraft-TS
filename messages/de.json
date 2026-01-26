@@ -7,6 +7,7 @@
     "bookmarks": "Meine Liste",
     "statistic": "Statistik",
     "login": "Anmeldung",
-    "logout": "Abmeldung"
+    "logout": "Abmeldung",
+    "admin": "Adminbereich"
   }
 }

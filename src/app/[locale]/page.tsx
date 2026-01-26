@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Title, Text, RegistrationForm } from './../components';
+import { Title, Text, RegistrationForm } from '@/components';
 
 export default function Home() {
   const t = useTranslations('navigation');

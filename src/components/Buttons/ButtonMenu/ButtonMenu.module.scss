@@ -54,7 +54,9 @@
       font-size: 14px;
       opacity: 0;
       transform: translate(0%, 0%);
-      transition: transform 0.3s, opacity 0.3s;
+      transition:
+        transform 0.3s,
+        opacity 0.3s;
       pointer-events: none;
       white-space: nowrap;
 
@@ -93,7 +95,9 @@
   align-content: center;
   background-color: var(--grey-light);
   border-radius: 14px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
   svg {
     width: 30px;
@@ -101,5 +105,13 @@
     display: block;
     position: relative;
     z-index: 2;
+  }
+}
+
+@media (max-width: 1279px) {
+  .ButtonMenu {
+    p {
+      font-size: 13px;
+    }
   }
 }

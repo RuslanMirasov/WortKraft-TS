@@ -11,10 +11,10 @@ const ButtonProfile = () => {
   const classes = clsx(css.ButtonProfile, minify && css.Minify);
 
   const profile = {
-    name: 'Ruslan Mirasov',
+    name: 'Anna Dachnovskaya',
     email: 'olga-mariupol33@gmail.com',
     image: '',
-    status: 'admin',
+    status: 'free',
   };
 
   const { name, email, image, status } = profile;

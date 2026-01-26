@@ -90,21 +90,25 @@ const Search: React.FC<SvgPropTypes> = ({ size = 34, stroke }) => (
 );
 
 const Bookmark: React.FC<SvgPropTypes> = ({ size = 34, stroke, fill }) => (
-  // <svg width={size} height={size} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-  //   <path
-  //     d="M24.4952 5H9.5C9.22386 5 9 5.22386 9 5.5V27.9497C9 28.3707 9.48846 28.6033 9.81523 28.3378L16.3753 23.0096C16.5553 22.8633 16.8123 22.8601 16.9959 23.0018L23.9736 28.386C24.3006 28.6382 24.7751 28.4079 24.7791 27.9949L24.9951 5.5048C24.9978 5.2268 24.7732 5 24.4952 5Z"
-  //     fill={fill}
-  //     stroke={stroke}
-  //     strokeWidth="1.2"
-  //   />
-  // </svg>
-
   <svg width={size} height={size} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M25.4444 5.75004C24.4444 4.75004 10.4444 4.74993 9.44444 5.75004C8.56962 6.62496 9.22543 24.3367 9.40332 28.7571C9.41984 29.1677 9.89707 29.3824 10.216 29.1233L16.8197 23.7596C16.9997 23.6134 17.2567 23.6102 17.4404 23.7519L24.46 29.1683C24.779 29.4145 25.2423 29.2059 25.2626 28.8035C25.4811 24.4621 26.3224 6.62796 25.4444 5.75004Z"
       fill={fill}
       stroke={stroke}
       strokeWidth="1.2"
+    />
+  </svg>
+);
+
+const AdminIcon: React.FC<SvgPropTypes> = ({ size = 34, stroke }) => (
+  <svg width={size} height={size} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10.5" cy="21.5" r="3.9" stroke={stroke} strokeWidth="1.2" />
+    <circle cx="10.5" cy="21.5" r="6.9" stroke={stroke} strokeWidth="1.2" />
+    <path
+      d="M15.2969 15.8742L29.2805 5.30224C29.5009 5.13557 29.8148 5.17936 29.9812 5.40001L31.0538 6.82217C31.2164 7.03772 31.1785 7.34339 30.9682 7.51271L28.8961 9.1811C28.6784 9.35635 28.6466 9.67597 28.8255 9.89064L30.6734 12.1081C30.8527 12.3233 30.8204 12.6437 30.6017 12.8187L28.8827 14.1938C28.6701 14.3639 28.3605 14.3326 28.1862 14.1235L26.3041 11.8649C26.1337 11.6604 25.8329 11.6253 25.62 11.785L24.421 12.6842C24.1921 12.8559 24.1537 13.1844 24.3369 13.4043L26.1734 15.6081C26.3527 15.8233 26.3204 16.1437 26.1017 16.3187L24.3827 17.6938C24.1701 17.8639 23.8605 17.8326 23.6862 17.6235L21.8125 15.375C21.6387 15.1665 21.3303 15.1347 21.1176 15.3034L16.9277 18.6281"
+      stroke={stroke}
+      strokeWidth="1.2"
+      strokeLinecap="round"
     />
   </svg>
 );
@@ -493,6 +497,7 @@ const Icon: React.FC<IconPropTypes> = ({ name, fill, stroke = 'currentColor', si
       {name === 'checkbox' && <Checkbox size={size} fill={fill} stroke={stroke} />}
       {name === 'radio' && <Radio size={size} fill={fill} />}
       {name === 'sidebar' && <SidebarIcon size={size} stroke={stroke} />}
+      {name === 'admin' && <AdminIcon size={size} stroke={stroke} />}
     </>
   );
 };

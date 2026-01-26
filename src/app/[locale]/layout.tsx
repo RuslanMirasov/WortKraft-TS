@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
-
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import localFont from 'next/font/local';
-import './../styles/globals.scss';
-import { Header, Popup, Main } from './../components';
+import '@/styles/globals.scss';
+import { Header, Popup, Main } from '@/components';
 
 const dmsansLight = localFont({
-  src: './../fonts/dmsans-light.woff2',
+  src: './../../fonts/dmsans-light.woff2',
   variable: '--light',
   weight: '300',
   display: 'swap',
@@ -16,7 +15,7 @@ const dmsansLight = localFont({
 });
 
 const dmsansRegular = localFont({
-  src: './../fonts/dmsans-regular.woff2',
+  src: './../../fonts/dmsans-regular.woff2',
   variable: '--regular',
   weight: '400',
   display: 'swap',
@@ -24,7 +23,7 @@ const dmsansRegular = localFont({
 });
 
 const robotoMedium = localFont({
-  src: './../fonts/roboto-medium.woff2',
+  src: './../../fonts/roboto-medium.woff2',
   variable: '--roboto-medium',
   weight: '500',
   display: 'swap',

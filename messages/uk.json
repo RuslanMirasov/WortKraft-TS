@@ -7,6 +7,7 @@
     "bookmarks": "Cвій список",
     "statistic": "Статистика",
     "login": "Вхід",
-    "logout": "Вихід"
+    "logout": "Вихід",
+    "admin": "Адмінка"
   }
 }

@@ -1,13 +1,13 @@
 import { useTranslations } from 'next-intl';
 import { Title } from '@/components';
 
-export default function Profile() {
+export default function PlicyPage() {
   const t = useTranslations('navigation');
 
   return (
     <>
       <Title tag="h1" size="h1">
-        Profile
+        Privacy Policy
       </Title>
     </>
   );

@@ -6,7 +6,7 @@
   position: sticky;
   width: 280px;
   height: auto;
-  min-height: 100svh;
+  min-height: 100dvh;
   left: 0px;
   top: 0px;
   z-index: 8888;
@@ -20,21 +20,17 @@
     width: 70px;
     overflow: visible;
     .SideButton {
-      transform: translate(100%, 0%);
+      transform: translate(0%, 0%);
     }
     .Logo {
-      margin-right: auto;
-      margin-left: 12px;
-      p {
-        display: none;
-      }
+      transform: translate(-130%, 0%);
     }
     .Inner {
       min-width: 69px;
       &.Btn {
         display: flex;
         justify-content: center;
-        padding: 14px 0px;
+        min-height: 69px;
         max-height: 69px;
       }
     }
@@ -45,7 +41,6 @@
   display: block;
   width: 100%;
   min-width: 279px;
-
   padding: 14px;
   &.Bt {
     border-top: 1px solid var(--hr);
@@ -54,19 +49,22 @@
     border-bottom: 1px solid var(--hr);
   }
   &.Btn {
-    padding-right: 68px;
     max-height: 69px;
+    min-height: 69px;
   }
 }
 
 .Logo {
   display: inline-flex;
   width: auto;
-  position: relative;
+  position: absolute;
+  left: 14px;
   overflow: hidden;
   justify-content: center;
   gap: 4px;
   height: 40px;
+  transition: transform 0.3s;
+  transform: translate(0%, 0%);
   svg {
     width: 46px;
     flex-shrink: 0;
@@ -92,19 +90,28 @@
   right: 0px;
   top: 0px;
   width: auto;
+  min-width: 69px;
   padding: 20px;
   height: 68px;
   justify-content: center;
   align-items: center;
   align-content: center;
   color: var(--black);
-  transition:
-    color 0.3s,
-    transform 0.3s;
+  transition: color 0.3s;
   transform: translate(0%, 0%);
   @media (hover: hover) {
     &:hover {
       color: var(--orange);
     }
+  }
+}
+
+@media (max-width: 1279px) {
+  .Header {
+    width: 220px;
+  }
+
+  .Inner {
+    min-width: 219px;
   }
 }
