@@ -11,10 +11,10 @@ const ButtonProfile = () => {
   const classes = clsx(css.ButtonProfile, minify && css.Minify);
 
   const profile = {
-    name: 'Anna Dachnovskaya',
+    name: 'Ruslan',
     email: 'olga-mariupol33@gmail.com',
     image: '',
-    status: 'free',
+    status: 'admin',
   };
 
   const { name, email, image, status } = profile;
@@ -26,7 +26,7 @@ const ButtonProfile = () => {
         <Text color="black">{name || email}</Text>
         <Text size="small" color={status !== 'free' ? 'green' : 'grey-light'}>
           {status == 'free' && 'Free accaunt'}
-          {status == 'pro' && 'Pro'}
+          {status == 'pro' && 'Pro accaunt'}
           {status == 'admin' && 'Admin'}
         </Text>
       </div>

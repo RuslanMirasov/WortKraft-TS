@@ -2,9 +2,9 @@
   "greeting": "Hi",
   "google-btn-text": "Sign in with Google",
   "navigation": {
-    "library": "Library",
+    "library": "Levels A1-C1",
     "search": "Search",
-    "bookmarks": "My own list",
+    "bookmarks": "Favorites",
     "statistic": "Statistic",
     "admin": "Admin panel",
     "login": "Login",

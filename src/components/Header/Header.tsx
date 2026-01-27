@@ -37,25 +37,25 @@ const Header = () => {
         <LanguageSwitcher />
       </div>
 
-      <div className={`${css.Inner}`}>
+      <div className={`${css.Inner} ${css.Nav}`}>
         <Navigation />
       </div>
 
       <div className={css.ProfileButtons}>
+        {/* <div className={`${css.Inner} ${css.Bt}`}>
+          <ButtonMenu icon="login" onClick={() => openPopup('login')}>
+            {t('login')}
+          </ButtonMenu>
+        </div> */}
+
+        <div className={`${css.Inner} ${css.Bt}`}>
+          <ButtonProfile />
+        </div>
+
         <div className={`${css.Inner} ${css.Bt}`}>
           <ButtonMenu href="./admin" icon="admin" active={isActivePage('/admin')}>
             {t('admin')}
           </ButtonMenu>
-        </div>
-
-        <div className={`${css.Inner} ${css.Bt}`}>
-          <ButtonMenu icon="login" onClick={() => openPopup('login')}>
-            {t('login')}
-          </ButtonMenu>
-        </div>
-
-        <div className={`${css.Inner} ${css.Bt}`}>
-          <ButtonProfile />
         </div>
       </div>
     </header>

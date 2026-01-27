@@ -1,4 +1,5 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
@@ -52,6 +53,7 @@ export const metadata: Metadata = {
       'Mit WortKraft lernst du Deutsch effektiv: Wortschatz, Dialoge, Übungen und Lernfortschritt - alles in einer App.',
     url: 'https://dein-domain.de',
     siteName: 'WortKraft',
+
     images: [
       {
         url: 'https://dein-domain.de/og-image.jpg',
@@ -63,6 +65,10 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     type: 'website',
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#42990f',
 };
 
 export default async function LocaleLayout({

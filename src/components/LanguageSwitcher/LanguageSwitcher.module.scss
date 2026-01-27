@@ -31,46 +31,48 @@
     }
   }
 
-  &.Minify {
-    width: 40px;
-    padding: 6px 7px 6px 7px;
-    .Arrow {
-      display: none;
-    }
-    .Select {
-      justify-content: center;
-      span {
-        position: absolute;
-        left: 100%;
-        background: var(--black);
-        color: var(--white);
-        padding: 6px 14px;
-        border-radius: 8px;
-        font-size: 14px;
-        opacity: 0;
-        transform: translate(0%, 0%);
-        transition:
-          transform 0.3s,
-          opacity 0.3s;
-        pointer-events: none;
-
-        &:before {
-          content: '';
-          position: absolute;
-          width: 8px;
-          height: 8px;
-          background: var(--black);
-          left: 0px;
-          top: 50%;
-          transform: translate(-50%, -50%) rotate(45deg);
-        }
+  @media (min-width: 768px) {
+    &.Minify {
+      width: 40px;
+      padding: 6px 7px 6px 7px;
+      .Arrow {
+        display: none;
       }
-      @media (hover: hover) {
-        &:hover {
-          span {
-            pointer-events: all;
-            opacity: 1;
-            transform: translate(10px, 0%);
+      .Select {
+        justify-content: center;
+        span {
+          position: absolute;
+          left: 100%;
+          background: var(--black);
+          color: var(--white);
+          padding: 6px 14px;
+          border-radius: 8px;
+          font-size: 14px;
+          opacity: 0;
+          transform: translate(0%, 0%);
+          transition:
+            transform 0.3s,
+            opacity 0.3s;
+          pointer-events: none;
+
+          &:before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--black);
+            left: 0px;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+          }
+        }
+        @media (hover: hover) {
+          &:hover {
+            span {
+              pointer-events: all;
+              opacity: 1;
+              transform: translate(10px, 0%);
+            }
           }
         }
       }
@@ -120,5 +122,48 @@
 @media (max-width: 1279px) {
   .LanguageSwitcher {
     font-size: 13px;
+  }
+}
+
+@media (max-width: 767px) {
+  .LanguageSwitcher {
+    display: inline-flex;
+    width: auto;
+    font-size: 14px;
+    padding: 6px 7px 6px 7px;
+
+    .Select {
+      gap: 4px;
+      span {
+        display: none;
+      }
+    }
+
+    .List {
+      display: flex;
+      position: absolute;
+      width: 136px;
+      left: 0px;
+      top: calc(100% + 5px);
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 7px 10px 7px;
+      background: var(--grey-light);
+      border-radius: 16px;
+      z-index: 2;
+      .Select {
+        gap: 10px;
+        flex-wrap: nowrap;
+        span {
+          display: block;
+          opacity: 0.7;
+        }
+        &:hover {
+          span {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 }

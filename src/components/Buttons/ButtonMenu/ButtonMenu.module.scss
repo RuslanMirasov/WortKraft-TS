@@ -42,41 +42,43 @@
     }
   }
 
-  &.Minify {
-    width: 40px;
-    p {
-      position: absolute;
-      left: 100%;
-      background: var(--black);
-      color: var(--white);
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 14px;
-      opacity: 0;
-      transform: translate(0%, 0%);
-      transition:
-        transform 0.3s,
-        opacity 0.3s;
-      pointer-events: none;
-      white-space: nowrap;
-
-      &:before {
-        content: '';
+  @media (min-width: 768px) {
+    &.Minify {
+      width: 40px;
+      p {
         position: absolute;
-        width: 8px;
-        height: 8px;
+        left: 100%;
         background: var(--black);
-        left: 0px;
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
+        color: var(--white);
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-size: 14px;
+        opacity: 0;
+        transform: translate(0%, 0%);
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+        pointer-events: none;
+        white-space: nowrap;
+
+        &:before {
+          content: '';
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background: var(--black);
+          left: 0px;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
       }
-    }
-    @media (hover: hover) {
-      &:hover {
-        p {
-          pointer-events: all;
-          opacity: 1;
-          transform: translate(10px, 0%);
+      @media (hover: hover) {
+        &:hover {
+          p {
+            pointer-events: all;
+            opacity: 1;
+            transform: translate(10px, 0%);
+          }
         }
       }
     }
@@ -112,6 +114,18 @@
   .ButtonMenu {
     p {
       font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .ButtonMenu {
+    display: inline-flex;
+    width: auto;
+    justify-content: center;
+    gap: 0px;
+    p {
+      display: none;
     }
   }
 }

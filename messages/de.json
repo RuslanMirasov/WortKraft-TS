@@ -2,12 +2,12 @@
   "greeting": "Hallo",
   "google-btn-text": "Mit Google anmelden",
   "navigation": {
-    "library": "Bibliothek",
+    "library": "Niveau A1-C1",
     "search": "Suche",
     "bookmarks": "Meine Liste",
     "statistic": "Statistik",
     "login": "Anmeldung",
     "logout": "Abmeldung",
-    "admin": "Adminbereich"
+    "admin": "Administrator-Panel"
   }
 }

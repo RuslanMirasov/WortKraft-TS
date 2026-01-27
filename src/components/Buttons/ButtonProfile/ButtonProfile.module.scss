@@ -6,53 +6,54 @@
   align-items: center;
   align-content: center;
   gap: 10px;
-
-  &.Minify {
-    width: 40px;
-    .Texts {
-      display: inline-flex;
-      position: absolute;
-      left: 100%;
-      transform: translate(0%, 0%);
-      transition:
-        transform 0.3s,
-        opacity 0.3s;
-      pointer-events: none;
-      flex-direction: column;
-      justify-content: center;
-      flex: none;
-      background: var(--black);
-      padding: 6px 14px;
-      border-radius: 8px;
-      opacity: 0;
-      &:before {
-        content: '';
+  @media (min-width: 768px) {
+    &.Minify {
+      width: 40px;
+      .Texts {
+        display: inline-flex;
         position: absolute;
-        width: 8px;
-        height: 8px;
+        left: 100%;
+        transform: translate(0%, 0%);
+        transition:
+          transform 0.3s,
+          opacity 0.3s;
+        pointer-events: none;
+        flex-direction: column;
+        justify-content: center;
+        flex: none;
         background: var(--black);
-        left: 0px;
-        top: 50%;
-        transform: translate(-50%, -50%) rotate(45deg);
-      }
-      p {
-        &:first-child {
-          font-size: 14px;
-          line-height: 1.2;
-          color: var(--white);
+        padding: 6px 14px;
+        border-radius: 8px;
+        opacity: 0;
+        &:before {
+          content: '';
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          background: var(--black);
+          left: 0px;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
         }
-        &:last-child {
-          font-size: 10px;
-          color: rgba(255, 255, 255, 0.5);
+        p {
+          &:first-child {
+            font-size: 14px;
+            line-height: 1.2;
+            color: var(--white);
+          }
+          &:last-child {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+          }
         }
       }
-    }
-    @media (hover: hover) {
-      &:hover {
-        .Texts {
-          pointer-events: all;
-          opacity: 1;
-          transform: translate(10px, 0%);
+      @media (hover: hover) {
+        &:hover {
+          .Texts {
+            pointer-events: all;
+            opacity: 1;
+            transform: translate(10px, 0%);
+          }
         }
       }
     }
@@ -92,5 +93,11 @@
         font-size: 12px;
       }
     }
+  }
+}
+
+@media (max-width: 767px) {
+  .Texts {
+    display: none;
   }
 }
