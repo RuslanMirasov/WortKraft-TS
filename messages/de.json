@@ -9,5 +9,8 @@
     "login": "Anmeldung",
     "logout": "Abmeldung",
     "admin": "Administrator-Panel"
+  },
+  "login-texts": {
+    "please-login": "Bitte melden Sie sich an, \num diese Seite zu sehen."
   }
 }

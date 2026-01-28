@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 
 const LOCALES = ['en', 'de', 'uk'];
-const MENU_PAGES = ['/favorites', '/search', '/statistic', '/profile', '/race', '/admin', '/policy'];
+const MENU_PAGES = ['/favorites', '/search', '/statistic', '/profile', '/race', '/admin', '/policy', '/login'];
 
 export const useActiveRoute = () => {
   const pathname = usePathname();

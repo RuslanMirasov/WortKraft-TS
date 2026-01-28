@@ -1,15 +1,11 @@
-import css from "./Main.module.scss";
+import css from './Main.module.scss';
 
 interface MainPropTypes {
   children: React.ReactNode;
 }
 
 const Main: React.FC<MainPropTypes> = ({ children }) => {
-  return (
-    <main className={css.Main}>
-      <div className={css.Container}>{children}</div>
-    </main>
-  );
+  return <main className={css.Main}>{children}</main>;
 };
 
 export default Main;

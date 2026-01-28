@@ -6,6 +6,13 @@
   line-height: 1.1;
   font-size: 30px;
   white-space: pre-line;
+  &.Center {
+    text-align: center;
+  }
+
+  &.Right {
+    text-align: right;
+  }
 }
 
 .H1 {

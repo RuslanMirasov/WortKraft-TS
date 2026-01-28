@@ -120,3 +120,14 @@ hr {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 4px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+}

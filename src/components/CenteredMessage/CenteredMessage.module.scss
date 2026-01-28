@@ -1,0 +1,16 @@
+.Message {
+  display: flex;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+
+  a,
+  button {
+    max-width: 220px;
+  }
+}

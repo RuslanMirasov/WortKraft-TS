@@ -4,6 +4,9 @@ export { default as Header } from './Header/Header';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 
+// UI
+export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
+
 // Profile
 export { default as Avatar } from './Profile/Avatar/Avatar';
 
