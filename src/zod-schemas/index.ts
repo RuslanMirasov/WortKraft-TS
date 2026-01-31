@@ -4,22 +4,25 @@ const name = z
   .string()
   .optional()
   .refine(val => !val || (val.length >= 2 && !/\d/.test(val)), {
-    message: 'Имя должно содержать минимум 2 буквы и не содержать цифр',
+    message: 'name-invalid',
   });
 
-const email = z.string().min(1, 'Email обязателен').email('Некорректный email');
+const email = z.string().min(1, 'email-required').email('email-invalid');
 
 const password = z
   .string()
-  .min(6, 'Пароль должен содержать минимум 6 символов')
-  .regex(/[A-Z]/, 'Пароль должен содержать заглавную букву')
-  .regex(/[a-z]/, 'Пароль должен содержать строчную букву')
-  .regex(/[0-9]/, 'Пароль должен содержать цифру');
+  .min(6, 'password-minLength')
+  .regex(/[A-Z]/, 'password-uppercase')
+  .regex(/[a-z]/, 'password-lowercase')
+  .regex(/[0-9]/, 'password-number');
 
-const language = z.string().min(1, 'Язык обязателен');
+const language = z.string().min(1, 'language-required');
 const subject = z.string().optional();
-const agree = z.boolean().refine(value => value === true, {
-  message: 'Необходимо согласие с условиями использования',
+const privacy = z.boolean().refine(value => value === true, {
+  message: 'privacy-required',
+});
+const terms = z.boolean().refine(value => value === true, {
+  message: 'terms-required',
 });
 
 export const loginSchema = z.object({
@@ -32,7 +35,8 @@ export const registrationSchema = z.object({
   language,
   email,
   password,
-  agree,
+  privacy,
+  terms,
 });
 
 export const passwordSchema = z.object({

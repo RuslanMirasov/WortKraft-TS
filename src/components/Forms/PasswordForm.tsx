@@ -3,9 +3,13 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { passwordSchema, PasswordFormData } from '@/zod-schemas';
+import { useTranslations } from 'next-intl';
 import { Form, Input, Button } from '..';
 
 const PasswordForm = () => {
+  const tForms = useTranslations('forms');
+  const tPopups = useTranslations('popups');
+
   const form = useForm<PasswordFormData>({
     resolver: zodResolver(passwordSchema),
     defaultValues: {
@@ -20,11 +24,11 @@ const PasswordForm = () => {
   return (
     <>
       <Form form={form} onSubmit={onSubmit}>
-        <Input type="hidden" name="subject" value="Восстановление пароля" />
-        <Input type="email" name="email" required placeholder="E-mail" />
+        <Input type="hidden" name="subject" value={tPopups('reset-password-title')} />
+        <Input type="email" name="email" required placeholder={tForms('email-placeholder')} />
 
         <Button size="small" variant="green" icon="arrow-right" full>
-          Senden
+          {tPopups('send')}
         </Button>
       </Form>
     </>

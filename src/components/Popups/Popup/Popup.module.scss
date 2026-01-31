@@ -48,6 +48,23 @@
     transform: translateY(0px);
     animation: popupSlideIn 0.4s;
   }
+  &.Error {
+    background: var(--red);
+    color: var(--white);
+    padding: 20px;
+    > p {
+      color: var(--white);
+      opacity: 1 !important;
+      + button,
+      + a {
+        margin-top: 10px;
+      }
+    }
+    hr {
+      background: var(--white);
+      opacity: 0.5;
+    }
+  }
 }
 
 .PopupClose {

@@ -1,5 +1,8 @@
-import { Icon } from "./../../../components";
-import css from "./Label.module.scss";
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { Icon } from '@/components';
+import css from './Label.module.scss';
 
 interface LabelProps {
   label?: string;
@@ -9,13 +12,8 @@ interface LabelProps {
   children: React.ReactNode;
 }
 
-const Label: React.FC<LabelProps> = ({
-  label,
-  required,
-  error,
-  icon,
-  children,
-}) => {
+const Label: React.FC<LabelProps> = ({ label, required, error, icon, children }) => {
+  const tErrors = useTranslations('errors');
   return (
     <label className={css.Label}>
       {label && (
@@ -32,7 +30,7 @@ const Label: React.FC<LabelProps> = ({
           </div>
         )}
       </div>
-      {error && <p className={css.Error}>{error}</p>}
+      {error && <p className={css.Error}>{tErrors(error)}</p>}
     </label>
   );
 };

@@ -1,5 +1,5 @@
 import { InputProps } from '@/types/inputs';
-import { InputDefault, InputHidden, InputTextarea, InputSelect, InputCheckbox } from './../../../components';
+import { InputDefault, InputHidden, InputTextarea, InputSelect, InputCheckbox } from '@/components';
 
 const Input: React.FC<InputProps> = props => {
   const { type, name, value, onChange } = props;

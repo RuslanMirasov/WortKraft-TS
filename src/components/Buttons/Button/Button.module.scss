@@ -12,7 +12,11 @@
   min-height: 60px;
   color: var(--white);
   background: var(--black);
-  transition: background-color 0.3s, color 0.3s, transform 0.3s, opacity 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s,
+    opacity 0.3s;
   border: none;
   outline: none;
   opacity: 1;
@@ -26,6 +30,7 @@
     font-size: 24px;
     line-height: 1;
     pointer-events: none;
+    transition: color 0.3s;
   }
   &:disabled {
     opacity: 0.5;
@@ -60,11 +65,22 @@
 
 .White {
   background: var(--white);
-  color: var(--black);
+  span {
+    color: var(--black);
+  }
+  .Icon {
+    color: var(--black);
+  }
+
   &:hover,
   &:focus {
     background: var(--black);
-    color: var(--white);
+    span {
+      color: var(--white);
+    }
+    .Icon {
+      color: var(--white);
+    }
   }
 }
 
@@ -109,20 +125,20 @@
     opacity: 0;
   }
   span {
-    opacity: 0;
+    opacity: 1;
   }
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 20px;
     height: 20px;
     right: 15px;
     border-radius: 20px;
-    border-left: 1px solid var(--white-color);
-    border-top: 1px solid var(--white-color);
-    border-right: 1px solid rgba(0, 0, 0, 0);
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    border-left: 2px solid var(--white);
+    border-top: 2px solid var(--white);
+    border-right: 2px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
     animation: spin 0.3s linear infinite;
   }
 }

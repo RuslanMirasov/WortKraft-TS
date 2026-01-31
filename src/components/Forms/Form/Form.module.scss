@@ -8,4 +8,15 @@
   align-content: center;
   gap: 10px;
   margin-top: 6px;
+
+  label {
+    transition: opacity 0.3s;
+  }
+
+  &.Loading {
+    pointer-events: none;
+    label {
+      opacity: 0.3;
+    }
+  }
 }

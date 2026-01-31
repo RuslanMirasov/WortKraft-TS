@@ -12,5 +12,49 @@
   },
   "login-texts": {
     "please-login": "Please Sign In \nto access this page."
+  },
+  "errors": {
+    "login-popup-error-title": "Login error",
+    "register-popup-error-title": "Registration error",
+    "default-popup-error-title": "Something went wrong",
+    "default-popup-error-text": "An unexpected error occurred. \nPlease try again later.",
+    "default-popup-error-button-text": "Close",
+    "CredentialsSignin": "Invalid email or password.",
+    "AccessDenied": "You do not have access to this account. The account may be restricted or not yet activated.",
+    "Configuration": "A technical error occurred. \nPlease try again later.",
+
+    "name-invalid": "Name must contain at least 2 letters and no numbers",
+    "email-required": "Email is required",
+    "email-invalid": "Invalid email address",
+    "password-minLength": "Password must be at least 6 characters long",
+    "password-uppercase": "Password must contain an uppercase letter",
+    "password-lowercase": "Password must contain a lowercase letter",
+    "password-number": "Password must contain a number",
+    "language-required": "Please select a translation language",
+    "privacy-required": "You must agree to the privacy policy",
+    "terms-required": "You must accept the terms of service"
+  },
+  "popups": {
+    "signin": "Sign in",
+    "signin-action": "Sign in",
+    "signup": "Sign up",
+    "signup-action": "Create account",
+    "signup-subtitle": "Create an account \nto save your learning progress",
+    "no-accaunt": "Don’t have an account?",
+    "have-accaunt": "Already have an account?",
+    "forgot-password": "Forgot your password?",
+    "reset-password-title": "Password recovery",
+    "reset-password-subtitle": "Enter the email address associated with your account and we’ll send you instructions to reset your password",
+    "send": "Send"
+  },
+  "forms": {
+    "name-placeholder": "Your name or nickname",
+    "email-placeholder": "Your E-mail",
+    "password-placeholder": "Password",
+    "language-placeholder": "Select your language",
+    "policy-agree-placeholder": "I agree to the",
+    "policy-agree-link": "privacy policy",
+    "terms-agree-placeholder": "I agree to the",
+    "terms-agree-link": "terms of service"
   }
 }

@@ -1,14 +1,18 @@
-import { Title, Text, PasswordForm } from "..";
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { Title, Text, PasswordForm } from '..';
 
 const PopupPassword = () => {
+  const tPopups = useTranslations('popups');
+
   return (
     <>
       <Title tag="h2" size="h5">
-        Wiederherstellung
+        {tPopups('reset-password-title')}
       </Title>
       <Text color="grey" size="small" align="center">
-        Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein,
-        und&nbsp;wir senden Ihnen Anweisungen zur Wiederherstellung von
+        {tPopups('reset-password-subtitle')}
       </Text>
       <PasswordForm />
     </>

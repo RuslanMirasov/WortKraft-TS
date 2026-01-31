@@ -12,5 +12,49 @@
   },
   "login-texts": {
     "please-login": "Bitte melden Sie sich an, \num diese Seite zu sehen."
+  },
+  "errors": {
+    "login-popup-error-title": "Anmeldefehler",
+    "register-popup-error-title": "Registrierungsfehler",
+    "default-popup-error-title": "Ein Fehler",
+    "default-popup-error-text": "Etwas ist schiefgelaufen. \nBitte versuchen Sie \nes später erneut.",
+    "default-popup-error-button-text": "Schließen",
+    "CredentialsSignin": "Ungültige E-Mail oder Passwort.",
+    "AccessDenied": "Sie haben keinen Zugriff auf dieses Konto. Das Konto ist möglicherweise eingeschränkt oder noch nicht aktiviert.",
+    "Configuration": "Ein technischer Fehler ist aufgetreten. \nBitte versuchen Sie es später erneut.",
+
+    "name-invalid": "Der Name muss mindestens 2 Buchstaben enthalten und darf keine Zahlen enthalten",
+    "email-required": "E-Mail-Adresse ist erforderlich",
+    "email-invalid": "Ungültige E-Mail-Adresse",
+    "password-minLength": "Das Passwort muss mindestens 6 Zeichen lang sein",
+    "password-uppercase": "Das Passwort muss einen Großbuchstaben enthalten",
+    "password-lowercase": "Das Passwort muss einen Kleinbuchstaben enthalten",
+    "password-number": "Das Passwort muss eine Zahl enthalten",
+    "language-required": "Bitte wählen Sie eine Übersetzungssprache",
+    "privacy-required": "Bitte stimmen Sie der Datenschutzerklärung zu",
+    "terms-required": "Bitte akzeptieren Sie die Nutzungsbedingungen"
+  },
+  "popups": {
+    "signin": "Anmelden",
+    "signin-action": "Anmelden",
+    "signup": "Registrieren",
+    "signup-action": "Registrieren",
+    "signup-subtitle": "Registrieren Sie sich, um Ihren Lernfortschritt zu speichern",
+    "no-accaunt": "Noch kein Konto?",
+    "have-accaunt": "Bereits registriert?",
+    "forgot-password": "Passwort vergessen?",
+    "reset-password-title": "Passwort zurücksetzen",
+    "reset-password-subtitle": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen Anweisungen zum Zurücksetzen des Passworts",
+    "send": "Senden"
+  },
+  "forms": {
+    "name-placeholder": "Ihr Name oder Benutzername",
+    "email-placeholder": "Ihre E-Mail",
+    "password-placeholder": "Passwort",
+    "language-placeholder": "Ihre Sprache auswählen",
+    "policy-agree-placeholder": "Ich stimme der",
+    "policy-agree-link": "Datenschutzerklärung",
+    "terms-agree-placeholder": "Ich akzeptiere die",
+    "terms-agree-link": "Nutzungsbedingungen"
   }
 }

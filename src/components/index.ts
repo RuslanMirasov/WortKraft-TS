@@ -15,6 +15,7 @@ export { default as Popup } from './Popups/Popup/Popup';
 export { default as PopupLogin } from './Popups/PopupLogin';
 export { default as PopupRegister } from './Popups/PopupRegister';
 export { default as PopupPassword } from './Popups/PopupPassword';
+export { default as PopupError } from './Popups/PopupError';
 
 // Buttons
 export { default as Button } from './Buttons/Button/Button';

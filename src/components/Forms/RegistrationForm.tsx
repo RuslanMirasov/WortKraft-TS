@@ -3,16 +3,21 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, RegistrationFormData } from '@/zod-schemas';
+import { useTranslations } from 'next-intl';
 import { Form, Input, Button, Text } from '..';
 
 const RegistrationForm = () => {
+  const tPopups = useTranslations('popups');
+  const tForms = useTranslations('forms');
+
   const form = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),
     defaultValues: {
       name: '',
       email: '',
       password: '',
-      agree: false,
+      privacy: false,
+      terms: false,
     },
   });
 
@@ -22,31 +27,34 @@ const RegistrationForm = () => {
 
   return (
     <Form form={form} onSubmit={onSubmit}>
-      <Input type="text" name="name" placeholder="Имя" />
+      <Input type="text" name="name" placeholder={tForms('name-placeholder')} />
       <Input
         type="select"
         name="language"
-        placeholder="Select your language"
+        placeholder={tForms('language-placeholder')}
         required
         options={[
-          { value: 'EN', label: 'English' },
-          { value: 'FR', label: 'Français' },
-          { value: 'UA', label: 'Українська' },
-          { value: 'PL', label: 'Polski' },
-          { value: 'IT', label: 'Italiano' },
-          { value: 'ES', label: 'Español' },
-          { value: 'TR', label: 'Türkçe' },
-          { value: 'RU', label: 'Русский' },
+          { value: 'en', label: 'English' },
+          { value: 'fr', label: 'Français' },
+          { value: 'ua', label: 'Українська' },
+          { value: 'pl', label: 'Polski' },
+          { value: 'it', label: 'Italiano' },
+          { value: 'es', label: 'Español' },
+          { value: 'tr', label: 'Türkçe' },
+          { value: 'ru', label: 'Русский' },
         ]}
       />
 
-      <Input type="email" name="email" required placeholder="E-mail" />
-      <Input type="password" name="password" required placeholder="Password" />
-      <Input type="checkbox" name="agree" required>
-        Mit Klick auf den Button stimmen Sie den <Text href="./profile">Datenschutzbestimmungen</Text> zu
+      <Input type="email" name="email" required placeholder={tForms('email-placeholder')} />
+      <Input type="password" name="password" required placeholder={tForms('password-placeholder')} />
+      <Input type="checkbox" name="privacy" required>
+        {tForms('policy-agree-placeholder')} <Text href="./profile">{tForms('policy-agree-link')}</Text>
+      </Input>
+      <Input type="checkbox" name="terms" required>
+        {tForms('terms-agree-placeholder')} <Text href="./profile">{tForms('terms-agree-link')}</Text>
       </Input>
       <Button size="small" variant="green" icon="arrow-right" full>
-        Create accaunt
+        {tPopups('signup-action')}
       </Button>
     </Form>
   );
