@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 
+import SessionProviderWrapper from '@/shared/providers/session-provider';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
@@ -88,10 +89,11 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <body className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${robotoMedium.variable}`}>
         <NextIntlClientProvider locale={locale}>
-          <Header />
-
-          <Main>{children}</Main>
-          <Popup />
+          <SessionProviderWrapper>
+            <Header />
+            <Main>{children}</Main>
+            <Popup />
+          </SessionProviderWrapper>
         </NextIntlClientProvider>
       </body>
     </html>

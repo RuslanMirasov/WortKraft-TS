@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import css from './Avatar.module.scss';
 
 interface AvatarProps {
-  email: string;
+  email: string | null;
   size?: 'big' | 'normal' | 'small';
   bg?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   image?: string | null;
@@ -12,7 +12,14 @@ interface AvatarProps {
   isLoading?: boolean;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ image, name, email, size = 'normal', bg = 'orange', isLoading = false }) => {
+const Avatar: React.FC<AvatarProps> = ({
+  image,
+  name,
+  email = '',
+  size = 'normal',
+  bg = 'orange',
+  isLoading = false,
+}) => {
   const avatarClasses = clsx({
     [css.Avatar]: true,
     [css[bg]]: true,

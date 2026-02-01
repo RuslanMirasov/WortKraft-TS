@@ -5,6 +5,7 @@ import { useSidebarStore } from '@/stores/sidebar-store';
 import { usePopup } from '@/stores/popup-store';
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute';
 import { useTranslations } from 'next-intl';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import clsx from 'clsx';
 import css from './Header.module.scss';
@@ -16,6 +17,7 @@ const Header = () => {
   const minify = useSidebarStore(s => s.minify);
   const toggle = useSidebarStore(s => s.toggle);
   const isHidden = isActivePage('/race');
+  const { data: session } = useSession();
 
   const classes = clsx(css.Header, minify && css.Minify);
 
@@ -42,21 +44,27 @@ const Header = () => {
       </div>
 
       <div className={css.ProfileButtons}>
-        {/* <div className={`${css.Inner} ${css.Bt}`}>
-          <ButtonMenu icon="login" onClick={() => openPopup('login')}>
-            {t('login')}
-          </ButtonMenu>
-        </div> */}
+        {!session?.user && (
+          <div className={`${css.Inner} ${css.Bt}`}>
+            <ButtonMenu icon="login" onClick={() => openPopup('login')}>
+              {t('login')}
+            </ButtonMenu>
+          </div>
+        )}
 
-        <div className={`${css.Inner} ${css.Bt}`}>
-          <ButtonProfile />
-        </div>
+        {session?.user && (
+          <div className={`${css.Inner} ${css.Bt}`}>
+            <ButtonProfile />
+          </div>
+        )}
 
-        <div className={`${css.Inner} ${css.Bt}`}>
-          <ButtonMenu href="./admin" icon="admin" active={isActivePage('/admin')}>
-            {t('admin')}
-          </ButtonMenu>
-        </div>
+        {session?.user.role === 'admin' && (
+          <div className={`${css.Inner} ${css.Bt}`}>
+            <ButtonMenu href="/admin" icon="admin" active={isActivePage('/admin')}>
+              {t('admin')}
+            </ButtonMenu>
+          </div>
+        )}
       </div>
     </header>
   );

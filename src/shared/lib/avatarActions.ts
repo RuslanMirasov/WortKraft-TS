@@ -1,4 +1,5 @@
-export const avatarSignature = (name: string): string => {
+export const avatarSignature = (name: string | null): string | null => {
+  if (!name) return null;
   return name
     .split(' ')
     .slice(0, 2)

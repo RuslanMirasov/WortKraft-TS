@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
+import { log } from 'console';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -33,6 +34,10 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
     const loginUrl = new URL(`/${locale}/login`, req.url);
     loginUrl.searchParams.set('callbackUrl', pathname + search);
     return NextResponse.redirect(loginUrl);
+  }
+
+  if (normalizedPath.startsWith('/admin') && token.role !== 'admin') {
+    return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
   }
 
   return intlResponse;
