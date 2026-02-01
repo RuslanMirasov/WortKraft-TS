@@ -25,7 +25,7 @@ const PasswordForm = () => {
     <>
       <Form form={form} onSubmit={onSubmit}>
         <Input type="hidden" name="subject" value={tPopups('reset-password-title')} />
-        <Input type="email" name="email" required placeholder={tForms('email-placeholder')} />
+        <Input type="email" name="email" placeholder={tForms('email-placeholder')} />
 
         <Button size="small" variant="green" icon="arrow-right" full>
           {tPopups('send')}

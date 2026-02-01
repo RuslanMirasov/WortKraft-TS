@@ -3,6 +3,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 import { loginSchema, LoginFormData } from '@/zod-schemas';
 import { Form, Input, Button, Text } from '@/components';
@@ -12,11 +13,15 @@ import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { loginCredentials } from '@/shared/lib/api';
 
 const LoginForm = () => {
-  const { openPopup } = usePopup();
+  const { openPopup, closePopup } = usePopup();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const tErrors = useTranslations('errors');
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');
+
+  const callbackUrl = searchParams.get('callbackUrl')?.startsWith('/') ? searchParams.get('callbackUrl')! : '/';
 
   const form = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
@@ -43,13 +48,16 @@ const LoginForm = () => {
 
   const onSubmit = async (data: LoginFormData) => {
     await run(data);
+    await closePopup();
+
+    router.replace(callbackUrl);
   };
 
   return (
     <>
       <Form form={form} onSubmit={onSubmit} loading={loading}>
-        <Input type="email" name="email" required placeholder={tForms('email-placeholder')} />
-        <Input type="password" name="password" required placeholder={tForms('password-placeholder')} />
+        <Input type="email" name="email" placeholder={tForms('email-placeholder')} />
+        <Input type="password" name="password" placeholder={tForms('password-placeholder')} />
         <Button size="small" variant="green" icon="arrow-right" full loading={loading}>
           {tPopups('signin-action')}
         </Button>

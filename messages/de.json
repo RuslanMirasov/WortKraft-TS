@@ -22,7 +22,9 @@
     "CredentialsSignin": "Ungültige E-Mail oder Passwort.",
     "AccessDenied": "Sie haben keinen Zugriff auf dieses Konto. Das Konto ist möglicherweise eingeschränkt oder noch nicht aktiviert.",
     "Configuration": "Ein technischer Fehler ist aufgetreten. \nBitte versuchen Sie es später erneut.",
-
+    "RegisterValidationError": "Nicht alle Pflichtfelder wurden korrekt ausgefüllt. Bitte überprüfen Sie das Formular und versuchen Sie es erneut.",
+    "ConsentsRequired": "Um ein Konto zu erstellen, müssen Sie die Nutzungsbedingungen und die Datenschutzerklärung akzeptieren.",
+    "UserAlreadyExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Melden Sie sich an oder setzen Sie Ihr Passwort zurück.",
     "name-invalid": "Der Name muss mindestens 2 Buchstaben enthalten und darf keine Zahlen enthalten",
     "email-required": "E-Mail-Adresse ist erforderlich",
     "email-invalid": "Ungültige E-Mail-Adresse",

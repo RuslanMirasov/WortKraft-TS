@@ -22,7 +22,9 @@
     "CredentialsSignin": "Invalid email or password.",
     "AccessDenied": "You do not have access to this account. The account may be restricted or not yet activated.",
     "Configuration": "A technical error occurred. \nPlease try again later.",
-
+    "RegisterValidationError": "Not all required fields \nwere filled in correctly. \nPlease check the form \nand try again.",
+    "ConsentsRequired": "To create an account, you must accept the terms of service \nand the privacy policy.",
+    "UserAlreadyExists": "An account with this email \nalready exists. Please sign in \nor reset your password.",
     "name-invalid": "Name must contain at least 2 letters and no numbers",
     "email-required": "Email is required",
     "email-invalid": "Invalid email address",

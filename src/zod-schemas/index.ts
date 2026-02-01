@@ -18,6 +18,7 @@ const password = z
 
 const language = z.string().min(1, 'language-required');
 const subject = z.string().optional();
+
 const privacy = z.boolean().refine(value => value === true, {
   message: 'privacy-required',
 });
