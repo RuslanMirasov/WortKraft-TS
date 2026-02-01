@@ -17,14 +17,22 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
   const locale = localeMatch?.[1] ?? routing.defaultLocale;
   const normalizedPath = pathname.replace(new RegExp(`^/${locale}`), '');
 
+  // главная
   if (normalizedPath === '/' || normalizedPath === '') {
     return intlResponse;
   }
 
+  // публичные
   if (PUBLIC_ROUTES.some(route => normalizedPath.startsWith(route))) {
     return intlResponse;
   }
 
+  // первый заход после логина
+  if (search.includes('callbackUrl=')) {
+    return intlResponse;
+  }
+
+  // auth
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
@@ -36,6 +44,7 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
     return NextResponse.redirect(loginUrl);
   }
 
+  // admin
   if (normalizedPath.startsWith('/admin') && token.role !== 'admin') {
     return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
   }
