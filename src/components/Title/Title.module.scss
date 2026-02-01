@@ -13,6 +13,33 @@
   &.Right {
     text-align: right;
   }
+  &.Green {
+    color: var(--green);
+  }
+
+  &.Red {
+    color: var(--red);
+  }
+
+  &.Orange {
+    color: var(--orange);
+  }
+
+  &.White {
+    color: var(--white);
+  }
+
+  &.Black {
+    color: var(--black);
+  }
+
+  &.Grey {
+    opacity: 0.7;
+  }
+
+  &.GreyLight {
+    opacity: 0.5;
+  }
 }
 
 .H1 {
