@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
-import { log } from 'console';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
@@ -24,11 +23,6 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
 
   // публичные
   if (PUBLIC_ROUTES.some(route => normalizedPath.startsWith(route))) {
-    return intlResponse;
-  }
-
-  // первый заход после логина
-  if (search.includes('callbackUrl=')) {
     return intlResponse;
   }
 
