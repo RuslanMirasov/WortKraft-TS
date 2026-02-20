@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { cookies } from 'next/headers';
 
 import SessionProviderWrapper from '@/shared/providers/session-provider';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -80,13 +81,16 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const cookieStore = await cookies();
+  const sidebarCookie = cookieStore.get('sidebar')?.value;
+  const sidebarAttr = sidebarCookie === 'min' ? 'min' : 'full';
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-sidebar={sidebarAttr}>
       <body className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${robotoMedium.variable}`}>
         <NextIntlClientProvider locale={locale}>
           <SessionProviderWrapper>

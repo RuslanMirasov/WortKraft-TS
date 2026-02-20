@@ -1,16 +1,13 @@
+import { buildInitialConsents } from '@/shared/lib/helpers/buildInitialConsents';
 import { NextResponse } from 'next/server';
 import { dbConnect } from '@/shared/lib/mongodb';
 import UserModel from '@/shared/models/User';
 import AuthIdentityModel from '@/shared/models/AuthIdentity';
 
-const TERMS_VERSION = '1.0';
-const PRIVACY_VERSION = '1.0';
-
 export async function POST(req: Request) {
   const body = await req.json();
   const { name, email, password, language, privacy, terms } = body;
 
-  // 🔒 Серверная валидация
   if (!email || !password || !language) {
     return NextResponse.json({ error: 'RegisterValidationError' }, { status: 400 });
   }
@@ -38,17 +35,7 @@ export async function POST(req: Request) {
     language,
     status: 'active',
     role: 'free',
-
-    consents: {
-      terms: {
-        acceptedAt: new Date(),
-        version: TERMS_VERSION,
-      },
-      privacy: {
-        acceptedAt: new Date(),
-        version: PRIVACY_VERSION,
-      },
-    },
+    consents: buildInitialConsents(),
   });
 
   await AuthIdentityModel.create({

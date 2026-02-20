@@ -3,6 +3,7 @@ export { default as Icon } from './Icon/Icon';
 export { default as Header } from './Header/Header';
 export { default as Navigation } from './Navigation/Navigation';
 export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
+export { default as SessionBootstrap } from './SessionBootstrap/SessionBootstrap';
 
 // UI
 export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
@@ -16,6 +17,8 @@ export { default as PopupLogin } from './Popups/PopupLogin';
 export { default as PopupRegister } from './Popups/PopupRegister';
 export { default as PopupPassword } from './Popups/PopupPassword';
 export { default as PopupError } from './Popups/PopupError';
+export { default as PopupPolicy } from './Popups/PopupPolicy';
+export { default as PopupTerms } from './Popups/PopupTerms';
 
 // Buttons
 export { default as Button } from './Buttons/Button/Button';
@@ -36,6 +39,7 @@ export { default as InputCheckbox } from './Forms/InputCheckbox/InputCheckbox';
 export { default as LoginForm } from './Forms/LoginForm';
 export { default as RegistrationForm } from './Forms/RegistrationForm';
 export { default as PasswordForm } from './Forms/PasswordForm';
+export { default as OnboardingForm } from './Forms/OnboardingForm';
 
 // Typography
 export { default as Title } from './Title/Title';

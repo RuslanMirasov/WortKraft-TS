@@ -41,7 +41,7 @@ const UserSchema = new Schema(
     language: {
       type: String,
       enum: LANGUAGES,
-      required: true,
+      default: null,
     },
 
     role: {

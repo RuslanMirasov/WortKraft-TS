@@ -5,8 +5,8 @@ import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
 
 const intlMiddleware = createIntlMiddleware(routing);
-
 const PUBLIC_ROUTES = ['/login', '/terms', '/policy', '/search', '/404', '/500'];
+const ONBOARDING_ROUTE = '/onboarding';
 
 export default async function middleware(req: NextRequest, event: NextFetchEvent) {
   const { pathname, search } = req.nextUrl;
@@ -16,21 +16,32 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
   const locale = localeMatch?.[1] ?? routing.defaultLocale;
   const normalizedPath = pathname.replace(new RegExp(`^/${locale}`), '');
 
-  // главная
-  if (normalizedPath === '/' || normalizedPath === '') {
-    return intlResponse;
-  }
-
-  // публичные
-  if (PUBLIC_ROUTES.some(route => normalizedPath.startsWith(route))) {
-    return intlResponse;
-  }
-
-  // auth
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
   });
+
+  if (token?.status === 'pending') {
+    if (!normalizedPath.startsWith(ONBOARDING_ROUTE)) {
+      const onboardingUrl = new URL(`/${locale}${ONBOARDING_ROUTE}`, req.url);
+      onboardingUrl.searchParams.set('callbackUrl', pathname + search);
+      return NextResponse.redirect(onboardingUrl);
+    }
+
+    return intlResponse;
+  }
+
+  if (normalizedPath.startsWith(ONBOARDING_ROUTE)) {
+    return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
+  }
+
+  if (normalizedPath === '/' || normalizedPath === '') {
+    return intlResponse;
+  }
+
+  if (PUBLIC_ROUTES.some(route => normalizedPath.startsWith(route))) {
+    return intlResponse;
+  }
 
   if (!token) {
     const loginUrl = new URL(`/${locale}/login`, req.url);

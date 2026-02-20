@@ -10,7 +10,7 @@ export interface PopupStore {
   setIsPopupOpen: (isOpen: boolean) => void;
 }
 
-export type PopupId = 'login' | 'register' | 'password' | 'confirm' | 'error';
+export type PopupId = 'login' | 'register' | 'password' | 'confirm' | 'error' | 'policy' | 'terms';
 
 export interface BasePopupOptions {
   freeze?: boolean;
@@ -44,5 +44,13 @@ export type Popup =
     }
   | {
       id: 'error';
+      options?: CustomPopupOptions;
+    }
+  | {
+      id: 'policy';
+      options?: CustomPopupOptions;
+    }
+  | {
+      id: 'terms';
       options?: CustomPopupOptions;
     };

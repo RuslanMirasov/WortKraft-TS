@@ -2,10 +2,8 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale } from 'next-intl';
-import { useSidebarStore } from '@/stores/sidebar-store';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Icon } from '../../components';
-import clsx from 'clsx';
 import css from './LanguageSwitcher.module.scss';
 
 type SupportedLocale = 'de' | 'en' | 'uk';
@@ -16,9 +14,6 @@ const LanguageSwitcher = () => {
   const locale = useLocale() as SupportedLocale;
   const [open, setOpen] = useState(false);
   const switcherRef = useRef<HTMLButtonElement>(null);
-  const minify = useSidebarStore(s => s.minify);
-
-  const classes = clsx(css.LanguageSwitcher, minify && css.Minify);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -59,7 +54,7 @@ const LanguageSwitcher = () => {
   }, []);
 
   return (
-    <button className={classes} ref={switcherRef}>
+    <button className={css.LanguageSwitcher} ref={switcherRef}>
       <div className={css.Select} onClick={toggleOpen}>
         <Icon name={locale} />
         {locale === 'de' && <span>Deutsch</span>}

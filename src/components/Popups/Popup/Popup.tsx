@@ -4,7 +4,8 @@ import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { usePopup } from '@/stores/popup-store';
 import css from './Popup.module.scss';
-import { Icon, PopupLogin, PopupRegister, PopupPassword, PopupError } from '@/components';
+import clsx from 'clsx';
+import { Icon, PopupLogin, PopupRegister, PopupPassword, PopupError, PopupPolicy, PopupTerms } from '@/components';
 
 const Popup = () => {
   const { currentPopup, closePopup, isBackdropOpen, isPopupOpen } = usePopup();
@@ -58,6 +59,14 @@ const Popup = () => {
 
   const { id, options } = currentPopup;
 
+  const popupClasses = clsx(
+    css.Popup,
+    isPopupOpen && css.Open,
+    id === 'error' && css.Error,
+    id === 'policy' && css.Policy,
+    id === 'terms' && css.Policy
+  );
+
   return createPortal(
     <section
       className={`${css.Backdrop} ${isBackdropOpen ? css.Open : ''} `}
@@ -65,7 +74,7 @@ const Popup = () => {
       onTouchStart={options?.freeze ? undefined : closePopup}
     >
       <div
-        className={`${css.Popup} ${isPopupOpen ? css.Open : ''} ${id === 'error' ? css.Error : ''}`}
+        className={popupClasses}
         onClick={e => e.stopPropagation()}
         onMouseDown={e => e.stopPropagation()}
         onTouchStart={e => e.stopPropagation()}
@@ -79,6 +88,8 @@ const Popup = () => {
         {id === 'register' && <PopupRegister />}
         {id === 'password' && <PopupPassword />}
         {id === 'error' && <PopupError options={options} />}
+        {id === 'policy' && <PopupPolicy />}
+        {id === 'terms' && <PopupTerms />}
       </div>
     </section>,
     document.body

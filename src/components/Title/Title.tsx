@@ -1,9 +1,8 @@
-import type { JSX } from 'react';
 import clsx from 'clsx';
 import css from './Title.module.scss';
 
 interface TitlePropTypes {
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof HTMLElementTagNameMap;
   color?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   size: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'center' | 'right';

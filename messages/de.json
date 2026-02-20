@@ -15,6 +15,7 @@
   },
   "errors": {
     "login-popup-error-title": "Anmeldefehler",
+    "onboarding-popup-error-title": "Einrichtungsfehler",
     "register-popup-error-title": "Registrierungsfehler",
     "default-popup-error-title": "Ein Fehler",
     "default-popup-error-text": "Etwas ist schiefgelaufen. \nBitte versuchen Sie \nes später erneut.",
@@ -25,6 +26,7 @@
     "RegisterValidationError": "Nicht alle Pflichtfelder wurden korrekt ausgefüllt. Bitte überprüfen Sie das Formular und versuchen Sie es erneut.",
     "ConsentsRequired": "Um ein Konto zu erstellen, müssen Sie die Nutzungsbedingungen und die Datenschutzerklärung akzeptieren.",
     "UserAlreadyExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Melden Sie sich an oder setzen Sie Ihr Passwort zurück.",
+    "TooManyLoginAttempts": "Zu viele Anmeldeversuche. \nDer Zugriff wurde vorübergehend gesperrt. Bitte versuchen \nSie es später erneut.",
     "name-invalid": "Der Name muss mindestens 2 Buchstaben enthalten und darf keine Zahlen enthalten",
     "email-required": "E-Mail-Adresse ist erforderlich",
     "email-invalid": "Ungültige E-Mail-Adresse",
@@ -34,7 +36,10 @@
     "password-number": "Das Passwort muss eine Zahl enthalten",
     "language-required": "Bitte wählen Sie eine Übersetzungssprache",
     "privacy-required": "Bitte stimmen Sie der Datenschutzerklärung zu",
-    "terms-required": "Bitte akzeptieren Sie die Nutzungsbedingungen"
+    "terms-required": "Bitte akzeptieren Sie die Nutzungsbedingungen",
+    "Unauthorized": "Die Sitzung ist abgelaufen oder der Zugriff ist nicht erlaubt. Bitte melden Sie sich erneut an.",
+    "OnboardingValidationError": "Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Einwilligungen.",
+    "UserNotFound": "Der Benutzer wurde nicht gefunden oder der Zugriff auf das Konto ist eingeschränkt."
   },
   "popups": {
     "signin": "Anmelden",
@@ -57,6 +62,11 @@
     "policy-agree-placeholder": "Ich stimme der",
     "policy-agree-link": "Datenschutzerklärung",
     "terms-agree-placeholder": "Ich akzeptiere die",
+    "onboarding-button": "Los geht’s",
     "terms-agree-link": "Nutzungsbedingungen"
+  },
+  "onboarding": {
+    "title": "Willkommen",
+    "subtitle": "Wähle die Sprache, in der du lernen möchtest. In dieser Sprache zeigen \nwir dir die Übersetzungen."
   }
 }

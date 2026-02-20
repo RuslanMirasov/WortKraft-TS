@@ -1,36 +1,40 @@
 'use client';
 
 import { Icon, LanguageSwitcher, Navigation, ButtonProfile, Text, ButtonMenu } from '../../components';
-import { useSidebarStore } from '@/stores/sidebar-store';
 import { usePopup } from '@/stores/popup-store';
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute';
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import clsx from 'clsx';
 import css from './Header.module.scss';
 
 const Header = () => {
   const t = useTranslations('navigation');
   const { openPopup } = usePopup();
   const { isActivePage } = useActiveRoute();
-  const minify = useSidebarStore(s => s.minify);
-  const toggle = useSidebarStore(s => s.toggle);
   const isHidden = isActivePage('/race');
+  const isHiddenNavigation = isActivePage('/onboarding');
   const { data: session } = useSession();
 
-  const classes = clsx(css.Header, minify && css.Minify);
+  if (isHidden) return null;
 
-  if (isHidden) return;
+  const toggleSidebar = () => {
+    const html = document.documentElement;
+    const isMin = html.dataset.sidebar === 'min';
+    const next = isMin ? 'full' : 'min';
+
+    html.dataset.sidebar = next;
+    document.cookie = `sidebar=${next}; path=/`;
+  };
 
   return (
-    <header className={classes}>
+    <header className={css.Header}>
       <div className={`${css.Inner} ${css.Bb} ${css.Btn}`}>
         <Link href="./" className={css.Logo}>
           <Icon name="logo" size="70" />
           <Text>kraft</Text>
         </Link>
-        <button className={css.SideButton} onClick={toggle}>
+        <button className={css.SideButton} onClick={toggleSidebar}>
           <Icon name="sidebar" size="20" />
         </button>
       </div>
@@ -39,9 +43,11 @@ const Header = () => {
         <LanguageSwitcher />
       </div>
 
-      <div className={`${css.Inner} ${css.Nav}`}>
-        <Navigation />
-      </div>
+      {!isHiddenNavigation && (
+        <div className={`${css.Inner} ${css.Nav}`}>
+          <Navigation />
+        </div>
+      )}
 
       <div className={css.ProfileButtons}>
         {!session?.user && (

@@ -15,6 +15,7 @@
   },
   "errors": {
     "login-popup-error-title": "Login error",
+    "onboarding-popup-error-title": "Setup Error",
     "register-popup-error-title": "Registration error",
     "default-popup-error-title": "Something went wrong",
     "default-popup-error-text": "An unexpected error occurred. \nPlease try again later.",
@@ -25,6 +26,7 @@
     "RegisterValidationError": "Not all required fields \nwere filled in correctly. \nPlease check the form \nand try again.",
     "ConsentsRequired": "To create an account, you must accept the terms of service \nand the privacy policy.",
     "UserAlreadyExists": "An account with this email \nalready exists. Please sign in \nor reset your password.",
+    "TooManyLoginAttempts": "Too many login attempts. \nAccess has been temporarily \nblocked. Please try again later.",
     "name-invalid": "Name must contain at least 2 letters and no numbers",
     "email-required": "Email is required",
     "email-invalid": "Invalid email address",
@@ -34,7 +36,10 @@
     "password-number": "Password must contain a number",
     "language-required": "Please select a translation language",
     "privacy-required": "You must agree to the privacy policy",
-    "terms-required": "You must accept the terms of service"
+    "terms-required": "You must accept the terms of service",
+    "Unauthorized": "Your session has expired or access is denied. Please sign in again.",
+    "OnboardingValidationError": "Please complete all required fields \nand confirm the consents.",
+    "UserNotFound": "The user was not found or access \nto the account is restricted."
   },
   "popups": {
     "signin": "Sign in",
@@ -57,6 +62,11 @@
     "policy-agree-placeholder": "I agree to the",
     "policy-agree-link": "privacy policy",
     "terms-agree-placeholder": "I agree to the",
+    "onboarding-button": "Let’s go",
     "terms-agree-link": "terms of service"
+  },
+  "onboarding": {
+    "title": "Welcome",
+    "subtitle": "Choose the language you want to learn in. \nWe’ll show translations in this language."
   }
 }

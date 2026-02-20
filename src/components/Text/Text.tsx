@@ -4,6 +4,7 @@ import css from './Text.module.scss';
 import Link from 'next/link';
 
 interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
+  tag?: keyof HTMLElementTagNameMap;
   color?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   align?: 'center' | 'right';
   size?: 'big' | 'small' | 'subtitle';
@@ -13,7 +14,18 @@ interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
   onClick?: (e: MouseEvent<HTMLElement>) => void;
 }
 
-const Text: React.FC<TextPropTypes> = ({ color, align, size, light, children, className, href, onClick }) => {
+const Text: React.FC<TextPropTypes> = ({
+  tag = 'p',
+  color,
+  align,
+  size,
+  light,
+  children,
+  className,
+  href,
+  onClick,
+}) => {
+  const Tag = tag;
   const classes = clsx(
     css.Text,
     color === 'green' && css.Green,
@@ -38,9 +50,9 @@ const Text: React.FC<TextPropTypes> = ({ color, align, size, light, children, cl
       {children}
     </Link>
   ) : (
-    <p className={classes} onClick={onClick}>
+    <Tag className={classes} onClick={onClick}>
       {children}
-    </p>
+    </Tag>
   );
 };
 

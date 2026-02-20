@@ -13,4 +13,17 @@
   button {
     max-width: 220px;
   }
+
+  &.Small {
+    max-width: 320px;
+    margin: 0 auto;
+    a,
+    button {
+      max-width: 100%;
+    }
+
+    fieldset {
+      margin: 10px 0px 20px 0px;
+    }
+  }
 }

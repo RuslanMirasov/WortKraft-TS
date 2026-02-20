@@ -13,7 +13,7 @@ export default function LoginPage() {
   const error = params.get('error');
   const t = useTranslations();
   const tErrors = useTranslations('errors');
-  const { openPopup, closePopup } = usePopup();
+  const { openPopup } = usePopup();
 
   useEffect(() => {
     if (error) {

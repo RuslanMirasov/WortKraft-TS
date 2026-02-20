@@ -19,6 +19,8 @@ global.mongooseConn = global.mongooseConn ?? {
 };
 
 export async function dbConnect() {
+  console.log('✅ - [MONGODB CONNECTION] => Пошёл запрос в базу');
+
   if (global.mongooseConn!.conn) {
     return global.mongooseConn!.conn;
   }

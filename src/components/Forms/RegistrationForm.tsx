@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Form, Input, Button, Text } from '@/components';
 import { registration } from '@/shared/lib/api/registration';
 import { useRequest } from '@/shared/hooks/useRequest';
+import { useSearchParams } from 'next/navigation';
 import { usePopup } from '@/stores/popup-store';
 import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { signIn } from 'next-auth/react';
@@ -15,6 +16,8 @@ const RegistrationForm = () => {
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');
   const tErrors = useTranslations('errors');
+  const params = useSearchParams();
+  const callbackUrl = params.get('callbackUrl') ?? '/';
   const { openPopup, closePopup } = usePopup();
 
   const form = useForm<RegistrationFormData>({
@@ -51,7 +54,8 @@ const RegistrationForm = () => {
       await signIn('credentials', {
         email: data.email,
         password: data.password,
-        redirect: false,
+        redirect: true,
+        callbackUrl,
       });
 
       await closePopup();
@@ -80,10 +84,10 @@ const RegistrationForm = () => {
       <Input type="email" name="email" placeholder={tForms('email-placeholder')} />
       <Input type="password" name="password" placeholder={tForms('password-placeholder')} />
       <Input type="checkbox" name="privacy">
-        {tForms('policy-agree-placeholder')} <Text href="./profile">{tForms('policy-agree-link')}</Text>
+        {tForms('policy-agree-placeholder')} <Text href="./policy">{tForms('policy-agree-link')}</Text>
       </Input>
       <Input type="checkbox" name="terms">
-        {tForms('terms-agree-placeholder')} <Text href="./profile">{tForms('terms-agree-link')}</Text>
+        {tForms('terms-agree-placeholder')} <Text href="./terms">{tForms('terms-agree-link')}</Text>
       </Input>
       <Button size="small" variant="green" icon="arrow-right" full loading={loading}>
         {tPopups('signup-action')}

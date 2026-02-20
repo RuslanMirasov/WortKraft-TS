@@ -15,27 +15,31 @@
   border-right: 1px solid var(--hr);
   transition: width 0.3s;
   overflow: hidden;
+}
 
-  @media (min-width: 768px) {
-    &.Minify {
-      width: 70px;
-      overflow: visible;
-      .SideButton {
-        transform: translate(0%, 0%);
-      }
-      .Logo {
-        transform: translate(-130%, 0%);
-      }
-      .Inner {
-        min-width: 69px;
-        &.Btn {
-          display: flex;
-          justify-content: center;
-          min-height: 69px;
-          max-height: 69px;
-        }
-      }
-    }
+@media (min-width: 768px) {
+  html[data-sidebar='min'] .Header {
+    width: 70px;
+    overflow: visible;
+  }
+
+  html[data-sidebar='min'] .Header .SideButton {
+    transform: translate(0%, 0%);
+  }
+
+  html[data-sidebar='min'] .Header .Logo {
+    transform: translate(-130%, 0%);
+  }
+
+  html[data-sidebar='min'] .Header .Inner {
+    min-width: 69px;
+  }
+
+  html[data-sidebar='min'] .Header .Inner.Btn {
+    display: flex;
+    justify-content: center;
+    min-height: 69px;
+    max-height: 69px;
   }
 }
 
@@ -136,7 +140,6 @@
     background: var(--white);
     box-shadow: none;
     border-right: none;
-    transition: width 0.3s;
     overflow: visible;
     gap: 10px;
     padding: 0px 20px;

@@ -1,1 +1,2 @@
-export { registration } from './registration';
+export { getClientIp } from './getClientIp';
+export { rateLimitLogin, clearLoginRateLimit } from './rateLimitLogin';

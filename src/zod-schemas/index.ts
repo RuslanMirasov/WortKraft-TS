@@ -17,11 +17,13 @@ const password = z
   .regex(/[0-9]/, 'password-number');
 
 const language = z.string().min(1, 'language-required');
+
 const subject = z.string().optional();
 
 const privacy = z.boolean().refine(value => value === true, {
   message: 'privacy-required',
 });
+
 const terms = z.boolean().refine(value => value === true, {
   message: 'terms-required',
 });
@@ -45,6 +47,13 @@ export const passwordSchema = z.object({
   email,
 });
 
+export const onboardingSchema = z.object({
+  language,
+  privacy,
+  terms,
+});
+
 export type LoginFormData = z.infer<typeof loginSchema>;
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
 export type PasswordFormData = z.infer<typeof passwordSchema>;
+export type OnboardingFormData = z.infer<typeof onboardingSchema>;
