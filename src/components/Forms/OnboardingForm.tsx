@@ -48,7 +48,7 @@ const OnboardingForm = () => {
   const onSubmit = async (data: OnboardingFormData) => {
     await run(data);
     await update();
-    router.replace(callbackUrl);
+    window.location.href = callbackUrl;
   };
 
   return (
