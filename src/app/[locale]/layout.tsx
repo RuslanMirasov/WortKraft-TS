@@ -1,13 +1,16 @@
-import type { Metadata, Viewport } from 'next';
+import type { Viewport } from 'next';
+import { buildLocaleMetadata } from '@/shared/config/metadata';
 import { cookies } from 'next/headers';
-
-import SessionProviderWrapper from '@/shared/providers/session-provider';
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { NextIntlClientProvider, hasLocale } from 'next-intl'; //hasLocale
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import localFont from 'next/font/local';
-import '@/styles/globals.scss';
+import SessionProviderWrapper from '@/shared/providers/session-provider';
 import { Header, Popup, Main } from '@/components';
+
+import '@/styles/globals.scss';
+
+/* ================= FONTS ================= */
 
 const dmsansLight = localFont({
   src: './../../fonts/dmsans-light.woff2',
@@ -33,52 +36,27 @@ const robotoMedium = localFont({
   preload: true,
 });
 
-export const metadata: Metadata = {
-  title: 'WortKraft - Deutsch lernen von A1 bis C1',
-  description:
-    'WortKraft ist eine App zum Deutschlernen von A1 bis C1 - mit Wortschatz, Dialogen, Übungen und Fortschrittsanzeige. Perfekt für Anfänger und Fortgeschrittene.',
-  keywords: [
-    'Deutsch lernen',
-    'A1 bis C1',
-    'Vokabeltrainer',
-    'Deutsch App',
-    'Wortschatz Deutsch',
-    'Deutschkurse',
-    'Deutsch für Anfänger',
-    'Deutschübungen',
-    'Deutsch App kostenlos',
-    'Deutsch C1',
-  ],
-  openGraph: {
-    title: 'WortKraft - Deutsch lernen von A1 bis C1',
-    description:
-      'Mit WortKraft lernst du Deutsch effektiv: Wortschatz, Dialoge, Übungen und Lernfortschritt - alles in einer App.',
-    url: 'https://dein-domain.de',
-    siteName: 'WortKraft',
+/* ================= METADATA ================= */
 
-    images: [
-      {
-        url: 'https://dein-domain.de/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'WortKraft App - Deutsch lernen A1 bis C1',
-      },
-    ],
-    locale: 'de_DE',
-    type: 'website',
-  },
-};
+export function generateViewport(): Viewport {
+  return {
+    themeColor: '#4cb210',
+  };
+}
 
-export const viewport: Viewport = {
-  themeColor: '#42990f',
-};
+export async function generateMetadata({ params }: { params: { locale: string } }) {
+  const { locale } = await params;
+  return buildLocaleMetadata(locale);
+}
+
+/* ================= LAYOUT ================= */
 
 export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }) {
   const { locale } = await params;
   const cookieStore = await cookies();

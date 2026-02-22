@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI || '';
 
-if (!MONGODB_URI) throw new Error('❌ MONGODB_URI is not defined in .env.local');
+if (!MONGODB_URI) throw new Error('❌ - [MONGODB CONNECTION] => MONGODB_URI is not defined in .env.local');
 
 declare global {
   var mongooseConn:
@@ -19,7 +19,7 @@ global.mongooseConn = global.mongooseConn ?? {
 };
 
 export async function dbConnect() {
-  console.log('✅ - [MONGODB CONNECTION] => Пошёл запрос в базу');
+  console.log('✅ - [MONGODB CONNECTION] => DB Connection success!');
 
   if (global.mongooseConn!.conn) {
     return global.mongooseConn!.conn;

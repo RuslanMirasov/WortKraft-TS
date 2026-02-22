@@ -1,4 +1,4 @@
-import mongoose, { Schema, type InferSchemaType, type Model, models } from 'mongoose';
+import mongoose, { Schema, type InferSchemaType, type Model } from 'mongoose';
 
 const AuthRateLimitSchema = new Schema(
   {
@@ -40,6 +40,7 @@ AuthRateLimitSchema.index({ updatedAt: 1 }, { expireAfterSeconds: 60 * 60 * 24 }
 export type AuthRateLimit = InferSchemaType<typeof AuthRateLimitSchema>;
 
 const AuthRateLimitModel =
-  (models.AuthRateLimit as Model<AuthRateLimit>) || mongoose.model<AuthRateLimit>('AuthRateLimit', AuthRateLimitSchema);
+  (mongoose.models.AuthRateLimit as Model<AuthRateLimit>) ||
+  mongoose.model<AuthRateLimit>('AuthRateLimit', AuthRateLimitSchema);
 
 export default AuthRateLimitModel;

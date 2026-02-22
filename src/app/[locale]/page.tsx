@@ -11,7 +11,6 @@ export default function Home() {
         <Title tag="h1" size="h1">
           Wählen Sie ein Buch
         </Title>
-        <RegistrationForm />
         <Text light size="small">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis
           doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime
@@ -39,60 +38,8 @@ export default function Home() {
           possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora.
         </Text>
         <Title tag="h2" size="h2">
-          Привет это заголовок
+          Some title
         </Title>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis
-          doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime
-          odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet
-          illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium
-          laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in
-          delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem
-          accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque
-          laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam
-          tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo
-          corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam
-          maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur
-          aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus
-          praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus
-          iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam,
-          quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora.
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis
-          doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime
-          odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet
-          illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium
-          laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in
-          delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem
-          accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque
-          laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam
-          tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo
-          corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam
-          maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur
-          aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus
-          praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus
-          iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam,
-          quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora.
-        </Text>
         <Text>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis
           doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime
