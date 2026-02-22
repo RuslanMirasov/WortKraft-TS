@@ -40,7 +40,7 @@ const robotoMedium = localFont({
 
 export function generateViewport(): Viewport {
   return {
-    themeColor: '#4cb210',
+    themeColor: '#292b2d',
   };
 }
 
