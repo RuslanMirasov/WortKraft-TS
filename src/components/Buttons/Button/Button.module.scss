@@ -82,6 +82,45 @@
       color: var(--white);
     }
   }
+
+  &.Loading {
+    &:before {
+      border-left: 2px solid var(--green);
+      border-top: 2px solid var(--green);
+    }
+  }
+}
+
+.Google {
+  background: var(--white);
+  border: 1px solid var(--grey);
+  span {
+    color: var(--black);
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--white);
+    border: 1px solid var(--green);
+    span {
+      color: var(--black);
+    }
+  }
+
+  &.Loading {
+    &:before {
+      border-left: 2px solid var(--green);
+      border-top: 2px solid var(--green);
+    }
+    &:hover,
+    &:focus {
+      background: var(--white);
+      border: 1px solid var(--grey);
+      span {
+        color: var(--black);
+      }
+    }
+  }
 }
 
 .Orange {
@@ -142,6 +181,7 @@
     animation: spin 0.3s linear infinite;
   }
 }
+
 @keyframes spin {
   from {
     transform: rotate(0deg);

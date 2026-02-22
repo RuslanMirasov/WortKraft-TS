@@ -6,7 +6,7 @@ import Link from 'next/link';
 interface ButtonPropTypes {
   href?: string;
   size?: 'small' | 'normal';
-  variant?: 'green' | 'red' | 'orange' | 'white';
+  variant?: 'green' | 'red' | 'orange' | 'white' | 'google';
   full?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -32,6 +32,7 @@ const Button: React.FC<ButtonPropTypes> = ({
     variant === 'red' && css.Red,
     variant === 'orange' && css.Orange,
     variant === 'white' && css.White,
+    variant === 'google' && css.Google,
     size === 'small' && css.Small,
     loading && css.Loading,
     full && css.Full
