@@ -54,6 +54,7 @@ export async function buildLocaleMetadata(locale: string): Promise<Metadata> {
       locale: ogLocales[locale] ?? 'de_DE',
       type: 'website',
       images: [
+        { url: '/apple-touch-icon.png', width: 512, height: 512 },
         {
           url: '/og-image.jpg',
           width: 1200,
