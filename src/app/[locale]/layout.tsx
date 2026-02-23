@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import localFont from 'next/font/local';
 import SessionProviderWrapper from '@/shared/providers/session-provider';
+import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister/ServiceWorkerRegister';
 import { Header, Popup, Main } from '@/components';
 
 import '@/styles/globals.scss';
@@ -72,6 +73,7 @@ export default async function LocaleLayout({
       <body className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${robotoMedium.variable}`}>
         <NextIntlClientProvider locale={locale}>
           <SessionProviderWrapper>
+            <ServiceWorkerRegister />
             <Header />
             <Main>{children}</Main>
             <Popup />

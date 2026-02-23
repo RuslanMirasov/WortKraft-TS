@@ -10,7 +10,8 @@ export interface PopupStore {
   setIsPopupOpen: (isOpen: boolean) => void;
 }
 
-export type PopupId = 'login' | 'register' | 'password' | 'confirm' | 'error' | 'policy' | 'terms';
+type BasePopupId = 'login' | 'register' | 'password' | 'policy' | 'terms' | 'download';
+type CustomPopupId = 'confirm' | 'error';
 
 export interface BasePopupOptions {
   freeze?: boolean;
@@ -25,32 +26,15 @@ export interface CustomPopupOptions extends BasePopupOptions {
   buttonEvent?: () => void;
 }
 
-export type Popup =
-  | {
-      id: 'login';
-      options?: BasePopupOptions;
-    }
-  | {
-      id: 'register';
-      options?: BasePopupOptions;
-    }
-  | {
-      id: 'password';
-      options?: BasePopupOptions;
-    }
-  | {
-      id: 'confirm';
-      options?: CustomPopupOptions;
-    }
-  | {
-      id: 'error';
-      options?: CustomPopupOptions;
-    }
-  | {
-      id: 'policy';
-      options?: CustomPopupOptions;
-    }
-  | {
-      id: 'terms';
-      options?: CustomPopupOptions;
-    };
+type PopupMap = {
+  [K in BasePopupId]: BasePopupOptions;
+} & {
+  [K in CustomPopupId]: CustomPopupOptions;
+};
+
+export type Popup = {
+  [K in keyof PopupMap]: {
+    id: K;
+    options?: PopupMap[K];
+  };
+}[keyof PopupMap];

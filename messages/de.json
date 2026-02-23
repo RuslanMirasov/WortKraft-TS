@@ -68,5 +68,14 @@
   "onboarding": {
     "title": "Willkommen",
     "subtitle": "Wähle die Sprache, in der du lernen möchtest. In dieser Sprache zeigen \nwir dir die Übersetzungen."
+  },
+  "download-app": {
+    "title": "App installieren",
+    "subtitle": "Fügen Sie WortKraft zum Startbildschirm hinzu und öffne \ndeine Trainings schneller.",
+    "button-text": "Installieren",
+    "tap-share": "Tippe auf „Teilen“",
+    "add-to-main-screen": "Wähle „Zum Home-Bildschirm“",
+    "later": "Später",
+    "ok": "OK"
   }
 }

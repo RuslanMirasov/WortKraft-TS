@@ -6,6 +6,7 @@ export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher
 
 // UI
 export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
+export { default as DownloadInstruction } from './DownloadInstruction/DownloadInstruction';
 
 // Profile
 export { default as Avatar } from './Profile/Avatar/Avatar';
@@ -18,9 +19,11 @@ export { default as PopupPassword } from './Popups/PopupPassword';
 export { default as PopupError } from './Popups/PopupError';
 export { default as PopupPolicy } from './Popups/PopupPolicy';
 export { default as PopupTerms } from './Popups/PopupTerms';
+export { default as PopupDownload } from './Popups/PopupDownload';
 
 // Buttons
 export { default as Button } from './Buttons/Button/Button';
+export { default as Buttons } from './Buttons/Buttons/Buttons';
 export { default as ButtonGoogle } from './Buttons/ButtonGoogle/ButtonGoogle';
 export { default as ButtonProfile } from './Buttons/ButtonProfile/ButtonProfile';
 export { default as ButtonMenu } from './Buttons/ButtonMenu/ButtonMenu';

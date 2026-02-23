@@ -5,7 +5,17 @@ import { useEffect } from 'react';
 import { usePopup } from '@/stores/popup-store';
 import css from './Popup.module.scss';
 import clsx from 'clsx';
-import { Icon, PopupLogin, PopupRegister, PopupPassword, PopupError, PopupPolicy, PopupTerms } from '@/components';
+
+import {
+  Icon,
+  PopupLogin,
+  PopupRegister,
+  PopupPassword,
+  PopupError,
+  PopupPolicy,
+  PopupTerms,
+  PopupDownload,
+} from '@/components';
 
 const Popup = () => {
   const { currentPopup, closePopup, isBackdropOpen, isPopupOpen } = usePopup();
@@ -64,7 +74,8 @@ const Popup = () => {
     isPopupOpen && css.Open,
     id === 'error' && css.Error,
     id === 'policy' && css.Policy,
-    id === 'terms' && css.Policy
+    id === 'terms' && css.Policy,
+    id === 'download' && css.Download
   );
 
   return createPortal(
@@ -90,6 +101,7 @@ const Popup = () => {
         {id === 'error' && <PopupError options={options} />}
         {id === 'policy' && <PopupPolicy />}
         {id === 'terms' && <PopupTerms />}
+        {id === 'download' && <PopupDownload />}
       </div>
     </section>,
     document.body

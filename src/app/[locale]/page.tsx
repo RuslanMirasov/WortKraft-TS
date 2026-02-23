@@ -1,10 +1,12 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Title, Text, RegistrationForm } from '@/components';
+import { Title, Text, Button } from '@/components';
+import { usePopup } from '@/stores/popup-store';
 
 export default function Home() {
   const t = useTranslations('navigation');
+  const { openPopup } = usePopup();
   return (
     <section>
       <div className="container">
@@ -23,19 +25,6 @@ export default function Home() {
           accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet
           consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
           possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque
-          laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam
-          tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo
-          corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam
-          maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur
-          aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus
-          praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus
-          iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam,
-          quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora.
         </Text>
         <Title tag="h2" size="h2">
           Some title
@@ -46,26 +35,12 @@ export default function Home() {
           odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet
           illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium
           laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-          aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in
-          delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem
-          accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque
-          laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam
-          tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo
-          corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam
-          maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi aspernatur
-          aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus iusto in delectus
-          praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam, quidem accusamus
-          iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit possimus. Quam,
-          quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Commodi aspernatur aliquid, amet illo corporis doloremque laboriosam sit
-          possimus. Quam, quidem accusamus iusto in delectus praesentium laboriosam maxime odit ipsam tempora.
         </Text>
+        <div>
+          <Button size="small" onClick={() => openPopup('download')} icon="arrow-right">
+            Download
+          </Button>
+        </div>
       </div>
     </section>
   );

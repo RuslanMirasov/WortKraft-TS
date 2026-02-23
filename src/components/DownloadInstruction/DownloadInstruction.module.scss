@@ -1,0 +1,30 @@
+.DownloadInstruction {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 5px;
+}
+
+.Inner {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 5px;
+  background: var(--grey-light);
+  border-radius: 10px;
+  padding: 8px 10px;
+
+  span {
+    font-size: 14px;
+    font-family: var(--roboto-medium);
+    font-weight: 500;
+  }
+}

@@ -89,6 +89,24 @@ const Search: React.FC<SvgPropTypes> = ({ size = 34, stroke }) => (
   </svg>
 );
 
+const Schare: React.FC<SvgPropTypes> = ({ size = 24, stroke }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    stroke={stroke}
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="5" y="9" width="14" height="10" rx="2.5" ry="2.5" />
+    <path d="M12 14V3" />
+    <path d="M9 6l3-3 3 3" />
+  </svg>
+);
+
 const Bookmark: React.FC<SvgPropTypes> = ({ size = 34, stroke, fill }) => (
   <svg width={size} height={size} viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -502,6 +520,7 @@ const Icon: React.FC<IconPropTypes> = ({ name, fill, stroke = 'currentColor', si
       {name === 'radio' && <Radio size={size} fill={fill} />}
       {name === 'sidebar' && <SidebarIcon size={size} stroke={stroke} />}
       {name === 'admin' && <AdminIcon size={size} stroke={stroke} />}
+      {name === 'schare' && <Schare size={size} stroke={stroke} />}
     </>
   );
 };

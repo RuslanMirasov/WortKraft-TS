@@ -1,0 +1,19 @@
+.Buttons {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+
+  &.Column {
+    flex-direction: column;
+  }
+
+  button {
+    flex: 1;
+    min-width: 48.5%;
+  }
+}

@@ -68,5 +68,14 @@
   "onboarding": {
     "title": "Welcome",
     "subtitle": "Choose the language you want to learn in. \nWe’ll show translations in this language."
+  },
+  "download-app": {
+    "title": "Install the App",
+    "subtitle": "Add WortKraft to your home screen and get quick access to your \ntraining anytime.",
+    "button-text": "Install",
+    "tap-share": "Tap “Share”",
+    "add-to-main-screen": "Select “Add to Home Screen”",
+    "later": "Later",
+    "ok": "OK"
   }
 }
