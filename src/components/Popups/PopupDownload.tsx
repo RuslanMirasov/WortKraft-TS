@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { usePopup } from '@/stores/popup-store';
-import { Buttons, Button, Title, Icon, Text, DownloadInstruction } from '..';
+import { Buttons, Button, Title, Icon, Text, DownloadInstruction, Input } from '..';
 import { usePWAInstall } from '@/shared/hooks/usePWAInstall';
 
 const PopupDownload = () => {
@@ -11,13 +11,17 @@ const PopupDownload = () => {
   const { canInstall, hasPrompt, promptInstall, isIOS, isStandalone } = usePWAInstall();
 
   const handleInstall = async () => {
-    console.log('hasPrompt: ', hasPrompt);
     if (hasPrompt) {
-      await promptInstall();
-    } else {
-      console.log('Show manual install instruction');
-      closePopup();
+      const installed = await promptInstall();
+
+      if (installed) {
+        closePopup();
+      }
+
+      return;
     }
+
+    closePopup();
   };
 
   return (
@@ -34,12 +38,15 @@ const PopupDownload = () => {
 
       <hr />
 
-      {canInstall && !isIOS && (
+      {canInstall && (
         <Buttons>
           <Button onClick={handleInstall} size="small" icon="arrow-right" full variant="green">
             {t('button-text')}
           </Button>
-          <Button onClick={() => closePopup()} size="small" icon="close" full>
+
+          <Input type="checkbox" name="instal" />
+
+          <Button onClick={closePopup} size="small" icon="close" full>
             {t('later')}
           </Button>
         </Buttons>
@@ -48,8 +55,9 @@ const PopupDownload = () => {
       {isIOS && !isStandalone && (
         <>
           <DownloadInstruction />
+
           <Buttons>
-            <Button onClick={() => closePopup()} size="small" icon="arrow-right" full>
+            <Button onClick={closePopup} size="small" icon="arrow-right" full>
               {t('ok')}
             </Button>
           </Buttons>

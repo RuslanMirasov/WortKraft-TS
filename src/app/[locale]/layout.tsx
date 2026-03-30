@@ -6,7 +6,10 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import localFont from 'next/font/local';
 import SessionProviderWrapper from '@/shared/providers/session-provider';
+import PWAInstallProvider from '@/shared/providers/PWAInstallProvider';
+import PWAInstallController from '@/shared/providers/PWAInstallController';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister/ServiceWorkerRegister';
+
 import { Header, Popup, Main } from '@/components';
 
 import '@/styles/globals.scss';
@@ -73,7 +76,11 @@ export default async function LocaleLayout({
           <SessionProviderWrapper>
             <ServiceWorkerRegister />
             <Header />
-            <Main>{children}</Main>
+            <Main>
+              <PWAInstallProvider />
+              <PWAInstallController />
+              {children}
+            </Main>
             <Popup />
           </SessionProviderWrapper>
         </NextIntlClientProvider>
