@@ -42,7 +42,7 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/icons/icon-512-maskable.png',
         sizes: '512x512',
         type: 'image/png',
-        purpose: 'maskable',
+        //purpose: 'maskable',
       },
     ],
   };
