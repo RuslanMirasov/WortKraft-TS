@@ -1,4 +1,4 @@
-const CACHE_NAME = 'wortkraft-v1';
+const CACHE_NAME = 'wortkraft-v2';
 
 // Устанавливаем SW
 self.addEventListener('install', event => {
