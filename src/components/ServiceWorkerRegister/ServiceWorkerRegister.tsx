@@ -2,19 +2,15 @@
 
 import { useEffect } from 'react';
 
-export function ServiceWorkerRegister() {
+export const ServiceWorkerRegister = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
-        .then(() => {
-          console.log('SW registered');
-        })
-        .catch(err => {
-          console.error('SW registration failed:', err);
-        });
+        .then(() => console.log('SW registered'))
+        .catch(err => console.error('SW error', err));
     }
   }, []);
 
   return null;
-}
+};

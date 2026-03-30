@@ -1,5 +1,5 @@
 import type { Viewport } from 'next';
-import { buildLocaleMetadata } from '@/shared/config/metadata';
+import { buildLocaleMetadata, buildLocaleViewport } from '@/shared/config/metadata';
 import { cookies } from 'next/headers';
 import { NextIntlClientProvider, hasLocale } from 'next-intl'; //hasLocale
 import { notFound } from 'next/navigation';
@@ -40,9 +40,7 @@ const robotoMedium = localFont({
 /* ================= METADATA ================= */
 
 export function generateViewport(): Viewport {
-  return {
-    themeColor: '#292b2d',
-  };
+  return buildLocaleViewport();
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {

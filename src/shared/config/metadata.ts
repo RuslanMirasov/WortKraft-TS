@@ -1,89 +1,182 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { hasLocale } from 'next-intl';
 import { routing } from '@/i18n/routing';
+import { APP_CONFIG } from '@/shared/config/app';
 
-export const metadataByLocale = {
-  de: {
-    title: 'WortKraft - Systematischer Wortschatzaufbau im Deutschen (A1-C1)',
-    description:
-      'Systematisches Lernen und Festigen des deutschen Grundwortschatzes nach dem Programm der Integrationskurse (A1-C1). Jedes Wort durchläuft 6 Trainingsstufen: Verstehen, Hören, Übersetzungsauswahl, Schreiben und Aussprache. Ein starker Wortschatz hilft, Prüfungen in Deutschland sicher zu bestehen.',
-  },
-  en: {
-    title: 'WortKraft - Build Your German Vocabulary (A1-C1)',
-    description:
-      'Structured learning and reinforcement of core German vocabulary aligned with integration course levels (A1-C1). Each word is trained in 6 stages: comprehension, listening, translation choice, writing and pronunciation. A strong vocabulary helps you confidently pass exams in Germany.',
-  },
-  uk: {
-    title: 'WortKraft - Розширення словникового запасу з німецької (A1-C1)',
-    description:
-      'Системне вивчення та закріплення базової лексики німецької мови за програмою інтеграційних курсів (A1-C1). Кожне слово проходить 6 етапів практики: розуміння, аудіювання, вибір перекладу, письмо та вимова. Сильний словниковий запас допомагає впевнено складати іспити в Німеччині.',
-  },
+type SupportedLocale = (typeof routing.locales)[number];
+
+const OG_LOCALES: Record<SupportedLocale, string> = {
+  de: 'de_DE',
+  en: 'en_US',
+  uk: 'uk_UA',
 };
 
-export async function buildLocaleMetadata(locale: string): Promise<Metadata> {
-  if (!hasLocale(routing.locales, locale)) return {};
+const DEFAULT_LOCALE: SupportedLocale = 'de';
 
-  const meta = metadataByLocale[locale as keyof typeof metadataByLocale] ?? metadataByLocale.de;
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000';
-  const ogLocales: Record<string, string> = {
-    de: 'de_DE',
-    en: 'en_US',
-    uk: 'uk_UA',
+function getBaseUrl(): string {
+  const url = process.env.NEXT_PUBLIC_APP_URL?.trim();
+  if (!url) return 'http://localhost:3000';
+  return url.endsWith('/') ? url.slice(0, -1) : url;
+}
+
+function normalizeLocale(locale: string): SupportedLocale {
+  if (hasLocale(routing.locales, locale)) {
+    return locale as SupportedLocale;
+  }
+  return DEFAULT_LOCALE;
+}
+
+function normalizePathname(pathname?: string): string {
+  if (!pathname || pathname === '/') return '';
+  return pathname.startsWith('/') ? pathname : `/${pathname}`;
+}
+
+function buildLocalizedPath(locale: SupportedLocale, pathname?: string): string {
+  const path = normalizePathname(pathname);
+
+  if (!path) return `/${locale}`;
+  if (path.startsWith(`/${locale}`)) return path;
+
+  return `/${locale}${path}`;
+}
+
+function absoluteUrl(path: string): string {
+  return `${getBaseUrl()}${path}`;
+}
+
+function buildAlternates(pathname?: string) {
+  return routing.locales.reduce(
+    (acc, loc) => {
+      const typed = loc as SupportedLocale;
+      acc[typed] = absoluteUrl(buildLocalizedPath(typed, pathname));
+      return acc;
+    },
+    {} as Record<SupportedLocale, string>
+  );
+}
+
+export function buildLocaleViewport(): Viewport {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+    viewportFit: 'cover',
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: APP_CONFIG.themeColor },
+      { media: '(prefers-color-scheme: dark)', color: APP_CONFIG.themeColor },
+    ],
   };
+}
+
+export async function buildLocaleMetadata(
+  locale: string,
+  options?: {
+    pathname?: string;
+    noIndex?: boolean;
+    ogImage?: string;
+  }
+): Promise<Metadata> {
+  const resolvedLocale: SupportedLocale = normalizeLocale(locale);
+
+  const pathname = options?.pathname;
+  const noIndex = options?.noIndex ?? false;
+
+  const canonical = absoluteUrl(buildLocalizedPath(resolvedLocale, pathname));
+  const alternates = buildAlternates(pathname);
+
+  const ogImage = absoluteUrl(options?.ogImage ?? '/og-image.jpg');
+
+  const title = APP_CONFIG.title[resolvedLocale as keyof typeof APP_CONFIG.title];
+  const description = APP_CONFIG.description[resolvedLocale as keyof typeof APP_CONFIG.description];
 
   return {
-    metadataBase: new URL(baseUrl),
-    manifest: `${baseUrl}/manifest.json`,
-    title: meta.title,
-    description: meta.description,
+    metadataBase: new URL(getBaseUrl()),
+
+    title: {
+      default: APP_CONFIG.shortName,
+      template: `${APP_CONFIG.shortName} | %s`,
+    },
+
+    description,
+
+    applicationName: APP_CONFIG.name,
 
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: {
-        de: `${baseUrl}/de`,
-        en: `${baseUrl}/en`,
-        uk: `${baseUrl}/uk`,
-      },
+      canonical,
+      languages: alternates,
     },
 
     openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: `${baseUrl}/${locale}`,
-      siteName: 'WortKraft',
-      locale: ogLocales[locale] ?? 'de_DE',
       type: 'website',
+      siteName: APP_CONFIG.name,
+      locale: OG_LOCALES[resolvedLocale],
+      alternateLocale: routing.locales.filter(l => l !== resolvedLocale).map(l => OG_LOCALES[l as SupportedLocale]),
+      url: canonical,
+      title,
+      description,
       images: [
-        { url: '/apple-touch-icon.png', width: 512, height: 512 },
         {
-          url: '/og-image.jpg',
+          url: ogImage,
           width: 1200,
           height: 630,
-          alt: meta.title,
+          alt: title,
         },
       ],
     },
 
     twitter: {
       card: 'summary_large_image',
-      title: meta.title,
-      description: meta.description,
-      images: ['/og-image.jpg'],
+      title,
+      description,
+      images: [ogImage],
+    },
+
+    appleWebApp: {
+      capable: true,
+      title: APP_CONFIG.shortName,
+      statusBarStyle: 'default',
     },
 
     icons: {
-      icon: [
-        { url: '/favicon.ico', sizes: 'any' },
-        { url: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
-        { url: `/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
-        { url: `/favicon-32x32.png`, sizes: '32x32', type: 'image/png' },
+      apple: [
+        {
+          url: '/icons/apple-touch-icon.png',
+          sizes: '180x180',
+          type: 'image/png',
+        },
       ],
-      apple: '/apple-touch-icon.png',
     },
 
-    robots: {
-      index: true,
-      follow: true,
+    robots: noIndex
+      ? {
+          index: false,
+          follow: false,
+          googleBot: {
+            index: false,
+            follow: false,
+            noimageindex: true,
+          },
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+            'max-video-preview': -1,
+          },
+        },
+
+    category: 'education',
+
+    other: {
+      'mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-capable': 'yes',
+      'apple-mobile-web-app-title': APP_CONFIG.shortName,
+      'application-name': APP_CONFIG.name,
+      'msapplication-TileColor': APP_CONFIG.themeColor,
+      'format-detection': 'telephone=no',
     },
   };
 }
