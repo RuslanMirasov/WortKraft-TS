@@ -6,7 +6,7 @@ import { usePopup } from '@/stores/popup-store';
 
 export default function Home() {
   const t = useTranslations('navigation');
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
   return (
     <section>
       <div className="container">

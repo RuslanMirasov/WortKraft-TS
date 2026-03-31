@@ -18,7 +18,10 @@ import {
 } from '@/components';
 
 const Popup = () => {
-  const { currentPopup, closePopup, isBackdropOpen, isPopupOpen } = usePopup();
+  const currentPopup = usePopup(state => state.currentPopup);
+  const isBackdropOpen = usePopup(state => state.isBackdropOpen);
+  const isPopupOpen = usePopup(state => state.isPopupOpen);
+  const closePopup = usePopup(state => state.closePopup);
 
   useEffect(() => {
     if (isBackdropOpen) {

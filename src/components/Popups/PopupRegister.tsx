@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 
 const PopupRegister = () => {
   const tPopups = useTranslations('popups');
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
   return (
     <>
       <Title tag="h2" size="h5">

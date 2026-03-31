@@ -38,6 +38,7 @@ export { default as InputTextarea } from './Forms/InputTextarea/InputTextarea';
 export { default as InputHidden } from './Forms/InputHidden/InputHidden';
 export { default as InputSelect } from './Forms/InputSelect/InputSelect';
 export { default as InputCheckbox } from './Forms/InputCheckbox/InputCheckbox';
+export { default as Checkbox } from './Forms/InputCheckbox/Checkbox';
 export { default as LoginForm } from './Forms/LoginForm';
 export { default as RegistrationForm } from './Forms/RegistrationForm';
 export { default as PasswordForm } from './Forms/PasswordForm';

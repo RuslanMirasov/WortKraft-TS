@@ -3,7 +3,7 @@ import { usePopup } from '@/stores/popup-store';
 import { useTranslations } from 'next-intl';
 
 const PopupLogin = () => {
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
   const tPopups = useTranslations('popups');
 
   return (

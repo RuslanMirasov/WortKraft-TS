@@ -10,7 +10,7 @@ import css from './Header.module.scss';
 
 const Header = () => {
   const t = useTranslations('navigation');
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
   const { isActivePage } = useActiveRoute();
   const isHidden = isActivePage('/race');
   const isHiddenNavigation = isActivePage('/onboarding');

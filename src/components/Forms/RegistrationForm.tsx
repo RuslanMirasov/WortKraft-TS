@@ -18,7 +18,8 @@ const RegistrationForm = () => {
   const tErrors = useTranslations('errors');
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') ?? '/';
-  const { openPopup, closePopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
+  const closePopup = usePopup(state => state.closePopup);
 
   const form = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),

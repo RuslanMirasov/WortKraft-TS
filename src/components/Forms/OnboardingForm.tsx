@@ -20,7 +20,7 @@ const OnboardingForm = () => {
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') ?? '/';
   const { update } = useSession();
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
 
   const form = useForm<OnboardingFormData>({
     resolver: zodResolver(onboardingSchema),

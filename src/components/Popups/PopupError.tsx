@@ -10,7 +10,7 @@ interface PopupErrorProps {
 }
 
 const PopupError = ({ options }: PopupErrorProps) => {
-  const { closePopup } = usePopup();
+  const closePopup = usePopup(state => state.closePopup);
   const t = useTranslations('errors');
 
   const DEFAULT_ERROR_OPTIONS: Required<Pick<CustomPopupOptions, 'icon' | 'title' | 'text' | 'buttonText'>> = {

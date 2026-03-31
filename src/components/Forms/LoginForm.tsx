@@ -12,7 +12,7 @@ import { usePopup } from '@/stores/popup-store';
 import { useState } from 'react';
 
 const LoginForm = () => {
-  const { openPopup } = usePopup();
+  const openPopup = usePopup(state => state.openPopup);
   const searchParams = useSearchParams();
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');

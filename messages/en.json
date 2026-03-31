@@ -76,6 +76,7 @@
     "tap-share": "Tap “Share”",
     "add-to-main-screen": "Select “Add to Home Screen”",
     "later": "Later",
-    "ok": "OK"
+    "ok": "OK",
+    "do-not-show-agein": "Do not show this message again"
   }
 }
