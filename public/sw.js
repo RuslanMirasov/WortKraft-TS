@@ -1,21 +1,60 @@
-const CACHE_NAME = 'wortkraft-v2';
+const CACHE_VERSION = 'v2';
+const OFFLINE_PAGES = ['/offline.de.html', '/offline.en.html', '/offline.ua.html'];
 
-// Устанавливаем SW
+// install
 self.addEventListener('install', event => {
-  console.log('[SW] Installed');
+  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(OFFLINE_PAGES)));
   self.skipWaiting();
 });
 
-// Активируем
+// activate
 self.addEventListener('activate', event => {
-  console.log('[SW] Activated');
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches
+      .keys()
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE_VERSION).map(key => caches.delete(key))))
+      .then(() => self.clients.claim())
+  );
 });
 
-// Перехват запросов (пока просто прокси)
+// helper
+function getOfflinePage(pathname) {
+  if (pathname.startsWith('/en')) return '/offline.en.html';
+  if (pathname.startsWith('/uk') || pathname.startsWith('/ua')) return '/offline.ua.html';
+  return '/offline.de.html';
+}
+
+// fetch
 self.addEventListener('fetch', event => {
+  const request = event.request;
+
+  // Кэшируем только GET
+  if (request.method !== 'GET') return;
+
+  // Для переходов по страницам
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request).catch(async () => {
+        const url = new URL(request.url);
+        const offlinePage = getOfflinePage(url.pathname);
+        const cachedResponse = await caches.match(offlinePage);
+
+        return (
+          cachedResponse ||
+          new Response('Offline', {
+            status: 503,
+            statusText: 'Offline',
+            headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+          })
+        );
+      })
+    );
+    return;
+  }
+
+  // Всё остальное пока просто сеть
   event.respondWith(
-    fetch(event.request).catch(() => {
+    fetch(request).catch(() => {
       return new Response('Offline', {
         status: 503,
         statusText: 'Offline',

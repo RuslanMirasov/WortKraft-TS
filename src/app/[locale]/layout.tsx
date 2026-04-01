@@ -32,9 +32,9 @@ const dmsansRegular = localFont({
   preload: true,
 });
 
-const robotoMedium = localFont({
-  src: './../../fonts/roboto-medium.woff2',
-  variable: '--roboto-medium',
+const dmsansMedium = localFont({
+  src: './../../fonts/dmsans-medium.woff2',
+  variable: '--medium',
   weight: '500',
   display: 'swap',
   preload: true,
@@ -71,7 +71,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} data-sidebar={sidebarAttr}>
-      <body className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${robotoMedium.variable}`}>
+      <body className={`body ${dmsansLight.variable} ${dmsansRegular.variable} ${dmsansMedium.variable}`}>
         <NextIntlClientProvider locale={locale}>
           <SessionProviderWrapper>
             <ServiceWorkerRegister />

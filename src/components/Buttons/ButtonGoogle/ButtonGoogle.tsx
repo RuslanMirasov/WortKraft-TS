@@ -5,7 +5,6 @@ import { Button } from './../../../components';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
-import './ButtonGoogle.scss';
 
 const ButtonGoogle = () => {
   const t = useTranslations();

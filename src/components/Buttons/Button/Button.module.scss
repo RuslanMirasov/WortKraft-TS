@@ -26,7 +26,8 @@
     display: inline-block;
     text-align: left;
     flex: 1;
-    font-family: var(--roboto-medium);
+    font-family: var(--medium);
+    font-weight: 500;
     font-size: 24px;
     line-height: 1;
     pointer-events: none;
@@ -100,8 +101,8 @@
 
   &:hover,
   &:focus {
-    background: var(--white);
-    border: 1px solid var(--green);
+    background: var(--grey-light);
+    border: 1px solid var(--grey);
     span {
       color: var(--black);
     }
