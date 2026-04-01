@@ -1,9 +1,9 @@
 const CACHE_VERSION = 'v2';
-const OFFLINE_PAGES = ['/offline.de.html', '/offline.en.html', '/offline.ua.html'];
+const PRECACHE_URLS = ['/offline.de.html', '/offline.en.html', '/offline.ua.html', '/img/lex/500.webp'];
 
 // install
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(OFFLINE_PAGES)));
+  event.waitUntil(caches.open(CACHE_VERSION).then(cache => cache.addAll(PRECACHE_URLS)));
   self.skipWaiting();
 });
 
