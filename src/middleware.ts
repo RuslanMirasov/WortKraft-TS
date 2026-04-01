@@ -3,18 +3,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
+import { getLocaleFromPathname, isPublicRoute, normalizeLocalePath } from '@/shared/config/routes';
 
 const intlMiddleware = createIntlMiddleware(routing);
-const PUBLIC_ROUTES = ['/login', '/terms', '/policy', '/search', '/404', '/500'];
 const ONBOARDING_ROUTE = '/onboarding';
 
 export default async function middleware(req: NextRequest, event: NextFetchEvent) {
   const { pathname, search } = req.nextUrl;
-
   const intlResponse = intlMiddleware(req, event);
-  const localeMatch = pathname.match(/^\/(de|en|uk)(\/|$)/);
-  const locale = localeMatch?.[1] ?? routing.defaultLocale;
-  const normalizedPath = pathname.replace(new RegExp(`^/${locale}`), '');
+
+  const locale = getLocaleFromPathname(pathname) ?? routing.defaultLocale;
+  const normalizedPath = normalizeLocalePath(pathname);
 
   const token = await getToken({
     req,
@@ -36,10 +35,10 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
   }
 
   if (normalizedPath === '/' || normalizedPath === '') {
-    return intlResponse;
+    return NextResponse.redirect(new URL(`/${locale}/levels`, req.url));
   }
 
-  if (PUBLIC_ROUTES.some(route => normalizedPath.startsWith(route))) {
+  if (isPublicRoute(pathname)) {
     return intlResponse;
   }
 

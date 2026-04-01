@@ -71,12 +71,12 @@
   },
   "download-app": {
     "title": "App installieren",
-    "subtitle": "Fügen Sie WortKraft zum Startbildschirm hinzu und öffne \ndeine Trainings schneller.",
+    "subtitle": "Fügen Sie WortKraft zum Startbildschirm hinzu und öffne deine Trainings schneller.",
     "button-text": "Installieren",
     "tap-share": "Tippe auf „Teilen“",
     "add-to-main-screen": "Wähle „Zum Home-Bildschirm“",
     "later": "Später",
     "ok": "OK",
-    "do-not-show-agein": "Diese Meldung nicht mehr anzeigen"
+    "do-not-show-again": "Diese Meldung nicht mehr anzeigen"
   }
 }

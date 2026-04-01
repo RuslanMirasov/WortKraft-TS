@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { getLocaleFromPathname } from '@/shared/config/routes';
 
 export default function GlobalError({ error }: { error: Error & { digest?: string }; reset: () => void }) {
   const pathname = usePathname();
@@ -10,8 +11,7 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
   useEffect(() => {
     console.error(error);
 
-    const match = pathname.match(/^\/(de|en|uk)(\/|$)/);
-    const locale = match?.[1] ?? 'de';
+    const locale = getLocaleFromPathname(pathname) ?? 'de';
 
     router.replace(`/${locale}/500`);
   }, [error, pathname, router]);

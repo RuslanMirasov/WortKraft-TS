@@ -46,7 +46,7 @@
     "signin-action": "Sign in",
     "signup": "Sign up",
     "signup-action": "Create account",
-    "signup-subtitle": "Create an account \nto save your learning progress",
+    "signup-subtitle": "Create an account to\u00A0save your\u00A0learning progress",
     "no-accaunt": "Don’t have an account?",
     "have-accaunt": "Already have an account?",
     "forgot-password": "Forgot your password?",
@@ -71,12 +71,12 @@
   },
   "download-app": {
     "title": "Install the App",
-    "subtitle": "Add WortKraft to your home screen and get quick access to your \ntraining anytime.",
+    "subtitle": "Add WortKraft to your home screen and get quick access to your training anytime.",
     "button-text": "Install",
     "tap-share": "Tap “Share”",
     "add-to-main-screen": "Select “Add to Home Screen”",
     "later": "Later",
     "ok": "OK",
-    "do-not-show-agein": "Do not show this message again"
+    "do-not-show-again": "Do not show this message again"
   }
 }

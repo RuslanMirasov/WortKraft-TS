@@ -13,7 +13,7 @@ export default function LavelPage() {
   return (
     <>
       <Title tag="h1" size="h1">
-        Lavel number {level}
+        Page: {level} /
       </Title>
     </>
   );

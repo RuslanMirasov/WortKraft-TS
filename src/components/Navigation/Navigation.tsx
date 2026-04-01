@@ -13,22 +13,25 @@ const Navigation = () => {
     <nav className={css.Navigation}>
       <menu>
         <li>
-          <ButtonMenu href="./" icon="home" active={isMainPage}>
+          <ButtonMenu href="/levels" icon="home" active={isMainPage}>
             {t('library')}
           </ButtonMenu>
         </li>
+
         <li>
-          <ButtonMenu href="./favorites" icon="bookmark" active={isActivePage('/favorites')}>
+          <ButtonMenu href="/favorites" icon="bookmark" active={isActivePage('/favorites')}>
             {t('bookmarks')}
           </ButtonMenu>
         </li>
+
         <li>
-          <ButtonMenu href="./search" icon="search" active={isActivePage('/search')}>
+          <ButtonMenu href="/search" icon="search" active={isActivePage('/search')}>
             {t('search')}
           </ButtonMenu>
         </li>
+
         <li>
-          <ButtonMenu href="./statistic" icon="statistic" active={isActivePage('/statistic')}>
+          <ButtonMenu href="/statistic" icon="statistic" active={isActivePage('/statistic')}>
             {t('statistic')}
           </ButtonMenu>
         </li>

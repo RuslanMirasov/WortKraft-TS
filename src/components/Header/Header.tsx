@@ -50,7 +50,7 @@ const Header = () => {
       )}
 
       <div className={css.ProfileButtons}>
-        {!session?.user && (
+        {!session && (
           <div className={`${css.Inner} ${css.Bt}`}>
             <ButtonMenu icon="login" onClick={() => openPopup('login')}>
               {t('login')}
@@ -58,7 +58,7 @@ const Header = () => {
           </div>
         )}
 
-        {session?.user && (
+        {session && (
           <div className={`${css.Inner} ${css.Bt}`}>
             <ButtonProfile />
           </div>
