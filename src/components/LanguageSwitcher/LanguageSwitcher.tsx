@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Icon } from '../../components';
@@ -38,13 +38,8 @@ const LanguageSwitcher = () => {
         return;
       }
 
-      const segments = pathname.split('/');
-      segments[1] = targetLocale;
-      const newPath = segments.join('/') || '/';
-
-      document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`;
       setOpen(false);
-      router.push(newPath);
+      router.replace(pathname, { locale: targetLocale });
     },
     [pathname, router, locale]
   );

@@ -28,7 +28,7 @@ export default function LoginPage() {
 
   return (
     <CenteredMessage>
-      <Image src="/img/lex/privat.webp" width="300" height="300" alt="WordKraft fox shows hush" loading="eager" />
+      <Image src="/img/lex/privat.webp" width="330" height="330" alt="WordKraft fox shows hush" loading="eager" />
       <Text align="center">{t('login-texts.please-login')}</Text>
       <Button icon="arrow-right" full size="small" variant="green" onClick={() => openPopup('login')}>
         {t('navigation.login')}

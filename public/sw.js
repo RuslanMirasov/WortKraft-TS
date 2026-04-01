@@ -4,11 +4,12 @@ const PRECACHE_URLS = [
   '/offline.de.html',
   '/offline.en.html',
   '/offline.ua.html',
-  '/img/lex/500.webp',
+  '/favicon.ico',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/icon-512-maskable.png',
   '/icons/apple-touch-icon.png',
+  '/img/lex/500.webp',
 ];
 
 // install

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
 import { getLocaleFromPathname } from '@/shared/config/routes';
 
 export default function GlobalError({ error }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -13,7 +13,7 @@ export default function GlobalError({ error }: { error: Error & { digest?: strin
 
     const locale = getLocaleFromPathname(pathname) ?? 'de';
 
-    router.replace(`/${locale}/500`);
+    router.replace('/500', { locale });
   }, [error, pathname, router]);
 
   return null;

@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function NotFoundPage() {
   return (
     <CenteredMessage>
-      <Image src="/img/lex/404.webp" width="200" height="200" alt="WordKraft fox shows hush" />
+      <Image src="/img/lex/404.webp" width="330" height="330" alt="WordKraft fox shows hush" />
       <Title align="center" size="h4">
         404 | Page not found
       </Title>

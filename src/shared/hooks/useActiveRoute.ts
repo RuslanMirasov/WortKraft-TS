@@ -1,16 +1,12 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-
-const LOCALES = ['en', 'de', 'uk'];
+import { usePathname } from '@/i18n/navigation';
 const MENU_PAGES = ['/favorites', '/search', '/statistic', '/profile', '/race', '/admin', '/policy', '/login'];
 
 export const useActiveRoute = () => {
   const pathname = usePathname();
-  const normalizedPath = pathname.replace(new RegExp(`^/(${LOCALES.join('|')})(?=/|$)`), '') || '/';
-
-  const isMainPage =
-    normalizedPath === '' || normalizedPath === '/' || !MENU_PAGES.some(section => normalizedPath.startsWith(section));
+  const normalizedPath = pathname || '/';
+  const isMainPage = normalizedPath === '/' || !MENU_PAGES.some(section => normalizedPath.startsWith(section));
 
   const isActivePage = (path: string) => {
     if (path === '/') {

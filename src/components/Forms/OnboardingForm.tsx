@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { onboardingSchema, OnboardingFormData } from '@/zod-schemas';
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/navigation';
 import { Form, Input, Button, Text, Fieldset } from '@/components';
 import { onboarding } from '@/shared/lib/api/onboarding';
 import { useRequest } from '@/shared/hooks/useRequest';

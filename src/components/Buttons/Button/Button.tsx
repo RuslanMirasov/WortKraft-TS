@@ -1,7 +1,7 @@
 import { Icon } from './../../../components';
 import clsx from 'clsx';
 import css from './Button.module.scss';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 
 interface ButtonPropTypes {
   href?: string;

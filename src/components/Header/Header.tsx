@@ -5,7 +5,7 @@ import { usePopup } from '@/stores/popup-store';
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute';
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import css from './Header.module.scss';
 
 const Header = () => {
