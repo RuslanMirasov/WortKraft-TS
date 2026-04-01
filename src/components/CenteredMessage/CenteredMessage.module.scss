@@ -7,11 +7,13 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 20px;
+  gap: 14px;
+  padding: 20px 0px;
 
   a,
   button {
     max-width: 220px;
+    margin-top: 10px;
   }
 
   &.Small {

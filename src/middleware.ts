@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
 import { getToken } from 'next-auth/jwt';
 import { routing } from './i18n/routing';
-import { getLocaleFromPathname, isPublicRoute, normalizeLocalePath } from '@/shared/config/routes';
+import { getLocaleFromPathname, isPublicRoute, normalizeLocalePath, isPrivateRoute } from '@/shared/config/routes';
 
 const intlMiddleware = createIntlMiddleware(routing);
 const ONBOARDING_ROUTE = '/onboarding';
@@ -42,14 +42,14 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
     return intlResponse;
   }
 
-  if (!token) {
+  if (isPrivateRoute(pathname) && !token) {
     const loginUrl = new URL(`/${locale}/login`, req.url);
     loginUrl.searchParams.set('callbackUrl', pathname + search);
     return NextResponse.redirect(loginUrl);
   }
 
   // admin
-  if (normalizedPath.startsWith('/admin') && token.role !== 'admin') {
+  if (normalizedPath.startsWith('/admin') && token?.role !== 'admin') {
     return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
   }
 

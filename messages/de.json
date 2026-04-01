@@ -78,5 +78,15 @@
     "later": "Später",
     "ok": "OK",
     "do-not-show-again": "Diese Meldung nicht mehr anzeigen"
+  },
+  "not-found-page": {
+    "title": "Seite nicht gefunden",
+    "subtitle": "Vielleicht wurde die Seite verschoben \noder gelöscht. Prüfe den\u00A0Pfad und versuche\u00A0es\u00A0noch einmal.",
+    "button-text": "Zurück"
+  },
+  "server-error-page": {
+    "title": "Etwas ist schiefgelaufen",
+    "subtitle": "Auf dem Server ist ein Fehler aufgetreten. \nBitte versuche es etwas später noch einmal.",
+    "button-text": "Zur Startseite"
   }
 }

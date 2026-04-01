@@ -78,5 +78,15 @@
     "later": "Later",
     "ok": "OK",
     "do-not-show-again": "Do not show this message again"
+  },
+  "not-found-page": {
+    "title": "Page not found",
+    "subtitle": "The page may have been moved or\u00A0deleted. \nCheck the\u00A0path and try again.",
+    "button-text": "Go back"
+  },
+  "server-error-page": {
+    "title": "Something went wrong",
+    "subtitle": "A server error occurred. \nPlease try again a little later.",
+    "button-text": "Go to homepage"
   }
 }
