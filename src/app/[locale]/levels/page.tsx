@@ -1,11 +1,8 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { Title } from '@/components';
 
 export default function Home() {
-  const t = useTranslations('navigation');
-
   return (
     <section>
       <div className="container">

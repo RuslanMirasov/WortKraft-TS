@@ -11,10 +11,10 @@ export default function WordPage() {
   const { level, category, word } = params;
 
   return (
-    <>
+    <div className="container">
       <Title tag="h1" size="h1">
         Page: {level} / {category} / {word}
       </Title>
-    </>
+    </div>
   );
 }

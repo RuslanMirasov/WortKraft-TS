@@ -8,7 +8,7 @@ const PopupPassword = () => {
 
   return (
     <>
-      <Title tag="h2" size="h5">
+      <Title tag="h2" size="h4">
         {tPopups('reset-password-title')}
       </Title>
       <Text color="grey" size="small" align="center">

@@ -10,7 +10,7 @@ import PWAInstallProvider from '@/shared/providers/PWAInstallProvider';
 import PWAInstallController from '@/shared/providers/PWAInstallController';
 import { ServiceWorkerRegister } from '@/components/ServiceWorkerRegister/ServiceWorkerRegister';
 
-import { Header, Popup, Main } from '@/components';
+import { Header, Footer, Popup, Main } from '@/components';
 
 import '@/styles/globals.scss';
 
@@ -80,6 +80,7 @@ export default async function LocaleLayout({
               <PWAInstallProvider />
               <PWAInstallController />
               {children}
+              <Footer />
             </Main>
             <Popup />
           </SessionProviderWrapper>

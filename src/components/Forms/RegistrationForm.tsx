@@ -39,7 +39,7 @@ const RegistrationForm = () => {
     openPopup('error', {
       title: tErrors('register-popup-error-title'),
       text: getErrorTextTranslation(tErrors, code),
-      buttonEvent: () => openPopup('register'),
+      buttonEvent: () => openPopup('login'),
     });
   };
 

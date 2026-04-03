@@ -10,6 +10,10 @@
   gap: 14px;
   padding: 20px 0px;
 
+  @media (max-width: 767px) {
+    padding-bottom: 120px;
+  }
+
   a,
   button {
     max-width: 220px;

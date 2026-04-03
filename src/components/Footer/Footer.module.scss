@@ -1,0 +1,56 @@
+.Footer {
+  display: flex;
+  position: sticky;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  min-height: 69px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+  border-top: 1px solid var(--hr);
+  box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.03);
+  background-color: var(--white);
+  padding: 14px 20px;
+  flex-shrink: 0;
+  margin-top: auto;
+  z-index: 8889;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.Copy {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--grey);
+  pointer-events: none;
+  user-select: none;
+}
+
+.Links {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 40px;
+  margin-right: 10px;
+  a {
+    font-size: 14px;
+    color: var(--black);
+    transition:
+      color 0.3s,
+      border 0.3s;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--green);
+        border-bottom: 1px solid var(--green);
+      }
+    }
+  }
+}

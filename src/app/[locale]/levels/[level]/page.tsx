@@ -11,10 +11,10 @@ export default function LavelPage() {
   const { level } = params;
 
   return (
-    <>
+    <div className="container">
       <Title tag="h1" size="h1">
         Page: {level} /
       </Title>
-    </>
+    </div>
   );
 }

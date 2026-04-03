@@ -7,7 +7,7 @@ const PopupRegister = () => {
   const openPopup = usePopup(state => state.openPopup);
   return (
     <>
-      <Title tag="h2" size="h5">
+      <Title tag="h2" size="h4">
         {tPopups('signup')}
       </Title>
       <Text color="grey" size="small" align="center">

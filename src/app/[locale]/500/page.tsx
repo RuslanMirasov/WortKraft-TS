@@ -11,7 +11,7 @@ export default function ErrorPage() {
     <CenteredMessage>
       <Image src="/img/lex/500.webp" width="330" height="330" alt="WordKraft" />
 
-      <Title align="center" size="h5">
+      <Title align="center" size="h4">
         {t('title')}
       </Title>
 

@@ -8,7 +8,7 @@ const PopupLogin = () => {
 
   return (
     <>
-      <Title tag="h2" size="h5">
+      <Title tag="h2" size="h4">
         {tPopups('signin')}
       </Title>
 

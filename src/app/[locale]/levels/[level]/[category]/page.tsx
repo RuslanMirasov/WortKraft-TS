@@ -11,10 +11,10 @@ export default function CategoryPage() {
   const { level, category } = params;
 
   return (
-    <>
+    <div className="container">
       <Title tag="h1" size="h1">
         Page: {level} / {category} /
       </Title>
-    </>
+    </div>
   );
 }

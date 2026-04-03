@@ -3,10 +3,11 @@
   flex-direction: column;
   flex: 1;
   min-height: 100svh;
-  padding: 0px 20px;
-  padding-bottom: 50px;
-  @media (max-width: 768px) {
+  background: #f7f7f7;
+
+  @media (max-width: 767px) {
     padding-top: 60px;
-    padding-bottom: 112px;
+    padding-bottom: 0px;
+    background: var(--white);
   }
 }

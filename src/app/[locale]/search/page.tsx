@@ -5,10 +5,10 @@ export default function SearchPage() {
   const t = useTranslations('navigation');
 
   return (
-    <>
+    <div className="container">
       <Title tag="h1" size="h1">
         Search
       </Title>
-    </>
+    </div>
   );
 }

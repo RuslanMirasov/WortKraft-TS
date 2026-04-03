@@ -2,6 +2,7 @@ export { default as Main } from './Main/Main';
 export { default as Icon } from './Icon/Icon';
 export { default as Header } from './Header/Header';
 export { default as Navigation } from './Navigation/Navigation';
+export { default as Footer } from './Footer/Footer';
 export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 
 // UI
@@ -47,3 +48,8 @@ export { default as OnboardingForm } from './Forms/OnboardingForm';
 // Typography
 export { default as Title } from './Title/Title';
 export { default as Text } from './Text/Text';
+
+// Policy
+export { default as PolicyDe } from './Policy/Policy_de';
+export { default as PolicyEn } from './Policy/Policy_en';
+export { default as PolicyUk } from './Policy/Policy_uk';

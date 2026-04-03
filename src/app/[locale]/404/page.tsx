@@ -13,7 +13,7 @@ export default function NotFoundPage() {
     <CenteredMessage>
       <Image src="/img/lex/404.webp" width="330" height="330" alt="WordKraft fox shows hush" />
 
-      <Title align="center" size="h5">
+      <Title align="center" size="h4">
         {t('title')}
       </Title>
 

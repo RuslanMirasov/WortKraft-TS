@@ -58,6 +58,20 @@ textarea {
   color: inherit;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong,
+button {
+  font-family: var(--medium);
+  font-weight: 400;
+  color: inherit;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -130,4 +144,11 @@ hr {
   min-height: 100%;
   max-width: 1200px;
   margin: 0px auto;
+  padding: 0px 20px 40px 20px;
+  &.mini {
+    max-width: 768px;
+  }
+  @media (max-width: 767px) {
+    padding-bottom: 110px;
+  }
 }

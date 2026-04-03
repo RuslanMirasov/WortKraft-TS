@@ -5,10 +5,10 @@ export default function StatisticPage() {
   const t = useTranslations('navigation');
 
   return (
-    <>
+    <div className="container">
       <Title tag="h1" size="h1">
         Statistic
       </Title>
-    </>
+    </div>
   );
 }

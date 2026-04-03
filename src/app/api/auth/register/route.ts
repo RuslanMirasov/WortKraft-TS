@@ -20,12 +20,14 @@ export async function POST(req: Request) {
 
   const normalizedEmail = email.toLowerCase().trim();
 
-  const existing = await AuthIdentityModel.findOne({
+  const existingUser = await UserModel.findOne({ email: normalizedEmail });
+
+  const existingAuthIdentity = await AuthIdentityModel.findOne({
     type: 'credentials',
     identifier: normalizedEmail,
   });
 
-  if (existing) {
+  if (existingUser || existingAuthIdentity) {
     return NextResponse.json({ error: 'UserAlreadyExists' }, { status: 409 });
   }
 

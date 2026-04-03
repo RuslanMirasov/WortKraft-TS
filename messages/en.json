@@ -88,5 +88,9 @@
     "title": "Something went wrong",
     "subtitle": "A server error occurred. \nPlease try again a little later.",
     "button-text": "Go to homepage"
+  },
+  "policy-terms": {
+    "policy": "Privacy Policy",
+    "terms": "Terms of Service"
   }
 }

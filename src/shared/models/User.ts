@@ -32,10 +32,10 @@ const UserSchema = new Schema(
 
     email: {
       type: String,
-      default: null,
+      required: true,
       lowercase: true,
       trim: true,
-      index: true,
+      unique: true,
     },
 
     language: {

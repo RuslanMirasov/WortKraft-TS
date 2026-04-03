@@ -81,12 +81,16 @@
   },
   "not-found-page": {
     "title": "Seite nicht gefunden",
-    "subtitle": "Vielleicht wurde die Seite verschoben \noder gelöscht. Prüfe den\u00A0Pfad und versuche\u00A0es\u00A0noch einmal.",
+    "subtitle": "Vielleicht wurde die Seite verschoben \noder gelöscht. Prüfe den\u00A0Pfad \nund versuche\u00A0es\u00A0noch einmal.",
     "button-text": "Zurück"
   },
   "server-error-page": {
     "title": "Etwas ist schiefgelaufen",
     "subtitle": "Auf dem Server ist ein Fehler aufgetreten. \nBitte versuche es etwas später noch einmal.",
     "button-text": "Zur Startseite"
+  },
+  "policy-terms": {
+    "policy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen"
   }
 }

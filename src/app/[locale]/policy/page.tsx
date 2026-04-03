@@ -1,14 +1,13 @@
-import { useTranslations } from 'next-intl';
-import { Title } from '@/components';
+import { PolicyDe, PolicyEn, PolicyUk } from '@/components';
 
-export default function PlicyPage() {
-  const t = useTranslations('navigation');
+export default async function PolicyPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
 
   return (
-    <>
-      <Title tag="h1" size="h1">
-        Privacy Policy
-      </Title>
-    </>
+    <div className="container mini">
+      {locale === 'en' && <PolicyEn />}
+      {locale === 'uk' && <PolicyUk />}
+      {locale === 'de' && <PolicyDe />}
+    </div>
   );
 }
