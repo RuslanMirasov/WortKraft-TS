@@ -2,51 +2,45 @@
 
 import { useSession } from 'next-auth/react';
 import { signOut } from 'next-auth/react';
-import { Button, Title } from '@/components';
+import { Button, Title, Text, Hero, GoBack, Avatar } from '@/components';
 
 export default function Profile() {
-  const { data: session, status } = useSession();
+  const { data: session, status = false } = useSession();
 
   if (status === 'loading') {
-    return <div>Loading session…</div>;
+    return (
+      <div className="container">
+        <div>
+          <Hero>
+            <GoBack />
+            <Title tag="h1" size="h1">
+              Hello
+              <br />
+              ...
+            </Title>
+            <Avatar email="" size="big" isLoading={true} />
+          </Hero>
+        </div>
+      </div>
+    );
   }
 
-  if (!session) {
-    return <div>No active session</div>;
-  }
+  if (!session) return;
+
+  const { role, name, email, image, language, subscriptionUntil } = session?.user;
 
   return (
     <div className="container">
-      <Title tag="h1" size="h1">
-        Profile
-      </Title>
+      <Hero>
+        <GoBack />
 
-      <div
-        style={{
-          display: 'block',
-          maxWidth: '335px',
-          position: 'relative',
-          overflow: 'hidden',
-          marginTop: 24,
-        }}
-      >
-        <pre
-          style={{
-            padding: 16,
-            background: '#eee',
-            color: '#000000',
-            borderRadius: 8,
-            overflowX: 'auto',
-            fontSize: 12,
-          }}
-        >
-          {JSON.stringify(session, null, 2)}
-        </pre>
-      </div>
-
-      <br />
-      <hr />
-      <br />
+        <Title tag="h1" size="h1">
+          Hello
+          <br />
+          {name}
+        </Title>
+        <Avatar email={email ?? ''} name={name} image={image} role={role} size="big" />
+      </Hero>
       <Button icon="logout" size="small" variant="red" onClick={() => signOut()}>
         Logout
       </Button>

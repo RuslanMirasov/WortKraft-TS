@@ -1,0 +1,21 @@
+.GoBack {
+  display: flex;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  background-color: var(--black);
+  color: var(--white);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--orange);
+    }
+  }
+}

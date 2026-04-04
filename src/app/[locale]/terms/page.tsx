@@ -1,46 +1,26 @@
-import { useTranslations } from 'next-intl';
-import { Text, Title } from '@/components';
+import { getTranslations } from 'next-intl/server';
+import { GoBack, Hero, TermsDe, TermsEn, TermsUk, Text, Title } from '@/components';
 
-export default function TermsPage() {
-  const t = useTranslations('navigation');
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function TermsPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations('policy-terms');
 
   return (
     <div className="container mini">
-      <Title tag="h1" size="h1">
-        Terms
-      </Title>
-      <hr />
-      <Text color="grey" size="small">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-      </Text>
-      <Text color="grey" size="small">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-      </Text>
-      <Text color="grey" size="small">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-      </Text>
-      <Title tag="h2" size="h5">
-        Some title
-      </Title>
-      <Text color="grey" size="small">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-      </Text>
-      <Text color="grey" size="small">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, magnam voluptas, vel soluta odio modi itaque
-        voluptatum reprehenderit ad error veniam nisi veritatis inventore est nobis temporibus in accusantium! Tempora!
-      </Text>
+      <Hero>
+        <GoBack />
+        <Title tag="h1" size="h3">
+          {t('terms')}
+        </Title>
+      </Hero>
+
+      {locale === 'en' && <TermsEn />}
+      {locale === 'uk' && <TermsUk />}
+      {locale === 'de' && <TermsDe />}
     </div>
   );
 }

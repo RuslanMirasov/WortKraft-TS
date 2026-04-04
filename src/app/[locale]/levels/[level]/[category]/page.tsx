@@ -2,19 +2,22 @@
 
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
-import { Title } from '@/components';
+import { GoBack, Hero, Title } from '@/components';
 
 export default function CategoryPage() {
   const params = useParams();
   const t = useTranslations('navigation');
 
-  const { level, category } = params;
+  const { category } = params;
 
   return (
     <div className="container">
-      <Title tag="h1" size="h1">
-        Page: {level} / {category} /
-      </Title>
+      <Hero color="green">
+        <GoBack />
+        <Title tag="h1" size="h1">
+          {category}
+        </Title>
+      </Hero>
     </div>
   );
 }

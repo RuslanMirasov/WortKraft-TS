@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
-import { Title } from '@/components';
+import { GoBack, Hero, Title } from '@/components';
 
 export default function LavelPage() {
   const params = useParams();
@@ -12,9 +12,12 @@ export default function LavelPage() {
 
   return (
     <div className="container">
-      <Title tag="h1" size="h1">
-        Page: {level} /
-      </Title>
+      <Hero color="green">
+        <GoBack />
+        <Title tag="h1" size="h1">
+          {level}
+        </Title>
+      </Hero>
     </div>
   );
 }

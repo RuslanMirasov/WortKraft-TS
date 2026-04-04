@@ -5,6 +5,7 @@ import css from './Avatar.module.scss';
 
 interface AvatarProps {
   email: string | null;
+  role?: 'free' | 'pro' | 'admin' | null;
   size?: 'big' | 'normal' | 'small';
   bg?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   image?: string | null;
@@ -16,6 +17,7 @@ const Avatar: React.FC<AvatarProps> = ({
   image,
   name,
   email = '',
+  role = null,
   size = 'normal',
   bg = 'orange',
   isLoading = false,
@@ -24,6 +26,9 @@ const Avatar: React.FC<AvatarProps> = ({
     [css.Avatar]: true,
     [css[bg]]: true,
     [css[size]]: true,
+    [css.Free]: role === 'free',
+    [css.Pro]: role === 'pro',
+    [css.Admin]: role === 'admin',
     [css.Loading]: isLoading,
     [css.WithImage]: !!image,
   });

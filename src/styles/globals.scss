@@ -10,9 +10,10 @@
   --black: #292b2d;
   --red: #e20017;
   --invalid: #fc142c;
-  --grey-light: #f0f0f0;
   --hr: #dfdfdf;
   --grey: #999a9b;
+  --grey-bg: #f1f2f4;
+  --grey-light: #f0f0f0;
   --white: #ffffff;
   --green: #4cb210;
   --orange: #ffa200;
@@ -48,9 +49,6 @@ h3,
 h4,
 h5,
 h6,
-b,
-strong,
-button,
 input,
 textarea {
   font-family: var(--regular);
@@ -58,17 +56,11 @@ textarea {
   color: inherit;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 b,
 strong,
 button {
   font-family: var(--medium);
-  font-weight: 400;
+  font-weight: 500;
   color: inherit;
 }
 

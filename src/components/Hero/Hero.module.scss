@@ -1,0 +1,26 @@
+.Hero {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 14px;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 30px;
+
+  &.Green {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  &.Grey {
+    background: var(--grey-bg);
+    color: var(--black);
+  }
+}

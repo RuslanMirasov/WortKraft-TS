@@ -485,10 +485,20 @@ const SidebarIcon: React.FC<SvgPropTypes> = ({ size = 34, stroke }) => (
   </svg>
 );
 
+const GoBack: React.FC<SvgPropTypes> = ({ size = 32, stroke }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M9.29289 15.2929C8.90237 15.6834 8.90237 16.3166 9.29289 16.7071L15.6569 23.0711C16.0474 23.4616 16.6805 23.4616 17.0711 23.0711C17.4616 22.6805 17.4616 22.0474 17.0711 21.6569L11.4142 16L17.0711 10.3431C17.4616 9.95262 17.4616 9.31946 17.0711 8.92893C16.6805 8.53841 16.0474 8.53841 15.6569 8.92893L9.29289 15.2929ZM25 15L10 15L10 17L25 17L25 15Z"
+      fill={stroke}
+    />
+  </svg>
+);
+
 const Icon: React.FC<IconPropTypes> = ({ name, fill, stroke = 'currentColor', size }) => {
   return (
     <>
       {name === 'logo' && <Logo size={size} />}
+      {name === 'go-back' && <GoBack size={size} stroke={stroke} />}
       {name === 'user' && <User size={size} fill={fill} stroke={stroke} />}
       {name === 'pencil' && <Pencil size={size} stroke={stroke} />}
       {name === 'home' && <Home size={size} stroke={stroke} />}

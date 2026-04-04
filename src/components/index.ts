@@ -8,6 +8,7 @@ export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher
 // UI
 export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
 export { default as DownloadInstruction } from './DownloadInstruction/DownloadInstruction';
+export { default as Hero } from './Hero/Hero';
 
 // Profile
 export { default as Avatar } from './Profile/Avatar/Avatar';
@@ -28,6 +29,7 @@ export { default as Buttons } from './Buttons/Buttons/Buttons';
 export { default as ButtonGoogle } from './Buttons/ButtonGoogle/ButtonGoogle';
 export { default as ButtonProfile } from './Buttons/ButtonProfile/ButtonProfile';
 export { default as ButtonMenu } from './Buttons/ButtonMenu/ButtonMenu';
+export { default as GoBack } from './Buttons/GoBack/GoBack';
 
 // Forms
 export { default as Form } from './Forms/Form/Form';
@@ -53,3 +55,6 @@ export { default as Text } from './Text/Text';
 export { default as PolicyDe } from './Policy/Policy_de';
 export { default as PolicyEn } from './Policy/Policy_en';
 export { default as PolicyUk } from './Policy/Policy_uk';
+export { default as TermsDe } from './Policy/Terms_de';
+export { default as TermsEn } from './Policy/Terms_en';
+export { default as TermsUk } from './Policy/Terms_uk';

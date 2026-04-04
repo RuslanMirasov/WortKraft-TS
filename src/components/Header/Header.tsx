@@ -50,6 +50,14 @@ const Header = () => {
       )}
 
       <div className={css.ProfileButtons}>
+        {session?.user.role === 'admin' && (
+          <div className={`${css.Inner} ${css.Bt}`}>
+            <ButtonMenu href="/admin" icon="admin" active={isActivePage('/admin')}>
+              {t('admin')}
+            </ButtonMenu>
+          </div>
+        )}
+
         {!session && (
           <div className={`${css.Inner} ${css.Bt}`}>
             <ButtonMenu icon="login" onClick={() => openPopup('login')}>
@@ -61,14 +69,6 @@ const Header = () => {
         {session && (
           <div className={`${css.Inner} ${css.Bt}`}>
             <ButtonProfile />
-          </div>
-        )}
-
-        {session?.user.role === 'admin' && (
-          <div className={`${css.Inner} ${css.Bt}`}>
-            <ButtonMenu href="/admin" icon="admin" active={isActivePage('/admin')}>
-              {t('admin')}
-            </ButtonMenu>
           </div>
         )}
       </div>

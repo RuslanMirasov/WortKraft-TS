@@ -12,13 +12,13 @@ const ButtonProfile = () => {
 
   return (
     <Link href="./profile" className={css.ButtonProfile}>
-      <Avatar email={email ?? ''} name={name} image={image} bg={role !== 'free' ? 'green' : 'orange'} />
+      <Avatar email={email ?? ''} name={name} image={image} role={role} />
       <div className={css.Texts}>
         <Text color="black">{name || email}</Text>
         <Text size="small" color={role !== 'free' ? 'green' : 'grey-light'}>
-          {role == 'free' && 'Free accaunt'}
-          {role == 'pro' && 'Pro accaunt'}
-          {role == 'admin' && 'Admin accaunt'}
+          {role == 'free' && 'Free'}
+          {role == 'pro' && 'Pro'}
+          {role == 'admin' && 'Admin'}
         </Text>
       </div>
     </Link>
