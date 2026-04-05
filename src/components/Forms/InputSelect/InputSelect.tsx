@@ -1,6 +1,6 @@
 'use client';
 
-import { useFormContext, UseFormReturn, FieldValues } from 'react-hook-form';
+import { useFormContext, useWatch } from 'react-hook-form';
 import { InputSelectProps } from '@/types/inputs';
 import { useState, useRef, useEffect } from 'react';
 import { Icon, Text, Label } from '../../../components';
@@ -17,25 +17,25 @@ const InputSelect: React.FC<InputSelectProps> = ({
   value,
   onChange,
 }) => {
-  let formContext: UseFormReturn<FieldValues> | null = null;
-  try {
-    formContext = useFormContext();
-  } catch {
-    formContext = null;
-  }
+  const formContext = useFormContext();
 
-  const error = formContext ? formContext.formState.errors[name] : propsError;
+  const error = formContext.formState.errors[name] ?? propsError;
 
-  const registerProps = formContext ? formContext.register(name) : {};
-  const [selectedValue, setSelectedValue] = useState<string>(typeof value === 'string' ? value : '');
+  const registerProps = formContext.register(name);
+  const selectedValue = useWatch({
+    control: formContext.control,
+    name,
+    defaultValue: typeof value === 'string' ? value : '',
+  });
+
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
 
   const selectedOption = options.find(option => option.value === selectedValue);
 
-  const handleOptionClick = (optionValue: string) => {
-    setSelectedValue(optionValue);
-    //setIsOpen(false);
+  const handleOptionClick = (event: React.MouseEvent<HTMLLIElement>, optionValue: string) => {
+    event.preventDefault();
+    event.stopPropagation();
 
     if (onChange) {
       const syntheticEvent = {
@@ -45,10 +45,12 @@ const InputSelect: React.FC<InputSelectProps> = ({
       onChange(syntheticEvent);
     }
 
-    if (formContext) {
-      formContext.setValue(name, optionValue);
-      formContext.trigger(name);
-    }
+    formContext.setValue(name, optionValue, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true,
+    });
+    setIsOpen(false);
   };
 
   useEffect(() => {
@@ -70,7 +72,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
   return (
     <Label label={label} required={required} error={typeof error === 'string' ? error : (error as any)?.message}>
       <div className={`${css.InputSelect} ${isOpen ? css.Open : ''} ${disabled ? css.Disabled : ''}`} ref={selectRef}>
-        <input type="hidden" name={name} value={selectedValue} {...registerProps} />
+        <input type="hidden" {...registerProps} value={selectedValue ?? ''} />
         <button
           type="button"
           className={`${css.Button} ${isOpen ? css.Open : ''} ${error ? css.Invalid : ''}`}
@@ -93,7 +95,7 @@ const InputSelect: React.FC<InputSelectProps> = ({
             <div className={`${css.DropdownScrollArea} custom-scrollbar`}>
               <ul>
                 {options.map((option, index) => (
-                  <li key={index} onClick={() => handleOptionClick(option.value)}>
+                  <li key={index} onMouseDown={event => handleOptionClick(event, option.value)}>
                     {option.label}
                   </li>
                 ))}

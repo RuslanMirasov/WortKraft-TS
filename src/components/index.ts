@@ -37,6 +37,7 @@ export { default as Label } from './Forms/Label/Label';
 export { default as Fieldset } from './Forms/Fieldset/Fieldset';
 export { default as Input } from './Forms/Input/Input';
 export { default as InputDefault } from './Forms/InputDefault/InputDefault';
+export { default as InputPassword } from './Forms/InputPassword/InputPassword';
 export { default as InputTextarea } from './Forms/InputTextarea/InputTextarea';
 export { default as InputHidden } from './Forms/InputHidden/InputHidden';
 export { default as InputSelect } from './Forms/InputSelect/InputSelect';
@@ -46,6 +47,7 @@ export { default as LoginForm } from './Forms/LoginForm';
 export { default as RegistrationForm } from './Forms/RegistrationForm';
 export { default as PasswordForm } from './Forms/PasswordForm';
 export { default as OnboardingForm } from './Forms/OnboardingForm';
+export { default as ProfileUpdateForm } from './Forms/ProfileUpdateForm';
 
 // Typography
 export { default as Title } from './Title/Title';

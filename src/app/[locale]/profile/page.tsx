@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { signOut } from 'next-auth/react';
-import { Button, Title, Text, Hero, GoBack, Avatar } from '@/components';
+import { Button, Title, Hero, GoBack, Avatar, ProfileUpdateForm } from '@/components';
 
 export default function Profile() {
   const { data: session, status = false } = useSession();
@@ -41,6 +41,15 @@ export default function Profile() {
         </Title>
         <Avatar email={email ?? ''} name={name} image={image} role={role} size="big" />
       </Hero>
+
+      <ProfileUpdateForm
+        fields={{
+          name: name ?? '',
+          email: email ?? '',
+          language: language ?? '',
+        }}
+      />
+
       <Button icon="logout" size="small" variant="red" onClick={() => signOut()}>
         Logout
       </Button>

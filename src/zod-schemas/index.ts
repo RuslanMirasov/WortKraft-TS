@@ -16,6 +16,13 @@ const password = z
   .regex(/[a-z]/, 'password-lowercase')
   .regex(/[0-9]/, 'password-number');
 
+const newpassword = z
+  .string()
+  .min(6, 'password-minLength')
+  .regex(/[A-Z]/, 'password-uppercase')
+  .regex(/[a-z]/, 'password-lowercase')
+  .regex(/[0-9]/, 'password-number');
+
 const language = z.string().min(1, 'language-required');
 
 const subject = z.string().optional();
@@ -53,7 +60,19 @@ export const onboardingSchema = z.object({
   terms,
 });
 
+export const profileUpdateSchema = z.object({
+  name,
+  email,
+  language,
+});
+
+export const passwordUpdateSchema = z.object({
+  password,
+  newpassword,
+});
+
 export type LoginFormData = z.infer<typeof loginSchema>;
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
 export type PasswordFormData = z.infer<typeof passwordSchema>;
-export type OnboardingFormData = z.infer<typeof onboardingSchema>;
+export type ProfileUpdateFormData = z.infer<typeof profileUpdateSchema>;
+export type PasswordUpdateFormData = z.infer<typeof passwordUpdateSchema>;
