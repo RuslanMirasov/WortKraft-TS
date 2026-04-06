@@ -128,7 +128,9 @@
 @media (max-width: 767px) {
   .LanguageSwitcher {
     display: inline-flex;
-    width: auto;
+    width: 58px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
     font-size: 14px;
     padding: 6px 7px 6px 7px;
 

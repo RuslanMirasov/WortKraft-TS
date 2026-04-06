@@ -98,7 +98,25 @@
 }
 
 @media (max-width: 767px) {
-  .Texts {
-    display: none;
+  .ButtonProfile {
+    > * {
+      order: 2;
+    }
+    .Texts {
+      order: 1;
+      p {
+        text-align: right;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:first-child {
+          max-width: 86px;
+          font-size: 13px;
+        }
+        &:last-child {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
