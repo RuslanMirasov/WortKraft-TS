@@ -74,5 +74,6 @@ export const passwordUpdateSchema = z.object({
 export type LoginFormData = z.infer<typeof loginSchema>;
 export type RegistrationFormData = z.infer<typeof registrationSchema>;
 export type PasswordFormData = z.infer<typeof passwordSchema>;
+export type OnboardingFormData = z.infer<typeof onboardingSchema>;
 export type ProfileUpdateFormData = z.infer<typeof profileUpdateSchema>;
 export type PasswordUpdateFormData = z.infer<typeof passwordUpdateSchema>;
