@@ -9,19 +9,21 @@ const name = z
 
 const email = z.string().min(1, 'email-required').email('email-invalid');
 
-const password = z
+const passwordRules = z
   .string()
   .min(6, 'password-minLength')
+  .regex(/^[^\u0400-\u04FF]*$/, 'password-no-cyrillic')
   .regex(/[A-Z]/, 'password-uppercase')
   .regex(/[a-z]/, 'password-lowercase')
   .regex(/[0-9]/, 'password-number');
 
-const newpassword = z
-  .string()
-  .min(6, 'password-minLength')
-  .regex(/[A-Z]/, 'password-uppercase')
-  .regex(/[a-z]/, 'password-lowercase')
-  .regex(/[0-9]/, 'password-number');
+const password = passwordRules;
+
+const oldpassword = z.union([z.literal(''), passwordRules]);
+
+const newpassword = passwordRules;
+
+const newpasswordconfirm = passwordRules;
 
 const language = z.string().min(1, 'language-required');
 
@@ -66,10 +68,27 @@ export const profileUpdateSchema = z.object({
   language,
 });
 
-export const passwordUpdateSchema = z.object({
-  password,
-  newpassword,
-});
+export const passwordUpdateSchema = z
+  .object({
+    oldpassword,
+    newpassword,
+    newpasswordconfirm,
+  })
+  .superRefine((data, ctx) => {
+    if (data.newpassword === data.newpasswordconfirm) return;
+
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: 'passwords-must-match',
+      path: ['newpassword'],
+    });
+
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: 'passwords-must-match',
+      path: ['newpasswordconfirm'],
+    });
+  });
 
 export type LoginFormData = z.infer<typeof loginSchema>;
 export type RegistrationFormData = z.infer<typeof registrationSchema>;

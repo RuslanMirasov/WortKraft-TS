@@ -2,7 +2,17 @@
 
 import { useSession } from 'next-auth/react';
 import { signOut } from 'next-auth/react';
-import { Button, Title, Hero, GoBack, Avatar, ProfileUpdateForm } from '@/components';
+import {
+  Button,
+  Title,
+  Hero,
+  GoBack,
+  Avatar,
+  ProfileUpdateForm,
+  PasswordUpdateForm,
+  ProfileBody,
+  ProfileSidebar,
+} from '@/components';
 
 export default function Profile() {
   const { data: session, status = false } = useSession();
@@ -33,7 +43,6 @@ export default function Profile() {
     <div className="container">
       <Hero>
         <GoBack />
-
         <Title tag="h1" size="h1">
           Hello
           <br />
@@ -42,17 +51,30 @@ export default function Profile() {
         <Avatar email={email ?? ''} name={name} image={image} role={role} size="big" />
       </Hero>
 
-      <ProfileUpdateForm
-        fields={{
-          name: name ?? '',
-          email: email ?? '',
-          language: language ?? '',
-        }}
-      />
+      <ProfileBody>
+        <ProfileUpdateForm
+          fields={{
+            name: name ?? '',
+            email: email ?? '',
+            language: language ?? '',
+          }}
+        />
 
-      <Button icon="logout" size="small" variant="red" onClick={() => signOut()}>
-        Logout
-      </Button>
+        <PasswordUpdateForm />
+
+        <ProfileSidebar>
+          <Title tag="h2" size="h3">
+            Gefährliche Zone
+          </Title>
+          <hr />
+          <Button icon="login" size="small" full onClick={() => signOut()}>
+            Logout
+          </Button>
+          <Button icon="user" size="small" full variant="red" onClick={() => console.log('Удаляем аккаунт')}>
+            Account löschen
+          </Button>
+        </ProfileSidebar>
+      </ProfileBody>
     </div>
   );
 }

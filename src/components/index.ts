@@ -48,10 +48,16 @@ export { default as RegistrationForm } from './Forms/RegistrationForm';
 export { default as PasswordForm } from './Forms/PasswordForm';
 export { default as OnboardingForm } from './Forms/OnboardingForm';
 export { default as ProfileUpdateForm } from './Forms/ProfileUpdateForm';
+export { default as PasswordUpdateForm } from './Forms/PasswordUpdateForm';
 
 // Typography
 export { default as Title } from './Title/Title';
 export { default as Text } from './Text/Text';
+
+// Profile
+export { default as ProfileBody } from './Profile/ProfileBody/ProfileBody';
+export { default as ProfileContent } from './Profile/ProfileContent/ProfileContent';
+export { default as ProfileSidebar } from './Profile/ProfileSidebar/ProfileSidebar';
 
 // Policy
 export { default as PolicyDe } from './Policy/Policy_de';

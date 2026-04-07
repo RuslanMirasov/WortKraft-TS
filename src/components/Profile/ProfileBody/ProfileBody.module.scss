@@ -1,0 +1,25 @@
+.ProfileBody {
+  display: flex;
+  flex: 1;
+  position: relative;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 32px 50px;
+  margin-top: 12px;
+
+  @media (max-width: 1279px) {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    max-width: 375px;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin: 0px auto;
+  }
+}

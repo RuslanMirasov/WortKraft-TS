@@ -22,6 +22,8 @@ const dmsansLight = localFont({
   weight: '300',
   display: 'swap',
   preload: true,
+  adjustFontFallback: false,
+  fallback: ['system-ui', 'Inter', 'Roboto', 'sans-serif'],
 });
 
 const dmsansRegular = localFont({
@@ -30,6 +32,8 @@ const dmsansRegular = localFont({
   weight: '400',
   display: 'swap',
   preload: true,
+  adjustFontFallback: false,
+  fallback: ['system-ui', 'Inter', 'Roboto', 'sans-serif'],
 });
 
 const dmsansMedium = localFont({
@@ -38,6 +42,8 @@ const dmsansMedium = localFont({
   weight: '500',
   display: 'swap',
   preload: true,
+  adjustFontFallback: false,
+  fallback: ['system-ui', 'Inter', 'Roboto', 'sans-serif'],
 });
 
 /* ================= METADATA ================= */

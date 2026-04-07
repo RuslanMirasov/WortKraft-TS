@@ -1,0 +1,16 @@
+.ProfileSidebar {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (max-width: 1279px) {
+    max-width: calc(50% - (32px / 2));
+  }
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
+}

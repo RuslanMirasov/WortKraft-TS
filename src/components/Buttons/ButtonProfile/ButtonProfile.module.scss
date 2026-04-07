@@ -111,7 +111,8 @@
         text-overflow: ellipsis;
         &:first-child {
           max-width: 86px;
-          font-size: 13px;
+          font-size: 14px;
+          margin-left: auto;
         }
         &:last-child {
           font-size: 12px;

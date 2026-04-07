@@ -1,0 +1,11 @@
+.ProfileContent {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
