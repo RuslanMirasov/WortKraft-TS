@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { profileUpdateSchema } from '@/zod-schemas';
+import { passwordUpdateSchema } from '@/zod-schemas';
 import { getCurrentUser } from '@/shared/lib/helpers/getCurrentUser';
 
 export async function PATCH(req: Request) {
@@ -13,15 +13,16 @@ export async function PATCH(req: Request) {
     const { user } = currentUser;
 
     const body = await req.json();
-    const parsed = profileUpdateSchema.safeParse(body);
+    const parsed = passwordUpdateSchema.safeParse(body);
 
     if (!parsed.success) {
       return NextResponse.json({ error: 'FormValidationError' }, { status: 400 });
     }
 
-    user.name = parsed.data.name ?? '';
-    user.language = parsed.data.language;
-    await user.save();
+    console.log(user);
+    //  user.name = parsed.data.name ?? '';
+    //  user.language = parsed.data.language;
+    //  await user.save();
 
     return NextResponse.json({
       ok: true,

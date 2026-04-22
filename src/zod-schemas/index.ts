@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { LANGUAGES } from '@/shared/config/user';
 
 const name = z
   .string()
@@ -25,7 +26,14 @@ const newpassword = passwordRules;
 
 const newpasswordconfirm = passwordRules;
 
-const language = z.string().min(1, 'language-required');
+const language = z
+  .string()
+  .min(1, 'language-required')
+  .pipe(
+    z.enum(LANGUAGES, {
+      errorMap: () => ({ message: 'language-required' }),
+    })
+  );
 
 const subject = z.string().optional();
 
@@ -90,9 +98,9 @@ export const passwordUpdateSchema = z
     });
   });
 
-export type LoginFormData = z.infer<typeof loginSchema>;
-export type RegistrationFormData = z.infer<typeof registrationSchema>;
-export type PasswordFormData = z.infer<typeof passwordSchema>;
-export type OnboardingFormData = z.infer<typeof onboardingSchema>;
-export type ProfileUpdateFormData = z.infer<typeof profileUpdateSchema>;
-export type PasswordUpdateFormData = z.infer<typeof passwordUpdateSchema>;
+export type LoginFormData = z.input<typeof loginSchema>;
+export type RegistrationFormData = z.input<typeof registrationSchema>;
+export type PasswordFormData = z.input<typeof passwordSchema>;
+export type OnboardingFormData = z.input<typeof onboardingSchema>;
+export type ProfileUpdateFormData = z.input<typeof profileUpdateSchema>;
+export type PasswordUpdateFormData = z.input<typeof passwordUpdateSchema>;

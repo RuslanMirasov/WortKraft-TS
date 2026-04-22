@@ -14,6 +14,16 @@ type GoogleProfile = {
   picture?: string;
 };
 
+async function hasCredentialsPassword(userId: string) {
+  const identity = await AuthIdentityModel.findOne({
+    userId,
+    type: 'credentials',
+    revokedAt: null,
+  }).select('_id');
+
+  return !!identity;
+}
+
 export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
@@ -70,6 +80,7 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           image: user.image,
           language: user.language,
+          hasPassword: true,
           subscriptionUntil: user.subscriptionUntil,
         };
       },
@@ -141,6 +152,7 @@ export const authOptions: NextAuthOptions = {
       user.email = dbUser!.email;
       user.image = dbUser!.image;
       user.language = dbUser!.language;
+      user.hasPassword = await hasCredentialsPassword(dbUser!._id.toString());
       user.subscriptionUntil = dbUser!.subscriptionUntil;
 
       return true;
@@ -155,6 +167,7 @@ export const authOptions: NextAuthOptions = {
         token.email = user.email;
         token.image = user.image;
         token.language = user.language;
+        token.hasPassword = user.hasPassword;
         token.subscriptionUntil = user.subscriptionUntil;
       }
 
@@ -167,6 +180,7 @@ export const authOptions: NextAuthOptions = {
           token.role = dbUser.role;
           token.name = dbUser.name;
           token.language = dbUser.language;
+          token.hasPassword = await hasCredentialsPassword(token.sub);
           token.subscriptionUntil = dbUser.subscriptionUntil;
         }
       }
@@ -185,6 +199,7 @@ export const authOptions: NextAuthOptions = {
         email: token.email,
         image: token.image,
         language: token.language,
+        hasPassword: token.hasPassword,
         subscriptionUntil: token.subscriptionUntil,
       };
 

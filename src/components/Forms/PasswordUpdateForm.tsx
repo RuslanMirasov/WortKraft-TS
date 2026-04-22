@@ -9,9 +9,10 @@ import { Form, Input, Button, Title, ProfileContent, Skeleton } from '@/componen
 import { useEffect, useMemo, useState } from 'react';
 
 const PasswordUpdateForm = () => {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const tProfile = useTranslations('profile');
   const tForms = useTranslations('forms');
+  const hasPassword = session?.user?.hasPassword ?? false;
   const [loading, setLoading] = useState(false);
   const initialValues = useMemo<PasswordUpdateFormData>(
     () => ({
@@ -88,7 +89,12 @@ const PasswordUpdateForm = () => {
         )}
         {status !== 'loading' && (
           <>
-            <Input type="password" name="oldpassword" placeholder={tForms('oldpassword-placeholder')} />
+            <Input
+              type="password"
+              name="oldpassword"
+              placeholder={tForms('oldpassword-placeholder')}
+              disabled={!hasPassword}
+            />
             <Input type="password" name="newpassword" placeholder={tForms('newpassword-placeholder')} />
             <Input type="password" name="newpasswordconfirm" placeholder={tForms('newpasswordconfirm-placeholder')} />
 

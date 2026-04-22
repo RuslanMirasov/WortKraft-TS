@@ -7,6 +7,7 @@ declare module 'next-auth' {
       role?: 'free' | 'pro' | 'admin';
       status?: string;
       language?: string;
+      hasPassword?: boolean;
       subscriptionUntil?: string | null;
       name?: string | null;
       email?: string | null;
@@ -20,6 +21,7 @@ declare module 'next-auth' {
     role: 'free' | 'pro' | 'admin';
     status: string;
     language: string;
+    hasPassword?: boolean;
     hasRequiredConsents?: boolean;
     subscriptionUntil: string | null;
   }
@@ -31,6 +33,7 @@ declare module 'next-auth/jwt' {
     role?: 'free' | 'pro' | 'admin';
     status?: string;
     language?: string;
+    hasPassword?: boolean;
     subscriptionUntil?: string | null;
     name?: string | null;
     email?: string | null;
