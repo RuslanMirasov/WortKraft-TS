@@ -15,6 +15,7 @@ import {
   PopupPolicy,
   PopupTerms,
   PopupDownload,
+  PopupMessage,
 } from '@/components';
 
 const Popup = () => {
@@ -78,7 +79,8 @@ const Popup = () => {
     id === 'error' && css.Error,
     id === 'policy' && css.Policy,
     id === 'terms' && css.Policy,
-    id === 'download' && css.Download
+    id === 'download' && css.Download,
+    id === 'message' && css.Message
   );
 
   return createPortal(
@@ -102,6 +104,7 @@ const Popup = () => {
         {id === 'register' && <PopupRegister />}
         {id === 'password' && <PopupPassword />}
         {id === 'error' && <PopupError options={options} />}
+        {id === 'message' && <PopupMessage options={options} />}
         {id === 'policy' && <PopupPolicy />}
         {id === 'terms' && <PopupTerms />}
         {id === 'download' && <PopupDownload />}

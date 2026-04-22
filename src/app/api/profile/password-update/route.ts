@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { passwordUpdateSchema } from '@/zod-schemas';
 import { getCurrentUser } from '@/shared/lib/helpers/getCurrentUser';
+import AuthIdentityModel from '@/shared/models/AuthIdentity';
 
 export async function PATCH(req: Request) {
   try {
@@ -19,10 +20,35 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ error: 'FormValidationError' }, { status: 400 });
     }
 
-    console.log(user);
-    //  user.name = parsed.data.name ?? '';
-    //  user.language = parsed.data.language;
-    //  await user.save();
+    const credentialsIdentity = await AuthIdentityModel.findOne({
+      userId: user._id,
+      type: 'credentials',
+      revokedAt: null,
+    }).select('+passwordHash');
+
+    if (credentialsIdentity) {
+      if (!parsed.data.oldpassword) {
+        return NextResponse.json({ error: 'OldPasswordRequired' }, { status: 400 });
+      }
+
+      const isValidOldPassword = await credentialsIdentity.comparePassword(parsed.data.oldpassword);
+
+      if (!isValidOldPassword) {
+        return NextResponse.json({ error: 'InvalidOldPassword' }, { status: 400 });
+      }
+
+      credentialsIdentity.passwordHash = parsed.data.newpassword;
+      credentialsIdentity.verifiedAt = credentialsIdentity.verifiedAt ?? new Date();
+      await credentialsIdentity.save();
+    } else {
+      await AuthIdentityModel.create({
+        userId: user._id,
+        type: 'credentials',
+        identifier: user.email,
+        passwordHash: parsed.data.newpassword,
+        verifiedAt: new Date(),
+      });
+    }
 
     return NextResponse.json({
       ok: true,

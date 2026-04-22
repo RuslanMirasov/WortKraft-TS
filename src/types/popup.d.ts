@@ -11,7 +11,7 @@ export interface PopupStore {
 }
 
 type BasePopupId = 'login' | 'register' | 'password' | 'policy' | 'terms' | 'download';
-type CustomPopupId = 'confirm' | 'error';
+type CustomPopupId = 'confirm' | 'error' | 'message';
 
 export interface BasePopupOptions {
   freeze?: boolean;
@@ -19,6 +19,7 @@ export interface BasePopupOptions {
 }
 
 export interface CustomPopupOptions extends BasePopupOptions {
+  image?: string;
   icon?: string;
   title?: string;
   text?: string;

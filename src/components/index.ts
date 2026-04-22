@@ -20,6 +20,7 @@ export { default as PopupError } from './Popups/PopupError';
 export { default as PopupPolicy } from './Popups/PopupPolicy';
 export { default as PopupTerms } from './Popups/PopupTerms';
 export { default as PopupDownload } from './Popups/PopupDownload';
+export { default as PopupMessage } from './Popups/PopupMessage';
 
 // Buttons
 export { default as Button } from './Buttons/Button/Button';

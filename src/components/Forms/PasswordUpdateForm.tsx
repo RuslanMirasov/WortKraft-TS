@@ -1,19 +1,24 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { usePopup } from '@/stores/popup-store';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { passwordUpdateSchema, PasswordUpdateFormData } from '@/zod-schemas';
 import { Form, Input, Button, Title, ProfileContent, Skeleton } from '@/components';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
+import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
+import { updatePassword } from '@/shared/lib/api/updatePassword';
+import { useRequest } from '@/shared/hooks/useRequest';
 
 const PasswordUpdateForm = () => {
-  const { data: session, status } = useSession();
+  const { data: session, status, update } = useSession();
   const tProfile = useTranslations('profile');
   const tForms = useTranslations('forms');
+  const tErrors = useTranslations('errors');
   const hasPassword = session?.user?.hasPassword ?? false;
-  const [loading, setLoading] = useState(false);
+  const openPopup = usePopup(state => state.openPopup);
   const initialValues = useMemo<PasswordUpdateFormData>(
     () => ({
       oldpassword: '',
@@ -60,14 +65,33 @@ const PasswordUpdateForm = () => {
     void form.trigger(['newpassword', 'newpasswordconfirm']);
   }, [form, newpassword, newpasswordconfirm, newpasswordErrorMessage, newpasswordconfirmErrorMessage]);
 
+  const handleError = (error: unknown) => {
+    const code = error instanceof Error ? error.message : undefined;
+
+    openPopup('error', {
+      title: tErrors('password-update-error-title'),
+      text: getErrorTextTranslation(tErrors, code),
+    });
+  };
+
+  const { run, loading } = useRequest(updatePassword, {
+    preventParallel: true,
+    onError: handleError,
+  });
+
   const onSubmit = async (data: PasswordUpdateFormData) => {
-    setLoading(true);
     try {
-      console.log('Обновляем пароль');
-      console.log(data);
-    } finally {
-      setLoading(false);
-    }
+      await run(data);
+      await update();
+      form.reset(initialValues);
+      openPopup('message', {
+        freeze: true,
+        image: '/img/lex/success.webp',
+        title: tProfile('password-updated-title'),
+        text: tProfile('password-updated-text'),
+        buttonText: tProfile('updated-btn'),
+      });
+    } catch {}
   };
 
   return (

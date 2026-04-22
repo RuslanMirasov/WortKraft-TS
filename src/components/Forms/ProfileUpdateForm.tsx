@@ -63,8 +63,17 @@ const ProfileUpdateForm = () => {
   });
 
   const onSubmit = async (data: ProfileUpdateFormData) => {
-    await run(data);
-    await update();
+    try {
+      await run(data);
+      await update();
+      openPopup('message', {
+        freeze: true,
+        image: '/img/lex/success.webp',
+        title: tProfile('profile-updated-title'),
+        text: tProfile('profile-updated-text'),
+        buttonText: tProfile('updated-btn'),
+      });
+    } catch {}
   };
 
   return (
