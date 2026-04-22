@@ -16,6 +16,7 @@
   "errors": {
     "login-popup-error-title": "Anmeldefehler",
     "onboarding-popup-error-title": "Einrichtungsfehler",
+    "profile-update-error-title": "Aktualisierungsfehler",
     "register-popup-error-title": "Registrierungsfehler",
     "default-popup-error-title": "Ein Fehler",
     "default-popup-error-text": "Etwas ist schiefgelaufen. \nBitte versuchen Sie \nes später erneut.",
@@ -23,6 +24,8 @@
     "CredentialsSignin": "Ungültige E-Mail oder Passwort.",
     "AccessDenied": "Sie haben keinen Zugriff auf dieses Konto. Das Konto ist möglicherweise eingeschränkt oder noch nicht aktiviert.",
     "Configuration": "Ein technischer Fehler ist aufgetreten. \nBitte versuchen Sie es später erneut.",
+    "RegistrationFailed": "Wir konnten Ihre Registrierung nicht abschließen. Bitte versuchen Sie es erneut.",
+    "ProfileUpdateFailed": "Wir konnten Ihre Profiländerungen nicht speichern. Bitte versuchen Sie es erneut.",
     "RegisterValidationError": "Nicht alle Pflichtfelder wurden korrekt ausgefüllt. Bitte überprüfen Sie das Formular und versuchen Sie es erneut.",
     "ConsentsRequired": "Um ein Konto zu erstellen, müssen Sie die Nutzungsbedingungen und die Datenschutzerklärung akzeptieren.",
     "UserAlreadyExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits. Melden Sie sich an oder setzen Sie Ihr Passwort zurück.",
@@ -41,6 +44,7 @@
     "terms-required": "Bitte akzeptieren Sie die Nutzungsbedingungen",
     "Unauthorized": "Die Sitzung ist abgelaufen oder der Zugriff ist nicht erlaubt. Bitte melden Sie sich erneut an.",
     "OnboardingValidationError": "Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Einwilligungen.",
+    "FormValidationError": "Bitte füllen Sie alle Pflichtfelder aus.",
     "UserNotFound": "Der Benutzer wurde nicht gefunden oder der Zugriff auf das Konto ist eingeschränkt."
   },
   "popups": {
@@ -99,5 +103,12 @@
   "policy-terms": {
     "policy": "Datenschutzerklärung",
     "terms": "Nutzungsbedingungen"
+  },
+  "profile": {
+    "profile-settings-title": "Profil Einstellungen",
+    "password-settings-title": "Passwort ändern",
+    "logout-settings-title": "Gefährliche Zone",
+    "logout-button-text": "Abmelden",
+    "delete-button-text": "Account löschen"
   }
 }

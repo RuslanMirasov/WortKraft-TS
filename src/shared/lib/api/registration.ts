@@ -13,18 +13,11 @@ export async function registration(data: RegistrationFormData): Promise<Registra
     body: JSON.stringify(data),
   });
 
+  const body = await res.json();
+
   if (!res.ok) {
-    let errorCode = 'RegistrationFailed';
-
-    try {
-      const body = await res.json();
-      if (body?.error) {
-        errorCode = body.error;
-      }
-    } catch {}
-
-    throw new Error(errorCode);
+    throw new Error(body?.error || 'RegistrationFailed');
   }
 
-  return { ok: true };
+  return body;
 }

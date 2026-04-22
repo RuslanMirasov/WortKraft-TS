@@ -1,13 +1,16 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { passwordUpdateSchema, PasswordUpdateFormData } from '@/zod-schemas';
-import { Form, Input, Button, Title, ProfileContent } from '@/components';
+import { Form, Input, Button, Title, ProfileContent, Skeleton } from '@/components';
 import { useEffect, useMemo, useState } from 'react';
 
 const PasswordUpdateForm = () => {
+  const { status } = useSession();
+  const tProfile = useTranslations('profile');
   const tForms = useTranslations('forms');
   const [loading, setLoading] = useState(false);
   const initialValues = useMemo<PasswordUpdateFormData>(
@@ -69,19 +72,31 @@ const PasswordUpdateForm = () => {
   return (
     <ProfileContent>
       <Title tag="h2" size="h3">
-        Passwort ändern
+        {tProfile('password-settings-title')}
       </Title>
 
       <hr />
 
       <Form form={form} onSubmit={onSubmit} loading={loading}>
-        <Input type="password" name="oldpassword" placeholder={tForms('oldpassword-placeholder')} />
-        <Input type="password" name="newpassword" placeholder={tForms('newpassword-placeholder')} />
-        <Input type="password" name="newpasswordconfirm" placeholder={tForms('newpasswordconfirm-placeholder')} />
+        {status === 'loading' && (
+          <>
+            <Skeleton height="48px" radius="48px" />
+            <Skeleton height="48px" radius="48px" />
+            <Skeleton height="48px" radius="48px" />
+            <Skeleton height="48px" radius="48px" />
+          </>
+        )}
+        {status !== 'loading' && (
+          <>
+            <Input type="password" name="oldpassword" placeholder={tForms('oldpassword-placeholder')} />
+            <Input type="password" name="newpassword" placeholder={tForms('newpassword-placeholder')} />
+            <Input type="password" name="newpasswordconfirm" placeholder={tForms('newpasswordconfirm-placeholder')} />
 
-        <Button size="small" variant="green" icon="arrow-right" full loading={loading} disabled={!hasChanges}>
-          {tForms('update-button-text')}
-        </Button>
+            <Button size="small" variant="green" icon="arrow-right" full loading={loading} disabled={!hasChanges}>
+              {tForms('update-button-text')}
+            </Button>
+          </>
+        )}
       </Form>
     </ProfileContent>
   );

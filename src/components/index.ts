@@ -8,10 +8,8 @@ export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher
 // UI
 export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
 export { default as DownloadInstruction } from './DownloadInstruction/DownloadInstruction';
+export { default as Skeleton } from './Skeleton/Skeleton';
 export { default as Hero } from './Hero/Hero';
-
-// Profile
-export { default as Avatar } from './Profile/Avatar/Avatar';
 
 // Popups
 export { default as Popup } from './Popups/Popup/Popup';
@@ -55,6 +53,9 @@ export { default as Title } from './Title/Title';
 export { default as Text } from './Text/Text';
 
 // Profile
+export { default as Avatar } from './Profile/Avatar/Avatar';
+export { default as PrifileSkeleton } from './Profile/PrifileSkeleton/PrifileSkeleton';
+export { default as ProfileHero } from './Profile/ProfileHero/ProfileHero';
 export { default as ProfileBody } from './Profile/ProfileBody/ProfileBody';
 export { default as ProfileContent } from './Profile/ProfileContent/ProfileContent';
 export { default as ProfileSidebar } from './Profile/ProfileSidebar/ProfileSidebar';

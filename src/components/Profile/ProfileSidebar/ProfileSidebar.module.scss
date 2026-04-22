@@ -6,11 +6,17 @@
   flex-direction: column;
   gap: 10px;
 
-  @media (max-width: 1279px) {
-    max-width: calc(50% - (32px / 2));
+  @media (max-width: 1135px) {
+    max-width: 100%;
+    button {
+      max-width: calc(50% - (32px / 2));
+    }
   }
 
   @media (max-width: 767px) {
     max-width: 100%;
+    button {
+      max-width: 100%;
+    }
   }
 }

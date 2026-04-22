@@ -16,6 +16,7 @@
   padding: 14px 20px;
   flex-shrink: 0;
   margin-top: auto;
+  z-index: 2;
 
   @media (max-width: 767px) {
     display: none;

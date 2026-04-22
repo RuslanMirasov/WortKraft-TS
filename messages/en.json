@@ -16,6 +16,7 @@
   "errors": {
     "login-popup-error-title": "Login error",
     "onboarding-popup-error-title": "Setup Error",
+    "profile-update-error-title": "Update error",
     "register-popup-error-title": "Registration error",
     "default-popup-error-title": "Something went wrong",
     "default-popup-error-text": "An unexpected error occurred. \nPlease try again later.",
@@ -23,6 +24,8 @@
     "CredentialsSignin": "Invalid email or password.",
     "AccessDenied": "You do not have access to this account. The account may be restricted or not yet activated.",
     "Configuration": "A technical error occurred. \nPlease try again later.",
+    "RegistrationFailed": "We couldn’t complete your registration. Please try again.",
+    "ProfileUpdateFailed": "We couldn’t save your profile changes. Please try again.",
     "RegisterValidationError": "Not all required fields \nwere filled in correctly. \nPlease check the form \nand try again.",
     "ConsentsRequired": "To create an account, you must accept the terms of service \nand the privacy policy.",
     "UserAlreadyExists": "An account with this email \nalready exists. Please sign in \nor reset your password.",
@@ -41,6 +44,7 @@
     "terms-required": "You must accept the terms of service",
     "Unauthorized": "Your session has expired or access is denied. Please sign in again.",
     "OnboardingValidationError": "Please complete all required fields \nand confirm the consents.",
+    "FormValidationError": "Please complete all required fields.",
     "UserNotFound": "The user was not found or access \nto the account is restricted."
   },
   "popups": {
@@ -99,5 +103,12 @@
   "policy-terms": {
     "policy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "profile": {
+    "profile-settings-title": "Profile Settings",
+    "password-settings-title": "Change Password",
+    "logout-settings-title": "Danger Zone",
+    "logout-button-text": "Log out",
+    "delete-button-text": "Delete Account"
   }
 }

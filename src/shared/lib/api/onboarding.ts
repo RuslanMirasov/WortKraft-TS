@@ -13,18 +13,11 @@ export async function onboarding(data: OnboardingFormData): Promise<OnboardingRe
     body: JSON.stringify(data),
   });
 
+  const body = await res.json();
+
   if (!res.ok) {
-    let errorCode = 'OnboardingFailed';
-
-    try {
-      const body = await res.json();
-      if (body?.error) {
-        errorCode = body.error;
-      }
-    } catch {}
-
-    throw new Error(errorCode);
+    throw new Error(body?.error || 'OnboardingFailed');
   }
 
-  return { ok: true };
+  return body;
 }
