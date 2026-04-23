@@ -1,5 +1,4 @@
 {
-  "greeting": "Hi",
   "google-btn-text": "Sign in with Google",
   "navigation": {
     "library": "Levels A1-C1",
@@ -62,7 +61,11 @@
     "forgot-password": "Forgot your password?",
     "reset-password-title": "Password recovery",
     "reset-password-subtitle": "Enter the email address associated with your account and we’ll send you instructions to reset your password",
-    "send": "Send"
+    "send": "Send",
+    "are-you-sure": "Are you sure?",
+    "delete-accaunt-popup-text": "After deleting your account, you will still be\u00A0able to restore it for 14 days. After this period, all profile data will be permanently deleted. Do you want to continue?",
+    "yes": "Yes",
+    "no": "No"
   },
   "forms": {
     "name-placeholder": "Your name or nickname",
@@ -109,6 +112,7 @@
     "terms": "Terms of Service"
   },
   "profile": {
+    "greeting": "Hi",
     "profile-settings-title": "Profile Settings",
     "profile-updated-title": "Profile updated",
     "profile-updated-text": "Your profile information has been updated successfully.",

@@ -1,5 +1,4 @@
 {
-  "greeting": "Hallo",
   "google-btn-text": "Mit Google anmelden",
   "navigation": {
     "library": "Niveau A1-C1",
@@ -62,7 +61,11 @@
     "forgot-password": "Passwort vergessen?",
     "reset-password-title": "Passwort zurücksetzen",
     "reset-password-subtitle": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen Anweisungen zum Zurücksetzen des Passworts",
-    "send": "Senden"
+    "send": "Senden",
+    "are-you-sure": "Sind Sie sicher?",
+    "delete-accaunt-popup-text": "Nach dem Löschen Ihres Kontos können Sie es noch 14 Tage lang wiederherstellen. Nach Ablauf dieser Frist werden alle Profildaten endgültig gelöscht. Möchten Sie fortfahren?",
+    "yes": "Ja",
+    "no": "Nein"
   },
   "forms": {
     "name-placeholder": "Ihr Name oder Benutzername",
@@ -109,6 +112,7 @@
     "terms": "Nutzungsbedingungen"
   },
   "profile": {
+    "greeting": "Hallo",
     "profile-settings-title": "Profil Einstellungen",
     "profile-updated-title": "Profil aktualisiert",
     "profile-updated-text": "Ihre Profildaten wurden \nerfolgreich aktualisiert.",

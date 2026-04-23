@@ -24,7 +24,9 @@ export interface CustomPopupOptions extends BasePopupOptions {
   title?: string;
   text?: string;
   buttonText?: string;
-  buttonEvent?: () => void;
+  buttonEvent?: () => unknown | Promise<unknown>;
+  choice?: boolean;
+  loading?: boolean;
 }
 
 type PopupMap = {

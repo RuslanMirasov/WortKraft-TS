@@ -1,9 +1,11 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useTranslations } from 'next-intl';
 import { Hero, Title, GoBack, Avatar, PrifileSkeleton } from '@/components';
 
 const ProfileHero = () => {
+  const t = useTranslations('profile');
   const { data: session, status = false } = useSession();
 
   if (status === 'loading') return <PrifileSkeleton />;
@@ -15,7 +17,7 @@ const ProfileHero = () => {
     <Hero>
       <GoBack />
       <Title tag="h1" size="h1">
-        Hello
+        {t('greeting')}
         <br />
         {name || email}
       </Title>

@@ -65,7 +65,6 @@ const ProfileUpdateForm = () => {
   const onSubmit = async (data: ProfileUpdateFormData) => {
     try {
       await run(data);
-      await update();
       openPopup('message', {
         freeze: true,
         image: '/img/lex/success.webp',
@@ -73,6 +72,7 @@ const ProfileUpdateForm = () => {
         text: tProfile('profile-updated-text'),
         buttonText: tProfile('updated-btn'),
       });
+      await update();
     } catch {}
   };
 

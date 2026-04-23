@@ -1,6 +1,8 @@
 'use client';
 
-import { Title, Text, Button } from '..';
+import { Title, Text, Button, Buttons } from '..';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { usePopup } from '@/stores/popup-store';
 import type { CustomPopupOptions } from '@/types/popup';
 import Image from 'next/image';
@@ -10,8 +12,24 @@ interface PopupErrorProps {
 }
 
 const PopupMessage = ({ options }: PopupErrorProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const tpopup = useTranslations('popups');
   const closePopup = usePopup(state => state.closePopup);
-  const handleClick = options?.buttonEvent ?? closePopup;
+
+  const handleClick = async () => {
+    if (!options?.buttonEvent) {
+      closePopup();
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await options.buttonEvent();
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -27,11 +45,23 @@ const PopupMessage = ({ options }: PopupErrorProps) => {
         </Text>
       )}
       <hr />
-      {options?.buttonText && (
-        <Button onClick={handleClick} icon="arrow-right" variant="green" full>
-          {options?.buttonText}
+      <Buttons>
+        <Button
+          onClick={handleClick}
+          icon="confirm"
+          variant="green"
+          full={options?.choice ? false : true}
+          loading={isLoading}
+        >
+          {options?.choice ? tpopup('yes') : options?.buttonText}
         </Button>
-      )}
+
+        {options?.choice && (
+          <Button onClick={closePopup} icon="close" variant="red">
+            {tpopup('no')}
+          </Button>
+        )}
+      </Buttons>
     </>
   );
 };

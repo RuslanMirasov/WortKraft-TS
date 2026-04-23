@@ -29,6 +29,8 @@ export { default as ButtonGoogle } from './Buttons/ButtonGoogle/ButtonGoogle';
 export { default as ButtonProfile } from './Buttons/ButtonProfile/ButtonProfile';
 export { default as ButtonMenu } from './Buttons/ButtonMenu/ButtonMenu';
 export { default as GoBack } from './Buttons/GoBack/GoBack';
+export { default as LogOutButton } from './Buttons/LogOutButton/LogOutButton';
+export { default as DeleteAccountButton } from './Buttons/DeleteAccountButton/DeleteAccountButton';
 
 // Forms
 export { default as Form } from './Forms/Form/Form';

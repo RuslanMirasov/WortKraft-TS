@@ -82,8 +82,6 @@ const PasswordUpdateForm = () => {
   const onSubmit = async (data: PasswordUpdateFormData) => {
     try {
       await run(data);
-      await update();
-      form.reset(initialValues);
       openPopup('message', {
         freeze: true,
         image: '/img/lex/success.webp',
@@ -91,6 +89,8 @@ const PasswordUpdateForm = () => {
         text: tProfile('password-updated-text'),
         buttonText: tProfile('updated-btn'),
       });
+      await update();
+      form.reset(initialValues);
     } catch {}
   };
 
