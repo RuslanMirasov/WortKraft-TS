@@ -4,12 +4,11 @@ import { signIn } from 'next-auth/react';
 import { Button } from './../../../components';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
+import { useAuthCallbackUrl } from '@/shared/hooks/useAuthCallbackUrl';
 
 const ButtonGoogle = () => {
   const t = useTranslations();
-  const params = useSearchParams();
-  const callbackUrl = params.get('callbackUrl') ?? '/';
+  const callbackUrl = useAuthCallbackUrl();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleLogin = async () => {

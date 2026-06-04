@@ -3,6 +3,7 @@
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import { usePopup } from '@/stores/popup-store';
+import { ErrorPopupController } from '@/components';
 import css from './Popup.module.scss';
 import clsx from 'clsx';
 
@@ -67,11 +68,12 @@ const Popup = () => {
     };
   }, [currentPopup, closePopup]);
 
-  if (!currentPopup) {
-    return null;
-  }
+  // if (!currentPopup) {
+  //   return <ErrorPopupController />;
+  // }
 
-  const { id, options } = currentPopup;
+  const id = currentPopup?.id;
+  const options = currentPopup?.options;
 
   const popupClasses = clsx(
     css.Popup,
@@ -83,34 +85,43 @@ const Popup = () => {
     id === 'message' && css.Message
   );
 
-  return createPortal(
-    <section
-      className={`${css.Backdrop} ${isBackdropOpen ? css.Open : ''} `}
-      onMouseDown={options?.freeze ? undefined : closePopup}
-      onTouchStart={options?.freeze ? undefined : closePopup}
-    >
-      <div
-        className={popupClasses}
-        onClick={e => e.stopPropagation()}
-        onMouseDown={e => e.stopPropagation()}
-        onTouchStart={e => e.stopPropagation()}
+  const popupPortal =
+    currentPopup &&
+    createPortal(
+      <section
+        className={`${css.Backdrop} ${isBackdropOpen ? css.Open : ''} `}
+        onMouseDown={options?.freeze ? undefined : closePopup}
+        onTouchStart={options?.freeze ? undefined : closePopup}
       >
-        {!options?.freeze && (
-          <button className={css.PopupClose} onClick={closePopup}>
-            <Icon name="close" />
-          </button>
-        )}
-        {id === 'login' && <PopupLogin />}
-        {id === 'register' && <PopupRegister />}
-        {id === 'password' && <PopupPassword />}
-        {id === 'error' && <PopupError options={options} />}
-        {id === 'message' && <PopupMessage options={options} />}
-        {id === 'policy' && <PopupPolicy />}
-        {id === 'terms' && <PopupTerms />}
-        {id === 'download' && <PopupDownload />}
-      </div>
-    </section>,
-    document.body
+        <div
+          className={popupClasses}
+          onClick={e => e.stopPropagation()}
+          onMouseDown={e => e.stopPropagation()}
+          onTouchStart={e => e.stopPropagation()}
+        >
+          {!options?.freeze && (
+            <button className={css.PopupClose} onClick={closePopup}>
+              <Icon name="close" />
+            </button>
+          )}
+          {id === 'login' && <PopupLogin />}
+          {id === 'register' && <PopupRegister />}
+          {id === 'password' && <PopupPassword />}
+          {id === 'error' && <PopupError options={options} />}
+          {id === 'message' && <PopupMessage options={options} />}
+          {id === 'policy' && <PopupPolicy />}
+          {id === 'terms' && <PopupTerms />}
+          {id === 'download' && <PopupDownload />}
+        </div>
+      </section>,
+      document.body
+    );
+
+  return (
+    <>
+      <ErrorPopupController />
+      {popupPortal}
+    </>
   );
 };
 

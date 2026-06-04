@@ -10,6 +10,12 @@ const UserSchema = new Schema(
       index: true,
     },
 
+    deletedAt: {
+      type: Date,
+      default: null,
+      index: true,
+    },
+
     name: {
       type: String,
       trim: true,

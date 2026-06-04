@@ -1,22 +1,26 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import { loginSchema, LoginFormData } from '@/zod-schemas';
 import { Form, Input, Button, Text } from '@/components';
 import { usePopup } from '@/stores/popup-store';
+import { useAuthCallbackUrl } from '@/shared/hooks/useAuthCallbackUrl';
 
 import { useState } from 'react';
 
 const LoginForm = () => {
-  const openPopup = usePopup(state => state.openPopup);
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const openPopup = usePopup(state => state.openPopup);
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');
-  const callbackUrl = searchParams.get('callbackUrl')?.startsWith('/') ? searchParams.get('callbackUrl')! : '/';
+  const callbackUrl = useAuthCallbackUrl();
   const [loading, setLoading] = useState(false);
 
   const form = useForm<LoginFormData>({
@@ -30,11 +34,24 @@ const LoginForm = () => {
   const onSubmit = async (data: LoginFormData) => {
     setLoading(true);
     try {
-      await signIn('credentials', {
+      const result = await signIn('credentials', {
         email: data.email,
         password: data.password,
-        callbackUrl: callbackUrl ?? '/',
+        redirect: false,
+        callbackUrl,
       });
+      if (result?.error) {
+        const params = new URLSearchParams(searchParams.toString());
+
+        params.set('error', result.error);
+
+        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+        return;
+      }
+
+      if (result?.url) {
+        window.location.href = result.url;
+      }
     } finally {
       setLoading(false);
     }

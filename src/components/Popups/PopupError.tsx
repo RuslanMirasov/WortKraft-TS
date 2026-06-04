@@ -25,7 +25,15 @@ const PopupError = ({ options }: PopupErrorProps) => {
     ...options,
   };
 
-  const handleClick = merged.buttonEvent ?? closePopup;
+  const handleClick = async () => {
+    if (merged.buttonEvent) {
+      await merged.buttonEvent();
+    } else {
+      closePopup();
+    }
+
+    await merged.onClose?.();
+  };
 
   return (
     <>

@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getCurrentUser } from '@/shared/lib/helpers/getCurrentUser';
 
-export async function PATCH(req: Request) {
+const ACCOUNT_DELETE_DELAY_MS = 5 * 60 * 1000;
+
+export async function PATCH() {
   try {
     const currentUser = await getCurrentUser();
 
@@ -9,7 +11,11 @@ export async function PATCH(req: Request) {
       return currentUser.response;
     }
 
-    const { id } = currentUser.user;
+    const { user } = currentUser;
+
+    user.status = 'deleted';
+    user.deletedAt = new Date(Date.now() + ACCOUNT_DELETE_DELAY_MS);
+    await user.save();
 
     return NextResponse.json({
       ok: true,

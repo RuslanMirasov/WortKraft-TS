@@ -2,9 +2,7 @@ export interface PopupStore {
   currentPopup: Popup | null;
   isBackdropOpen: boolean;
   isPopupOpen: boolean;
-
   openPopup: <T extends Popup['id']>(id: T, options?: Extract<Popup, { id: T }>['options']) => void;
-
   closePopup: () => void;
   setIsBackdropOpen: (isOpen: boolean) => void;
   setIsPopupOpen: (isOpen: boolean) => void;
@@ -24,9 +22,10 @@ export interface CustomPopupOptions extends BasePopupOptions {
   title?: string;
   text?: string;
   buttonText?: string;
-  buttonEvent?: () => unknown | Promise<unknown>;
   choice?: boolean;
   loading?: boolean;
+  buttonEvent?: () => unknown | Promise<unknown>;
+  onClose?: () => unknown | Promise<unknown>;
 }
 
 type PopupMap = {

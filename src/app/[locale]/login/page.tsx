@@ -2,29 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { usePopup } from '@/stores/popup-store';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { Button, CenteredMessage, Text } from '@/components';
 import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 
 export default function LoginPage() {
-  const params = useSearchParams();
-  const error = params.get('error');
   const t = useTranslations();
-  const tErrors = useTranslations('errors');
   const openPopup = usePopup(state => state.openPopup);
-
-  useEffect(() => {
-    if (error) {
-      openPopup('error', {
-        freeze: true,
-        title: tErrors('login-popup-error-title'),
-        text: getErrorTextTranslation(tErrors, error),
-        buttonEvent: () => openPopup('login'),
-      });
-    }
-  }, [error, openPopup]);
 
   return (
     <CenteredMessage>

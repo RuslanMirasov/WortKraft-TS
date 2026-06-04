@@ -16,7 +16,6 @@ const DeleteAccountButton = () => {
 
   const handleError = (error: unknown) => {
     const code = error instanceof Error ? error.message : undefined;
-
     openPopup('error', {
       title: tErrors('default-popup-error-title'),
       text: getErrorTextTranslation(tErrors, code),
@@ -37,17 +36,7 @@ const DeleteAccountButton = () => {
       buttonEvent: async () => {
         try {
           await run();
-
-          openPopup('message', {
-            freeze: true,
-            image: '/img/lex/404.webp',
-            title: 'Аккаунт удалён!',
-            text: 'Теперь только восстанавливать',
-            buttonText: tErrors('default-popup-error-button-text'),
-            buttonEvent: async () => {
-              await signOut();
-            },
-          });
+          await signOut();
         } catch {}
       },
     });
