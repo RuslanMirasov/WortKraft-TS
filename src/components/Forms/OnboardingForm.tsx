@@ -1,25 +1,23 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { onboardingSchema, OnboardingFormData } from '@/zod-schemas';
 import { useTranslations } from 'next-intl';
 import { useSession } from 'next-auth/react';
-import { useRouter } from '@/i18n/navigation';
 import { Form, Input, Button, Text, Fieldset } from '@/components';
 import { onboarding } from '@/shared/lib/api/onboarding';
 import { useRequest } from '@/shared/hooks/useRequest';
 import { useSearchParams } from 'next/navigation';
 import { usePopup } from '@/stores/popup-store';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 
 const OnboardingForm = () => {
   const tForms = useTranslations('forms');
-  const tErrors = useTranslations('errors');
-  const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') ?? '/';
   const { update } = useSession();
+  const { setUrlError } = useUrlError();
   const openPopup = usePopup(state => state.openPopup);
 
   const form = useForm<OnboardingFormData>({
@@ -32,12 +30,9 @@ const OnboardingForm = () => {
   });
 
   const handleError = (error: unknown) => {
-    const code = error instanceof Error ? error.message : undefined;
+    const code = error instanceof Error ? error.message : 'OnboardingFailed';
 
-    openPopup('error', {
-      title: tErrors('onboarding-popup-error-title'),
-      text: getErrorTextTranslation(tErrors, code),
-    });
+    setUrlError(code);
   };
 
   const { run, loading } = useRequest(onboarding, {

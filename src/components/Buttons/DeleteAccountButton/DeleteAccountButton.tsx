@@ -2,24 +2,22 @@
 
 import { useTranslations } from 'next-intl';
 import { deleteAccount } from '@/shared/lib/api/deleteAccount';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { signOut } from 'next-auth/react';
 import { usePopup } from '@/stores/popup-store';
 import { useRequest } from '@/shared/hooks/useRequest';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { Button } from '@/components';
 
 const DeleteAccountButton = () => {
   const t = useTranslations('profile');
   const tpopup = useTranslations('popups');
-  const tErrors = useTranslations('errors');
+  const { setUrlError } = useUrlError();
   const openPopup = usePopup(state => state.openPopup);
 
   const handleError = (error: unknown) => {
-    const code = error instanceof Error ? error.message : undefined;
-    openPopup('error', {
-      title: tErrors('default-popup-error-title'),
-      text: getErrorTextTranslation(tErrors, code),
-    });
+    const code = error instanceof Error ? error.message : 'ProfileDeleteFailed';
+
+    setUrlError(code);
   };
 
   const { run } = useRequest(deleteAccount, {

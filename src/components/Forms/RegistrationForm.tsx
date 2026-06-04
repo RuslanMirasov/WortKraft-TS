@@ -1,6 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, RegistrationFormData } from '@/zod-schemas';
 import { useTranslations } from 'next-intl';
@@ -9,13 +10,12 @@ import { registration } from '@/shared/lib/api/registration';
 import { useRequest } from '@/shared/hooks/useRequest';
 import { useSearchParams } from 'next/navigation';
 import { usePopup } from '@/stores/popup-store';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { signIn } from 'next-auth/react';
 
 const RegistrationForm = () => {
+  const { setUrlError } = useUrlError();
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');
-  const tErrors = useTranslations('errors');
   const params = useSearchParams();
   const callbackUrl = params.get('callbackUrl') ?? '/';
   const openPopup = usePopup(state => state.openPopup);
@@ -34,13 +34,8 @@ const RegistrationForm = () => {
   });
 
   const handleError = (error: unknown) => {
-    const code = error instanceof Error ? error.message : undefined;
-
-    openPopup('error', {
-      title: tErrors('register-popup-error-title'),
-      text: getErrorTextTranslation(tErrors, code),
-      buttonEvent: () => openPopup('login'),
-    });
+    const code = error instanceof Error ? error.message : 'RegistrationFailed';
+    setUrlError(code);
   };
 
   const { run, loading } = useRequest(registration, {

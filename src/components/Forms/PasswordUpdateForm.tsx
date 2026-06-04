@@ -1,6 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { usePopup } from '@/stores/popup-store';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +9,6 @@ import { useTranslations } from 'next-intl';
 import { passwordUpdateSchema, PasswordUpdateFormData } from '@/zod-schemas';
 import { Form, Input, Button, Title, ProfileContent, Skeleton } from '@/components';
 import { useEffect, useMemo } from 'react';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 import { updatePassword } from '@/shared/lib/api/updatePassword';
 import { useRequest } from '@/shared/hooks/useRequest';
 
@@ -16,9 +16,10 @@ const PasswordUpdateForm = () => {
   const { data: session, status, update } = useSession();
   const tProfile = useTranslations('profile');
   const tForms = useTranslations('forms');
-  const tErrors = useTranslations('errors');
   const hasPassword = session?.user?.hasPassword ?? false;
   const openPopup = usePopup(state => state.openPopup);
+  const { setUrlError } = useUrlError();
+
   const initialValues = useMemo<PasswordUpdateFormData>(
     () => ({
       oldpassword: '',
@@ -66,12 +67,9 @@ const PasswordUpdateForm = () => {
   }, [form, newpassword, newpasswordconfirm, newpasswordErrorMessage, newpasswordconfirmErrorMessage]);
 
   const handleError = (error: unknown) => {
-    const code = error instanceof Error ? error.message : undefined;
+    const code = error instanceof Error ? error.message : 'PasswordUpdateFailed';
 
-    openPopup('error', {
-      title: tErrors('password-update-error-title'),
-      text: getErrorTextTranslation(tErrors, code),
-    });
+    setUrlError(code);
   };
 
   const { run, loading } = useRequest(updatePassword, {

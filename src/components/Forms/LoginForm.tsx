@@ -1,8 +1,7 @@
 'use client';
 
 import { useForm } from 'react-hook-form';
-import { usePathname, useRouter } from '@/i18n/navigation';
-import { useSearchParams } from 'next/navigation';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { signIn } from 'next-auth/react';
@@ -14,9 +13,7 @@ import { useAuthCallbackUrl } from '@/shared/hooks/useAuthCallbackUrl';
 import { useState } from 'react';
 
 const LoginForm = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const { setUrlError } = useUrlError();
   const openPopup = usePopup(state => state.openPopup);
   const tPopups = useTranslations('popups');
   const tForms = useTranslations('forms');
@@ -40,17 +37,10 @@ const LoginForm = () => {
         redirect: false,
         callbackUrl,
       });
+
       if (result?.error) {
-        const params = new URLSearchParams(searchParams.toString());
-
-        params.set('error', result.error);
-
-        router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+        setUrlError(result.error);
         return;
-      }
-
-      if (result?.url) {
-        window.location.href = result.url;
       }
     } finally {
       setLoading(false);

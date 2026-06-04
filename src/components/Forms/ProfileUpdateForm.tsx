@@ -1,6 +1,7 @@
 'use client';
 
 import { useSession } from 'next-auth/react';
+import { useUrlError } from '@/shared/hooks/useUrlError';
 import { usePopup } from '@/stores/popup-store';
 import { useForm, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -10,15 +11,14 @@ import { profileUpdateSchema, ProfileUpdateFormData } from '@/zod-schemas';
 import { Form, Input, Button, Title, ProfileContent, Skeleton } from '@/components';
 import { useEffect, useMemo } from 'react';
 import { updateProfile } from '@/shared/lib/api/updateProfile';
-import { getErrorTextTranslation } from '@/shared/lib/getErrorTextTranslation';
 
 const ProfileUpdateForm = () => {
   const tProfile = useTranslations('profile');
   const tForms = useTranslations('forms');
-  const tErrors = useTranslations('errors');
   const { data: session, update } = useSession();
   const { name, email, language } = session?.user ?? {};
   const openPopup = usePopup(state => state.openPopup);
+  const { setUrlError } = useUrlError();
 
   const initialValues = useMemo<ProfileUpdateFormData>(
     () => ({
@@ -49,12 +49,9 @@ const ProfileUpdateForm = () => {
   }, [form, initialValues]);
 
   const handleError = (error: unknown) => {
-    const code = error instanceof Error ? error.message : undefined;
+    const code = error instanceof Error ? error.message : 'ProfileUpdateFailed';
 
-    openPopup('error', {
-      title: tErrors('profile-update-error-title'),
-      text: getErrorTextTranslation(tErrors, code),
-    });
+    setUrlError(code);
   };
 
   const { run, loading } = useRequest(updateProfile, {
