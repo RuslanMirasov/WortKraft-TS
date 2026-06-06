@@ -13,6 +13,10 @@
     "please-login": "Please Sign In \nto access this page."
   },
   "errors": {
+    "accaunt-deleted-popup-error-title": "Account deleted",
+    "AccauntDeleted": "You deleted your account, but access can still be restored within 14 days.",
+    "AccauntDeletedBtn": "Restore",
+    "access-popup-error-title": "Access error",
     "login-popup-error-title": "Login error",
     "onboarding-popup-error-title": "Setup Error",
     "profile-update-error-title": "Update error",
@@ -61,6 +65,9 @@
     "forgot-password": "Forgot your password?",
     "reset-password-title": "Password recovery",
     "reset-password-subtitle": "Enter the email address associated with your account and we’ll send you instructions to reset your password",
+    "reset-accaunt-title": "Restore account?",
+    "reset-accaunt-subtitle": "Click “Yes” and your progress, settings, and account credentials will be restored.",
+    "reset-accaunt-btn": "Restore",
     "send": "Send",
     "are-you-sure": "Are you sure?",
     "delete-accaunt-popup-text": "After deleting your account, you will still be\u00A0able to restore it for 14 days. After this period, all profile data will be permanently deleted. Do you want to continue?",

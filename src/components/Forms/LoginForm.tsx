@@ -39,8 +39,13 @@ const LoginForm = () => {
       });
 
       if (result?.error) {
-        setUrlError(result.error);
+        const [code, restoreToken] = result.error.split(':');
+        setUrlError(code, { restoreToken });
         return;
+      }
+
+      if (result?.url) {
+        window.location.href = result.url;
       }
     } finally {
       setLoading(false);

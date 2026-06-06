@@ -39,7 +39,9 @@
   overflow: hidden;
   padding: 40px 20px 20px 20px;
   z-index: 2;
-  transition: 0.4s;
+  transition:
+    transform 0.4s,
+    opacity 0.4s;
   opacity: 0;
   transform: translateY(20px);
   margin: auto;

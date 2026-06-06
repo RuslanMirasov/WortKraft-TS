@@ -83,9 +83,36 @@ const ERRORS: Record<string, ErrorPopupConfig> = {
     text: 'ProfileDeleteFailed',
   },
 
+  TooManyLoginAttempts: {
+    title: 'access-popup-error-title',
+    text: 'TooManyLoginAttempts',
+    action: 'login',
+  },
+
+  Unauthorized: {
+    title: 'access-popup-error-title',
+    text: 'Unauthorized',
+  },
+
+  AccessDenied: {
+    title: 'access-popup-error-title',
+    text: 'AccessDenied',
+  },
+
+  Configuration: {
+    text: 'Configuration',
+  },
+
   UserNotFound: {
     title: 'default-popup-error-title',
     text: 'UserNotFound',
+  },
+
+  AccauntDeleted: {
+    title: 'accaunt-deleted-popup-error-title',
+    text: 'AccauntDeleted',
+    buttonText: 'AccauntDeletedBtn',
+    action: 'accaunt',
   },
 };
 

@@ -13,6 +13,10 @@
     "please-login": "Bitte melden Sie sich an, \num diese Seite zu sehen."
   },
   "errors": {
+    "accaunt-deleted-popup-error-title": "Konto wurde gelöscht",
+    "AccauntDeleted": "Sie haben Ihr Konto gelöscht, aber der Zugriff kann innerhalb von 14 Tagen noch wiederhergestellt werden.",
+    "AccauntDeletedBtn": "Wiederherstellen",
+    "access-popup-error-title": "Zugriffsfehler",
     "login-popup-error-title": "Anmeldefehler",
     "onboarding-popup-error-title": "Einrichtungsfehler",
     "profile-update-error-title": "Aktualisierungsfehler",
@@ -61,6 +65,9 @@
     "forgot-password": "Passwort vergessen?",
     "reset-password-title": "Passwort zurücksetzen",
     "reset-password-subtitle": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen Anweisungen zum Zurücksetzen des Passworts",
+    "reset-accaunt-title": "Konto wiederherstellen?",
+    "reset-accaunt-subtitle": "Klicken Sie auf „Ja“, und Ihr Fortschritt, Ihre Einstellungen und Ihre Zugangsdaten werden wiederhergestellt.",
+    "reset-accaunt-btn": "Wiederherstellen",
     "send": "Senden",
     "are-you-sure": "Sind Sie sicher?",
     "delete-accaunt-popup-text": "Nach dem Löschen Ihres Kontos können Sie es noch 14 Tage lang wiederherstellen. Nach Ablauf dieser Frist werden alle Profildaten endgültig gelöscht. Möchten Sie fortfahren?",

@@ -8,7 +8,7 @@ export interface PopupStore {
   setIsPopupOpen: (isOpen: boolean) => void;
 }
 
-type BasePopupId = 'login' | 'register' | 'password' | 'policy' | 'terms' | 'download';
+type BasePopupId = 'login' | 'register' | 'password' | 'accaunt' | 'policy' | 'terms' | 'download';
 type CustomPopupId = 'confirm' | 'error' | 'message';
 
 export interface BasePopupOptions {

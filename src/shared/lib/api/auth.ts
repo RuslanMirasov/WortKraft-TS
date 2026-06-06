@@ -3,6 +3,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 
 import { getClientIp, rateLimitLogin, clearLoginRateLimit } from '@/shared/lib/api';
+import { createAccountRestoreToken, verifyAccountRestoreToken } from '@/shared/lib/api/accountRestoreToken';
 import { dbConnect } from '@/shared/lib/mongodb';
 import UserModel from '@/shared/models/User';
 import AuthIdentityModel from '@/shared/models/AuthIdentity';
@@ -22,6 +23,20 @@ async function hasCredentialsPassword(userId: string) {
   }).select('_id');
 
   return !!identity;
+}
+
+function toAuthUser(user: any, hasPassword: boolean) {
+  return {
+    id: user._id.toString(),
+    status: user.status,
+    role: user.role,
+    name: user.name,
+    email: user.email,
+    image: user.image,
+    language: user.language,
+    hasPassword,
+    subscriptionUntil: user.subscriptionUntil,
+  };
 }
 
 export const authOptions: NextAuthOptions = {
@@ -68,21 +83,38 @@ export const authOptions: NextAuthOptions = {
         if (!isValid) return null;
 
         const user = await UserModel.findById(identity.userId);
-        if (!user || user.status === 'deleted') return null;
+        if (!user) return null;
+        if (user.status === 'deleted') {
+          throw new Error(`AccauntDeleted:${createAccountRestoreToken(user._id.toString())}`);
+        }
 
         await clearLoginRateLimit(key);
 
-        return {
-          id: user._id.toString(),
-          status: user.status,
-          role: user.role,
-          name: user.name,
-          email: user.email,
-          image: user.image,
-          language: user.language,
-          hasPassword: true,
-          subscriptionUntil: user.subscriptionUntil,
-        };
+        return toAuthUser(user, true);
+      },
+    }),
+
+    CredentialsProvider({
+      id: 'restore-account',
+      name: 'Restore account',
+      credentials: {
+        token: { label: 'Token', type: 'text' },
+      },
+
+      async authorize(credentials) {
+        const payload = verifyAccountRestoreToken(credentials?.token);
+        if (!payload) return null;
+
+        await dbConnect();
+
+        const user = await UserModel.findById(payload.userId);
+        if (!user || user.status !== 'deleted') return null;
+
+        user.status = 'active';
+        user.deletedAt = null;
+        await user.save();
+
+        return toAuthUser(user, await hasCredentialsPassword(user._id.toString()));
       },
     }),
   ],
@@ -114,7 +146,11 @@ export const authOptions: NextAuthOptions = {
 
       if (identity) {
         dbUser = await UserModel.findById(identity.userId);
-        if (!dbUser || dbUser.status === 'deleted') return false;
+        if (!dbUser) return false;
+        if (dbUser.status === 'deleted') {
+          const restoreToken = encodeURIComponent(createAccountRestoreToken(dbUser._id.toString()));
+          return `/login?error=AccauntDeleted&restoreToken=${restoreToken}`;
+        }
       } else {
         dbUser = await UserModel.findOne({ email });
 
@@ -127,6 +163,11 @@ export const authOptions: NextAuthOptions = {
             role: 'free',
           });
         } else {
+          if (dbUser.status === 'deleted') {
+            const restoreToken = encodeURIComponent(createAccountRestoreToken(dbUser._id.toString()));
+            return `/login?error=AccauntDeleted&restoreToken=${restoreToken}`;
+          }
+
           const update: Partial<{ name: string; image: string }> = {};
           if (!dbUser.name && gp?.name) update.name = gp.name;
           if (!dbUser.image && gp?.picture) update.image = gp.picture;

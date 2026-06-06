@@ -10,9 +10,18 @@ export const useUrlError = () => {
   const searchParams = useSearchParams();
 
   const setUrlError = useCallback(
-    (code: string) => {
+    (code: string, paramsToSet?: Record<string, string | undefined>) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set('error', code);
+
+      Object.entries(paramsToSet ?? {}).forEach(([key, value]) => {
+        if (value) {
+          params.set(key, value);
+        } else {
+          params.delete(key);
+        }
+      });
+
       router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     },
     [pathname, router, searchParams]

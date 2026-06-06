@@ -12,6 +12,7 @@ import {
   PopupLogin,
   PopupRegister,
   PopupPassword,
+  PopupAccaunt,
   PopupError,
   PopupPolicy,
   PopupTerms,
@@ -82,7 +83,8 @@ const Popup = () => {
     id === 'policy' && css.Policy,
     id === 'terms' && css.Policy,
     id === 'download' && css.Download,
-    id === 'message' && css.Message
+    id === 'message' && css.Message,
+    id === 'accaunt' && css.Message
   );
 
   const popupPortal =
@@ -107,6 +109,7 @@ const Popup = () => {
           {id === 'login' && <PopupLogin />}
           {id === 'register' && <PopupRegister />}
           {id === 'password' && <PopupPassword />}
+          {id === 'accaunt' && <PopupAccaunt />}
           {id === 'error' && <PopupError options={options} />}
           {id === 'message' && <PopupMessage options={options} />}
           {id === 'policy' && <PopupPolicy />}
