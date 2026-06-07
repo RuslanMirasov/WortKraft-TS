@@ -16,7 +16,7 @@ const Level = ({ data }: Props) => {
     <article className={css.Level} style={{ '--level-color': color } as React.CSSProperties}>
       <div className={css.Level__image}>
         <Link href={`./levels/${_id}`}>
-          <Image src={image} alt={title} width="670" height="1005" loading="lazy" />
+          <Image src={image} alt={title} width="670" height="1005" loading="eager" />
         </Link>
       </div>
       <div className={css.Level__text}>
