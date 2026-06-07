@@ -66,6 +66,10 @@ export { default as ProfileBody } from './Profile/ProfileBody/ProfileBody';
 export { default as ProfileContent } from './Profile/ProfileContent/ProfileContent';
 export { default as ProfileSidebar } from './Profile/ProfileSidebar/ProfileSidebar';
 
+// Collections
+export { default as Levels } from './Collections/Levels/Levels';
+export { default as Level } from './Collections/Levels/Level';
+
 // Policy
 export { default as PolicyDe } from './Policy/Policy_de';
 export { default as PolicyEn } from './Policy/Policy_en';

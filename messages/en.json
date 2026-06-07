@@ -52,7 +52,9 @@
     "Unauthorized": "Your session has expired or access is denied. Please sign in again.",
     "OnboardingValidationError": "Please complete all required fields \nand confirm the consents.",
     "FormValidationError": "Please complete all required fields.",
-    "UserNotFound": "The user was not found or access \nto the account is restricted."
+    "UserNotFound": "The user was not found or access \nto the account is restricted.",
+    "reset-accaunt-title": "Restore account?",
+    "reset-accaunt-subtitle": "Click «Yes» and your progress, \nsettings, and account credentials \nwill be restored."
   },
   "popups": {
     "signin": "Sign in",
@@ -65,8 +67,6 @@
     "forgot-password": "Forgot your password?",
     "reset-password-title": "Password recovery",
     "reset-password-subtitle": "Enter the email address associated with your account and we’ll send you instructions to reset your password",
-    "reset-accaunt-title": "Restore account?",
-    "reset-accaunt-subtitle": "Click “Yes” and your progress, settings, and account credentials will be restored.",
     "reset-accaunt-btn": "Restore",
     "send": "Send",
     "are-you-sure": "Are you sure?",

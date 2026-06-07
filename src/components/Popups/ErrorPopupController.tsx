@@ -8,7 +8,9 @@ import { usePopup } from '@/stores/popup-store';
 import type { Popup } from '@/types/popup';
 
 type ErrorPopupConfig = {
+  popupType?: Popup['id'];
   icon?: string;
+  image?: string;
   title?: string;
   text?: string;
   buttonText?: string;
@@ -109,10 +111,10 @@ const ERRORS: Record<string, ErrorPopupConfig> = {
   },
 
   AccauntDeleted: {
-    title: 'accaunt-deleted-popup-error-title',
-    text: 'AccauntDeleted',
-    buttonText: 'AccauntDeletedBtn',
-    action: 'accaunt',
+    popupType: 'accaunt',
+    image: '/img/lex/question.webp',
+    title: 'reset-accaunt-title',
+    text: 'reset-accaunt-subtitle',
   },
 };
 
@@ -159,6 +161,7 @@ const ErrorPopupController = () => {
 
     const options = {
       freeze: true,
+      ...(config?.image && { image: config.image }),
       ...(config?.icon && { icon: config.icon }),
       ...(config?.title && { title: getErrorText(config.title) }),
       ...(config?.text && { text: getErrorText(config.text) }),
@@ -167,7 +170,13 @@ const ErrorPopupController = () => {
       onClose: clearErrorFromUrl,
     };
 
-    openPopup('error', options);
+    const popupType = config?.popupType ?? 'error';
+
+    if (popupType === 'error') {
+      openPopup('error', options);
+    } else {
+      openPopup(popupType, options);
+    }
   }, [error, config, openPopup, tErrors, clearErrorFromUrl]);
 
   return null;

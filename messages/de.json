@@ -52,7 +52,9 @@
     "Unauthorized": "Die Sitzung ist abgelaufen oder der Zugriff ist nicht erlaubt. Bitte melden Sie sich erneut an.",
     "OnboardingValidationError": "Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Einwilligungen.",
     "FormValidationError": "Bitte füllen Sie alle Pflichtfelder aus.",
-    "UserNotFound": "Der Benutzer wurde nicht gefunden oder der Zugriff auf das Konto ist eingeschränkt."
+    "UserNotFound": "Der Benutzer wurde nicht gefunden oder der Zugriff auf das Konto ist eingeschränkt.",
+    "reset-accaunt-title": "Konto wiederherstellen?",
+    "reset-accaunt-subtitle": "Klicken Sie auf «Ja», und Ihr Fortschritt, \nIhre Einstellungen und Ihre Zugangsdaten \nwerden wiederhergestellt."
   },
   "popups": {
     "signin": "Anmelden",
@@ -65,8 +67,7 @@
     "forgot-password": "Passwort vergessen?",
     "reset-password-title": "Passwort zurücksetzen",
     "reset-password-subtitle": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen Anweisungen zum Zurücksetzen des Passworts",
-    "reset-accaunt-title": "Konto wiederherstellen?",
-    "reset-accaunt-subtitle": "Klicken Sie auf „Ja“, und Ihr Fortschritt, Ihre Einstellungen und Ihre Zugangsdaten werden wiederhergestellt.",
+
     "reset-accaunt-btn": "Wiederherstellen",
     "send": "Senden",
     "are-you-sure": "Sind Sie sicher?",

@@ -1,10 +1,11 @@
 'use client';
 
+import type { CustomPopupOptions } from '@/types/popup';
+
 import { Title, Text, Button, Buttons } from '..';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { usePopup } from '@/stores/popup-store';
-import type { CustomPopupOptions } from '@/types/popup';
 import Image from 'next/image';
 
 interface PopupErrorProps {

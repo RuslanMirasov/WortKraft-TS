@@ -1,6 +1,6 @@
 'use client';
 
-import { Title } from '@/components';
+import { Levels, Title } from '@/components';
 
 export default function Home() {
   return (
@@ -9,6 +9,8 @@ export default function Home() {
         <Title tag="h1" size="h1">
           Wählen Sie ein Buch
         </Title>
+
+        <Levels />
       </div>
     </section>
   );

@@ -109,7 +109,7 @@ const Popup = () => {
           {id === 'login' && <PopupLogin />}
           {id === 'register' && <PopupRegister />}
           {id === 'password' && <PopupPassword />}
-          {id === 'accaunt' && <PopupAccaunt />}
+          {id === 'accaunt' && <PopupAccaunt options={options} />}
           {id === 'error' && <PopupError options={options} />}
           {id === 'message' && <PopupMessage options={options} />}
           {id === 'policy' && <PopupPolicy />}
