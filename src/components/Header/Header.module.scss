@@ -4,7 +4,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   position: sticky;
-  width: 280px;
+  width: 260px;
   height: auto;
   min-height: 100dvh;
   left: 0px;
@@ -21,6 +21,9 @@
   html[data-sidebar='min'] .Header {
     width: 70px;
     overflow: visible;
+    @media (max-width: 1439px) {
+      width: 58px;
+    }
   }
 
   html[data-sidebar='min'] .Header .SideButton {
@@ -33,6 +36,9 @@
 
   html[data-sidebar='min'] .Header .Inner {
     min-width: 69px;
+    @media (max-width: 1439px) {
+      min-width: 57px;
+    }
   }
 
   html[data-sidebar='min'] .Header .Inner.Btn {
@@ -40,14 +46,21 @@
     justify-content: center;
     min-height: 69px;
     max-height: 69px;
+    @media (max-width: 1439px) {
+      max-height: 57px;
+      min-height: 57px;
+    }
   }
 }
 
 .Inner {
   display: block;
   width: 100%;
-  min-width: 279px;
+  min-width: 259px;
   padding: 14px;
+  @media (max-width: 1439px) {
+    padding: 8px;
+  }
   @media (min-width: 768px) {
     &.Bt {
       border-top: 1px solid var(--hr);
@@ -58,6 +71,10 @@
     &.Btn {
       max-height: 69px;
       min-height: 69px;
+      @media (max-width: 1439px) {
+        max-height: 57px;
+        min-height: 57px;
+      }
     }
   }
 }
@@ -99,8 +116,12 @@
   top: 0px;
   width: auto;
   min-width: 69px;
-  padding: 20px;
+  //padding: 20px;
   height: 68px;
+  @media (max-width: 1439px) {
+    min-width: 56px;
+    height: 57px;
+  }
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -117,13 +138,23 @@
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 1439px) {
   .Header {
     width: 220px;
   }
 
   .Inner {
     min-width: 219px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .Header {
+    width: 190px;
+  }
+
+  .Inner {
+    min-width: 189px;
   }
 }
 

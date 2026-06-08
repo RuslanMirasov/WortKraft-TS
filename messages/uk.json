@@ -130,5 +130,10 @@
     "logout-settings-title": "Небезпечна зона",
     "logout-button-text": "Вийти",
     "delete-button-text": "Видалити акаунт"
+  },
+  "main-page": {
+    "title": "Оберіть рівень\u00A0німецької",
+    "themes": "тем",
+    "words": "слів"
   }
 }

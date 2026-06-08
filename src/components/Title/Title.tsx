@@ -6,13 +6,15 @@ interface TitlePropTypes {
   color?: 'green' | 'red' | 'orange' | 'white' | 'grey' | 'grey-light' | 'black';
   size: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   align?: 'center' | 'right';
+  className?: string;
   children: React.ReactNode;
 }
 
-const Title: React.FC<TitlePropTypes> = ({ tag = 'b', align, size, color, children }) => {
+const Title: React.FC<TitlePropTypes> = ({ tag = 'b', align, size, color, className, children }) => {
   const Tag = tag;
   const classes = clsx(
     css.Title,
+    className,
     color === 'green' && css.Green,
     color === 'red' && css.Red,
     color === 'orange' && css.Orange,

@@ -7,7 +7,7 @@
     "statistic": "Statistik",
     "login": "Anmeldung",
     "logout": "Abmeldung",
-    "admin": "Administrator-Panel"
+    "admin": "Administrator"
   },
   "login-texts": {
     "please-login": "Bitte melden Sie sich an, \num diese Seite zu sehen."
@@ -131,5 +131,10 @@
     "logout-settings-title": "Gefährliche Zone",
     "logout-button-text": "Abmelden",
     "delete-button-text": "Account löschen"
+  },
+  "main-page": {
+    "title": "Wählen Sie ein Deutschniveau",
+    "themes": "Themen",
+    "words": "Wörter"
   }
 }

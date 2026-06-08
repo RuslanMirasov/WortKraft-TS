@@ -130,5 +130,10 @@
     "logout-settings-title": "Danger Zone",
     "logout-button-text": "Log out",
     "delete-button-text": "Delete Account"
+  },
+  "main-page": {
+    "title": "Choose a German\u00A0level",
+    "themes": "topics",
+    "words": "words"
   }
 }

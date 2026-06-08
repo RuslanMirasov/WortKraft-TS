@@ -5,6 +5,9 @@
   bottom: 0px;
   width: 100%;
   min-height: 69px;
+  @media (max-width: 1439px) {
+    min-height: 57px;
+  }
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
