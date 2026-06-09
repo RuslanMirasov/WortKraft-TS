@@ -18,7 +18,7 @@
     width: calc((100% - 64px) / 3);
     counter-increment: level-counter;
     user-select: none;
-    outline: none;
+    outline: none; 
   }
 
   @media (max-width: 1439px) {
@@ -54,7 +54,6 @@
           padding-bottom: 0px;
         }
       }
-
       &:focus-within {
         .Level__image {
           &:before {

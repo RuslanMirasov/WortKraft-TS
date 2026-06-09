@@ -8,3 +8,21 @@ export interface ILevel {
   image: string;
   color: string | null;
 }
+
+// --------- Categorys -------------
+
+export interface ICategory {
+  _id: string;
+  level: string;
+  name: string;
+  color: string | null;
+}
+
+// --------- Words -------------
+
+export interface IWord {
+  _id: string;
+  level: string;
+  category: string;
+  name: string;
+}

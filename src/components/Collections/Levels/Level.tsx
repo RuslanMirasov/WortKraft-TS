@@ -1,6 +1,6 @@
 'use client';
-import { ILevel } from '@/types/data';
 
+import { ILevelCard } from '@/types/dto';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Icon } from '@/components';
@@ -9,14 +9,14 @@ import css from './Levels.module.scss';
 import Image from 'next/image';
 
 interface Props {
-  data: ILevel;
+  data: ILevelCard;
   className?: string;
 }
 
 const Level = ({ data, className }: Props) => {
   const t = useTranslations('main-page');
   const classes = clsx(css.Level, className);
-  const { _id, level, title, subtitle, image, color } = data;
+  const { _id, level, title, subtitle, image, color, categoryCount, wordCount, progressPercent } = data;
 
   return (
     <article className={classes} style={{ '--level-color': color } as React.CSSProperties}>
@@ -32,12 +32,15 @@ const Level = ({ data, className }: Props) => {
             {title}
             {subtitle && <span>{subtitle}</span>}
           </h2>
-
-          <b>100%</b>
+          <b>{progressPercent !== null ? `${progressPercent}%` : '0%'}</b>
         </div>
         <div className={css.Level__footer}>
-          <span>14 {t('themes')}</span>
-          <span>158 {t('words')}</span>
+          <span>
+            {categoryCount} {t('themes')}
+          </span>
+          <span>
+            {wordCount} {t('words')}
+          </span>
           <Link href={`./levels/${_id}`} className={css.ToLevelButton}>
             <Icon name="next" />
           </Link>

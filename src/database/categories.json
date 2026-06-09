@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "1",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Meine Wörter im Kurs",
+    "color": "#666666"
+  },
+  {
+    "_id": "2",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Guten Tag. Mein Name ist...",
+    "color": "#58a4bc"
+  },
+  {
+    "_id": "3",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Meine Familie",
+    "color": "#85bc3c"
+  },
+  {
+    "_id": "4",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Einkaufen",
+    "color": "#f58347"
+  },
+  {
+    "_id": "5",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Meine Wohnung",
+    "color": "#e8a123"
+  },
+  {
+    "_id": "6",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Mein Tag",
+    "color": "#00a9a4"
+  },
+  {
+    "_id": "7",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Freizeit",
+    "color": "#d21677"
+  },
+  {
+    "_id": "8",
+    "level": "68430a1b2f4e1a2b3c4d5e01",
+    "name": "Kinder und Schule",
+    "color": "#8e54a1"
+  }
+]
