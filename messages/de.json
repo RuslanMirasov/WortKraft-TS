@@ -67,7 +67,6 @@
     "forgot-password": "Passwort vergessen?",
     "reset-password-title": "Passwort zurücksetzen",
     "reset-password-subtitle": "Geben Sie die E-Mail-Adresse ein, die mit Ihrem Konto verknüpft ist, und wir senden Ihnen Anweisungen zum Zurücksetzen des Passworts",
-
     "reset-accaunt-btn": "Wiederherstellen",
     "send": "Senden",
     "are-you-sure": "Sind Sie sicher?",
@@ -134,7 +133,9 @@
   },
   "main-page": {
     "title": "Wählen Sie ein Deutschniveau",
+    "title-thema": "Wählen Sie ein Thema",
     "themes": "Themen",
-    "words": "Wörter"
+    "words": "Wörter",
+    "done": "gelernt"
   }
 }

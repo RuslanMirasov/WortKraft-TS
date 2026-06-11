@@ -1,4 +1,4 @@
-import type { HTMLAttributes, MouseEvent } from 'react';
+import React, { type HTMLAttributes, type MouseEvent } from 'react';
 import clsx from 'clsx';
 import css from './Text.module.scss';
 import { Link } from '@/i18n/navigation';

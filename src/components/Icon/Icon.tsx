@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface SvgPropTypes {
   fill?: string;
   stroke?: string;

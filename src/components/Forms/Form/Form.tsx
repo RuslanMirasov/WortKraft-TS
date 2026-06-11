@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { FormProvider, UseFormReturn, FieldValues } from 'react-hook-form';
 import clsx from 'clsx';
 import css from './Form.module.scss';

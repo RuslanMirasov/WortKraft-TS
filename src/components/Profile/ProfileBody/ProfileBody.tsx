@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './ProfileBody.module.scss';
 
 const ProfileBody = ({ children }: { children: React.ReactNode }) => {

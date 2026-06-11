@@ -1,10 +1,10 @@
 'use client';
 
+import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { TextInputProps } from '@/types/inputs';
 import { Icon, Label } from '../..';
 import css from './InputPassword.module.scss';
-import { useState } from 'react';
 
 const InputPassword: React.FC<TextInputProps> = ({
   name,

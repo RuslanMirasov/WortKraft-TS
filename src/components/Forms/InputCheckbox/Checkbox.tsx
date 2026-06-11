@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Icon } from '../..';
 import css from './InputCheckbox.module.scss';

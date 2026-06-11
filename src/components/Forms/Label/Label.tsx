@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Icon } from '@/components';
 import css from './Label.module.scss';

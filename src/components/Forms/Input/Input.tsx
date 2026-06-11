@@ -1,3 +1,4 @@
+import React from 'react';
 import { InputProps } from '@/types/inputs';
 import { InputDefault, InputHidden, InputTextarea, InputSelect, InputCheckbox, InputPassword } from '@/components';
 

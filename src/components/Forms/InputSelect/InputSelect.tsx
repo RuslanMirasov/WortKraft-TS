@@ -1,8 +1,8 @@
 'use client';
 
+import React, { useState, useRef, useEffect } from 'react';
 import { useFormContext, useWatch } from 'react-hook-form';
 import { InputSelectProps } from '@/types/inputs';
-import { useState, useRef, useEffect } from 'react';
 import { Icon, Text, Label } from '../../../components';
 import css from './InputSelect.module.scss';
 

@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './CenteredMessage.module.scss';
 import clsx from 'clsx';
 

@@ -133,7 +133,9 @@
   },
   "main-page": {
     "title": "Choose a German\u00A0level",
+    "title-thema": "Choose a topic",
     "themes": "topics",
-    "words": "words"
+    "words": "words",
+    "done": "learned"
   }
 }

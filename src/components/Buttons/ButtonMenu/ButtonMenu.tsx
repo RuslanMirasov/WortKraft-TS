@@ -1,6 +1,6 @@
 'use client';
 
-import type { HTMLAttributes } from 'react';
+import React, { type HTMLAttributes } from 'react';
 import { Icon } from '../../../components';
 import { Link } from '@/i18n/navigation';
 import clsx from 'clsx';

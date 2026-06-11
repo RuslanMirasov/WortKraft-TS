@@ -1,3 +1,4 @@
+import React from 'react';
 import Image from 'next/image';
 import { avatarSignature } from '@/shared/lib/avatarActions';
 import clsx from 'clsx';

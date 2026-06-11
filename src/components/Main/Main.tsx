@@ -1,3 +1,4 @@
+import React from 'react';
 import css from './Main.module.scss';
 
 interface MainPropTypes {

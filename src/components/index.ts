@@ -67,8 +67,11 @@ export { default as ProfileContent } from './Profile/ProfileContent/ProfileConte
 export { default as ProfileSidebar } from './Profile/ProfileSidebar/ProfileSidebar';
 
 // Collections
+export { default as CollectionGrid } from './Collections/CollectionGrid/CollectionGrid';
 export { default as Levels } from './Collections/Levels/Levels';
 export { default as Level } from './Collections/Levels/Level';
+export { default as LevelSingle } from './Collections/Levels/LevelSingle';
+export { default as Categories } from './Collections/Categories/Categories';
 
 // Policy
 export { default as PolicyDe } from './Policy/Policy_de';

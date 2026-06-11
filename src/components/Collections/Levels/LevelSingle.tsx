@@ -3,8 +3,7 @@
 import React from 'react';
 import { ILevelCard } from '@/types/dto';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
-import { Icon } from '@/components';
+import { GoBack } from '@/components';
 import clsx from 'clsx';
 import css from './Levels.module.scss';
 import Image from 'next/image';
@@ -14,42 +13,39 @@ interface Props {
   className?: string;
 }
 
-const Level = ({ data, className }: Props) => {
+const LevelSingle = ({ data, className }: Props) => {
   const t = useTranslations('main-page');
-  const classes = clsx(css.Level, className);
-
-  const { _id, level, title, subtitle, image, color, categoryCount, wordCount, progressPercent } = data;
+  const classes = clsx(css.Level, css.Single, className);
+  const { level, title, subtitle, image, color, categoryCount, wordCount, progressPercent } = data;
 
   return (
     <article className={classes} style={{ '--level-color': color } as React.CSSProperties}>
-      <div className={css.Level__image}>
-        <Link href={`./levels/${_id}`}>
-          <Image src={image} alt={title} width="670" height="1005" loading="eager" />
-        </Link>
+      <div className={css.Level__header}>
+        <GoBack />
+        <b>{progressPercent !== null ? `${progressPercent}%` : '0%'}</b>
       </div>
       <div className={css.Level__text}>
-        <div className={css.Level__number}>{level}</div>
         <div className={css.Level__title}>
           <h2>
             {title}
             {subtitle && <span>{subtitle}</span>}
           </h2>
-          <b>{progressPercent !== null ? `${progressPercent}%` : '0%'}</b>
         </div>
         <div className={css.Level__footer}>
+          <span>{level}</span>
           <span>
             {categoryCount} {t('themes')}
           </span>
           <span>
             {wordCount} {t('words')}
           </span>
-          <Link href={`./levels/${_id}`} className={css.ToLevelButton}>
-            <Icon name="next" />
-          </Link>
         </div>
+      </div>
+      <div className={css.Level__thumbnail}>
+        <Image src={image} alt={title} width="670" height="1005" loading="eager" />
       </div>
     </article>
   );
 };
 
-export default Level;
+export default LevelSingle;

@@ -1,23 +1,28 @@
-'use client';
+import { notFound } from 'next/navigation';
+import { getTranslations } from 'next-intl/server';
+import { getLevelById } from '@/shared/lib/data';
+import { CollectionGrid, LevelSingle, Categories } from '@/components';
 
-import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
-import { GoBack, Hero, Title } from '@/components';
+interface Props {
+  params: Promise<{ level: string }>;
+}
 
-export default function LavelPage() {
-  const params = useParams();
-  const t = useTranslations('navigation');
+export default async function LavelPage({ params }: Props) {
+  const { level } = await params;
+  const t = await getTranslations('main-page');
 
-  const { level } = params;
+  if (!level) notFound();
+
+  const levelData = getLevelById(level);
+
+  if (!levelData) notFound();
 
   return (
     <div className="container">
-      <Hero color="green">
-        <GoBack />
-        <Title tag="h1" size="h1">
-          {level}
-        </Title>
-      </Hero>
+      <CollectionGrid title={t('title-thema')}>
+        <LevelSingle data={levelData} />
+        <Categories level={level} />
+      </CollectionGrid>
     </div>
   );
 }

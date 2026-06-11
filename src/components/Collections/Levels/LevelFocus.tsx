@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const MOBILE_MAX_WIDTH = 767;
 const SCROLL_DELAY = 500;

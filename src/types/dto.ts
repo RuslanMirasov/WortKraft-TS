@@ -9,3 +9,10 @@ export interface ILevelCard {
   wordCount: number;
   progressPercent: number | null;
 }
+
+export interface ICategoryCard {
+  _id: string;
+  level: string;
+  name: string;
+  color: string | null;
+}

@@ -1,6 +1,7 @@
+import React from 'react';
 import type { Viewport } from 'next';
 import { buildLocaleMetadata, buildLocaleViewport } from '@/shared/config/metadata';
-import { NextIntlClientProvider, hasLocale } from 'next-intl'; //hasLocale
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import PWAInstallProvider from '@/shared/providers/PWAInstallProvider';

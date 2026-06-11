@@ -7,7 +7,34 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    files: ['**/*.{js,mjs,cjs,jsx}'],
+    languageOptions: {
+      parserOptions: {
+        sourceType: 'module',
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    plugins: {
+      js,
+      react: pluginReact,
+      '@next/next': pluginNext,
+    },
+    rules: {
+      ...js.configs.recommended.rules,
+      ...pluginReact.configs.recommended.rules,
+      'react/react-in-jsx-scope': 'off',
+    },
+    settings: {
+      react: { version: 'detect' },
+    },
+  },
+  {
+    files: ['**/*.{ts,mts,cts,tsx}'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -30,11 +57,10 @@ export default defineConfig([
       ...js.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       ...pluginReact.configs.recommended.rules,
+      'react/react-in-jsx-scope': 'off',
     },
     settings: {
-      react: {
-        version: 'detect',
-      },
+      react: { version: 'detect' },
     },
   },
 ]);

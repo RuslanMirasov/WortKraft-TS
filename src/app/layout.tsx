@@ -1,3 +1,4 @@
+import React from 'react';
 import { cookies } from 'next/headers';
 import { getServerSession } from 'next-auth';
 import localFont from 'next/font/local';

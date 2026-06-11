@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useTranslations } from 'next-intl';
 import { InputCheckboxProps } from '@/types/inputs';

@@ -1,0 +1,19 @@
+.CollectionGrid {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px 32px;
+
+  .Title {
+    order: 1;
+    margin: 20px 0px 4px 0px;
+    @media (max-width: 1279px) {
+      margin: 12px 0px -4px 0px;
+    }
+    @media (max-width: 767px) {
+      margin: 0px;
+    }
+  }
+}
