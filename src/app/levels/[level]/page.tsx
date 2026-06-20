@@ -1,15 +1,14 @@
 import { notFound } from 'next/navigation';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { getLevel, getCategories } from '@/shared/lib/data';
 import { CollectionGrid, LevelSingle, Categories } from '@/components';
 
 interface Props {
-  params: Promise<{ locale: string; level: string }>;
+  params: Promise<{ level: string }>;
 }
 
 export default async function LevelPage({ params }: Props) {
-  const { locale, level } = await params;
-  setRequestLocale(locale);
+  const { level } = await params;
   const t = await getTranslations('main-page');
 
   if (!level) notFound();

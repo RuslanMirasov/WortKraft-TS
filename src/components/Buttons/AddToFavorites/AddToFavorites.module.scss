@@ -1,0 +1,17 @@
+.AddToFavorites {
+  display: flex;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 0px;
+  top: 0px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 2;
+  cursor: pointer;
+  svg {
+    transition: 0.3s ease;
+  }
+}

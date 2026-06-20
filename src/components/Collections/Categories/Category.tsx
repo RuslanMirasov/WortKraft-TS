@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICategoryCard } from '@/types/dto';
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { Icon } from '@/components';
 import css from './Categories.module.scss';
 

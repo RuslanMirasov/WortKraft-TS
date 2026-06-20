@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes, type MouseEvent } from 'react';
 import clsx from 'clsx';
 import css from './Text.module.scss';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 interface TextPropTypes extends HTMLAttributes<HTMLDivElement> {
   tag?: keyof HTMLElementTagNameMap;

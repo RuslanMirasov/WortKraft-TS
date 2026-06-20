@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { Avatar, Text } from '../../../components';
 import css from './ButtonProfile.module.scss';

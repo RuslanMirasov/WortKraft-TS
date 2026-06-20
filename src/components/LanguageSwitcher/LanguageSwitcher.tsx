@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Icon } from '../../components';
@@ -8,8 +8,9 @@ import css from './LanguageSwitcher.module.scss';
 
 type SupportedLocale = 'de' | 'en' | 'uk';
 
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
 const LanguageSwitcher = () => {
-  const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale() as SupportedLocale;
   const [open, setOpen] = useState(false);
@@ -38,10 +39,11 @@ const LanguageSwitcher = () => {
         return;
       }
 
+      document.cookie = `NEXT_LOCALE=${targetLocale}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
       setOpen(false);
-      router.replace(pathname, { locale: targetLocale });
+      router.refresh();
     },
-    [pathname, router, locale]
+    [locale, router]
   );
 
   const toggleOpen = useCallback(() => {

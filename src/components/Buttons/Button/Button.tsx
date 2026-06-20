@@ -2,7 +2,7 @@ import React from 'react';
 import { Icon } from './../../../components';
 import clsx from 'clsx';
 import css from './Button.module.scss';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 
 interface ButtonPropTypes {
   href?: string;

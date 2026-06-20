@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { useActiveRoute } from '@/shared/hooks/useActiveRoute';
 import { useTranslations } from 'next-intl';
 import css from './Footer.module.scss';

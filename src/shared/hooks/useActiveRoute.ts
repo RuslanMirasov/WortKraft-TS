@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from '@/i18n/navigation';
+import { usePathname } from 'next/navigation';
 const MENU_PAGES = ['/favorites', '/search', '/statistic', '/profile', '/race', '/admin', '/policy', '/login'];
 
 export const useActiveRoute = () => {

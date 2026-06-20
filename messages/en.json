@@ -137,5 +137,11 @@
     "themes": "topics",
     "words": "words",
     "done": "learned"
+  },
+  "room": {
+    "play": "Play",
+    "stop": "Stop",
+    "example": "Example:",
+    "progress": "Your progress:"
   }
 }

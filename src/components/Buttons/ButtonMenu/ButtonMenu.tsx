@@ -2,7 +2,7 @@
 
 import React, { type HTMLAttributes } from 'react';
 import { Icon } from '../../../components';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import clsx from 'clsx';
 import css from './ButtonMenu.module.scss';
 

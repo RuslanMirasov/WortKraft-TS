@@ -3,7 +3,7 @@
 import React from 'react';
 import { ILevelCard } from '@/types/dto';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
+import Link from 'next/link';
 import { Icon } from '@/components';
 import clsx from 'clsx';
 import css from './Levels.module.scss';

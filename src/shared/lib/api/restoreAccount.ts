@@ -3,9 +3,8 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useSearchParams } from 'next/navigation';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { usePopup } from '@/stores/popup-store';
-import { normalizeLocalePath } from '@/shared/config/routes';
 import { useUrlError } from '@/shared/hooks/useUrlError';
 
 export const restoreAccount = async (token: string, callbackUrl: string) => {
@@ -25,8 +24,7 @@ export const useRestoreAccountActions = () => {
   const [loading, setLoading] = useState(false);
 
   const getCallbackUrl = () => {
-    const normalizedPath = normalizeLocalePath(pathname);
-    if (normalizedPath === '/login') return '/';
+    if (pathname === '/login') return '/';
 
     const params = new URLSearchParams(searchParams.toString());
     params.delete('error');

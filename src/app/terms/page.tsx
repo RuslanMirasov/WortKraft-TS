@@ -1,12 +1,8 @@
-import { getTranslations } from 'next-intl/server';
-import { GoBack, Hero, TermsDe, TermsEn, TermsUk, Text, Title } from '@/components';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { GoBack, Hero, TermsDe, TermsEn, TermsUk, Title } from '@/components';
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function TermsPage({ params }: Props) {
-  const { locale } = await params;
+export default async function TermsPage() {
+  const locale = await getLocale();
   const t = await getTranslations('policy-terms');
 
   return (

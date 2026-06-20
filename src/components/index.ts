@@ -5,6 +5,11 @@ export { default as Navigation } from './Navigation/Navigation';
 export { default as Footer } from './Footer/Footer';
 export { default as LanguageSwitcher } from './LanguageSwitcher/LanguageSwitcher';
 
+// ROOM
+export { default as WordTranslation } from './Room/WordTranslation/WordTranslation';
+export { default as AudioPlayer } from './Room/AudioPlayer/AudioPlayer';
+export { default as Dialog } from './Room/Dialog/Dialog';
+
 // UI
 export { default as CenteredMessage } from './CenteredMessage/CenteredMessage';
 export { default as DownloadInstruction } from './DownloadInstruction/DownloadInstruction';
@@ -27,6 +32,7 @@ export { default as ErrorPopupController } from './Popups/ErrorPopupController';
 // Buttons
 export { default as Button } from './Buttons/Button/Button';
 export { default as Buttons } from './Buttons/Buttons/Buttons';
+export { default as AddToFavorites } from './Buttons/AddToFavorites/AddToFavorites';
 export { default as ButtonGoogle } from './Buttons/ButtonGoogle/ButtonGoogle';
 export { default as ButtonProfile } from './Buttons/ButtonProfile/ButtonProfile';
 export { default as ButtonMenu } from './Buttons/ButtonMenu/ButtonMenu';
@@ -73,6 +79,8 @@ export { default as Level } from './Collections/Levels/Level';
 export { default as LevelSingle } from './Collections/Levels/LevelSingle';
 export { default as Categories } from './Collections/Categories/Categories';
 export { default as CategorySingle } from './Collections/Categories/CategorySingle';
+export { default as Words } from './Collections/Words/Words';
+export { default as Word } from './Collections/Words/Word';
 
 // Policy
 export { default as PolicyDe } from './Policy/Policy_de';

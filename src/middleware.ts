@@ -1,19 +1,11 @@
-import type { NextFetchEvent } from 'next/server';
 import { NextRequest, NextResponse } from 'next/server';
-import createIntlMiddleware from 'next-intl/middleware';
 import { getToken } from 'next-auth/jwt';
-import { routing } from './i18n/routing';
-import { getLocaleFromPathname, isPublicRoute, normalizeLocalePath, isPrivateRoute } from '@/shared/config/routes';
+import { isPublicRoute, isPrivateRoute } from '@/shared/config/routes';
 
-const intlMiddleware = createIntlMiddleware(routing);
 const ONBOARDING_ROUTE = '/onboarding';
 
-export default async function middleware(req: NextRequest, event: NextFetchEvent) {
+export default async function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
-  const intlResponse = intlMiddleware(req, event);
-
-  const locale = getLocaleFromPathname(pathname) ?? routing.defaultLocale;
-  const normalizedPath = normalizeLocalePath(pathname);
 
   const token = await getToken({
     req,
@@ -21,39 +13,37 @@ export default async function middleware(req: NextRequest, event: NextFetchEvent
   });
 
   if (token?.status === 'pending') {
-    if (!normalizedPath.startsWith(ONBOARDING_ROUTE)) {
-      const onboardingUrl = new URL(`/${locale}${ONBOARDING_ROUTE}`, req.url);
+    if (!pathname.startsWith(ONBOARDING_ROUTE)) {
+      const onboardingUrl = new URL(ONBOARDING_ROUTE, req.url);
       onboardingUrl.searchParams.set('callbackUrl', pathname + search);
       return NextResponse.redirect(onboardingUrl);
     }
-
-    return intlResponse;
+    return NextResponse.next();
   }
 
-  if (normalizedPath.startsWith(ONBOARDING_ROUTE)) {
-    return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
+  if (pathname.startsWith(ONBOARDING_ROUTE)) {
+    return NextResponse.redirect(new URL('/404', req.url));
   }
 
-  if (normalizedPath === '/' || normalizedPath === '') {
-    return NextResponse.redirect(new URL(`/${locale}/levels`, req.url));
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL('/levels', req.url));
   }
 
   if (isPublicRoute(pathname)) {
-    return intlResponse;
+    return NextResponse.next();
   }
 
   if (isPrivateRoute(pathname) && !token) {
-    const loginUrl = new URL(`/${locale}/login`, req.url);
+    const loginUrl = new URL('/login', req.url);
     loginUrl.searchParams.set('callbackUrl', pathname + search);
     return NextResponse.redirect(loginUrl);
   }
 
-  // admin
-  if (normalizedPath.startsWith('/admin') && token?.role !== 'admin') {
-    return NextResponse.redirect(new URL(`/${locale}/404`, req.url));
+  if (pathname.startsWith('/admin') && token?.role !== 'admin') {
+    return NextResponse.redirect(new URL('/404', req.url));
   }
 
-  return intlResponse;
+  return NextResponse.next();
 }
 
 export const config = {

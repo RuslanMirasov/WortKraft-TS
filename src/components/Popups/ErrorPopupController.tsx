@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { usePopup } from '@/stores/popup-store';
 import type { Popup } from '@/types/popup';

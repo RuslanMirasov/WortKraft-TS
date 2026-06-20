@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname } from '@/i18n/navigation';
+import { usePathname } from 'next/navigation';
 import { usePWAInstallStore } from '@/stores/pwa-install-store';
 import { usePopup } from '@/stores/popup-store';
 import { isPublicRoute } from '@/shared/config/routes';

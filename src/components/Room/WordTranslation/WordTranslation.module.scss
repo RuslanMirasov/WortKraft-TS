@@ -1,0 +1,47 @@
+.WordTranslation {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.Header {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  button {
+    &:last-child {
+      left: auto;
+      top: auto;
+      right: -10px;
+    }
+  }
+}
+
+.Text {
+  font-size: 42px;
+  font-family: var(--medium);
+  color: var(--black);
+
+  &.Red {
+    color: var(--red-dark);
+  }
+  &.Green {
+    color: var(--green-dark);
+  }
+  &.Blue {
+    color: var(--blue);
+  }
+}
+
+.Translation {
+  font-size: 22px;
+  font-family: var(--medium);
+}

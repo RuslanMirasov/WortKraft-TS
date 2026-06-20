@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname, useSearchParams } from 'next/navigation';
-import { normalizeLocalePath } from '@/shared/config/routes';
 
 const DEFAULT_CALLBACK_URL = '/';
 
@@ -17,9 +16,8 @@ export const useAuthCallbackUrl = () => {
   if (isSafeRelativeUrl(callbackUrl)) return callbackUrl!;
 
   const currentPath = pathname || DEFAULT_CALLBACK_URL;
-  const normalizedPath = normalizeLocalePath(currentPath);
 
-  if (normalizedPath === '/login') return DEFAULT_CALLBACK_URL;
+  if (currentPath === '/login') return DEFAULT_CALLBACK_URL;
 
   const query = searchParams.toString();
   return query ? `${currentPath}?${query}` : currentPath;

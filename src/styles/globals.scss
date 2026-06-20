@@ -9,6 +9,7 @@
 
   --black: #292b2d;
   --red: #e20017;
+  --red-dark: #d13544;
   --invalid: #fc142c;
   --hr: #dfdfdf;
   --grey: #999a9b;
@@ -16,6 +17,8 @@
   --grey-light: #f0f0f0;
   --white: #ffffff;
   --green: #4cb210;
+  --green-dark: #39880c;
+  --blue: #1c5ea8;
   --orange: #ffa200;
 }
 
@@ -139,6 +142,9 @@ hr {
   padding: 0px 20px 40px 20px;
   &.mini {
     max-width: 768px;
+  }
+  &.small {
+    max-width: 400px;
   }
   @media (max-width: 1439px) {
     max-width: 1020px;
