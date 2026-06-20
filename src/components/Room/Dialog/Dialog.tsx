@@ -24,7 +24,7 @@ const Dialog = ({ textA, textB, audioA, audioB }: dialogProps) => {
         <div className={css.Dialog}>
           <div className={`${css.Person} ${css.First}`}>
             <Image
-              src={`/img/dialog/w-${Math.floor(Math.random() * 4) + 1}.png`}
+              src={`/img/dialog/w-${Math.floor(Math.random() * 4) + 1}.webp`}
               alt={textA}
               width={300}
               height={300}
@@ -35,7 +35,7 @@ const Dialog = ({ textA, textB, audioA, audioB }: dialogProps) => {
           </div>
           <div className={css.Person}>
             <Image
-              src={`/img/dialog/m-${Math.floor(Math.random() * 3) + 1}.png`}
+              src={`/img/dialog/m-${Math.floor(Math.random() * 3) + 1}.webp`}
               alt={textB}
               width={300}
               height={300}

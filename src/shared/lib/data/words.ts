@@ -13,11 +13,14 @@ export type WordDetail = {
   };
 };
 
-export type WordListItem = { text: string; slug: string };
+type WordCounts = Record<string, number>;
 
 export async function getWordsByCategory(category: string): Promise<WordListItem[]> {
   await dbConnect();
-  const docs = await WordModel.find({ 'word.category': category }, { 'word.text': 1, 'word.slug': 1, _id: 0 }).lean();
+  const docs = await WordModel.find(
+    { 'word.category': category },
+    { 'word.text': 1, 'word.slug': 1, _id: 0 }
+  ).lean();
   return docs.map(d => ({ text: d.word.text, slug: d.word.slug }));
 }
 
@@ -39,12 +42,13 @@ export async function getWord(slug: string): Promise<WordDetail | null> {
   return doc as WordDetail | null;
 }
 
-type WordCounts = Record<string, number>;
-
 export async function getWordCounts(): Promise<WordCounts> {
   await dbConnect();
 
-  const result = await WordModel.aggregate<{ _id: { level: string; category: string }; count: number }>([
+  const result = await WordModel.aggregate<{
+    _id: { level: string; category: string };
+    count: number;
+  }>([
     { $group: { _id: { level: '$word.level', category: '$word.category' }, count: { $sum: 1 } } },
   ]);
 
