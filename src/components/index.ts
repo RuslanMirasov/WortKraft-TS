@@ -72,6 +72,7 @@ export { default as Levels } from './Collections/Levels/Levels';
 export { default as Level } from './Collections/Levels/Level';
 export { default as LevelSingle } from './Collections/Levels/LevelSingle';
 export { default as Categories } from './Collections/Categories/Categories';
+export { default as CategorySingle } from './Collections/Categories/CategorySingle';
 
 // Policy
 export { default as PolicyDe } from './Policy/Policy_de';

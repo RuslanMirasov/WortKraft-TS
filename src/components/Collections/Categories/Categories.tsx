@@ -1,14 +1,12 @@
-import { getCategories } from '@/shared/lib/data';
+import { ICategoryCard } from '@/types/dto';
 import Category from './Category';
 import css from './Categories.module.scss';
 
 interface CategoriesProps {
-  level: string;
+  categories: ICategoryCard[];
 }
 
-const Categories = async ({ level }: CategoriesProps) => {
-  const categories = await getCategories(level);
-
+const Categories = ({ categories }: CategoriesProps) => {
   if (!categories.length)
     return (
       <div className={css.Empty}>

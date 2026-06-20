@@ -2,6 +2,7 @@ import React from 'react';
 import type { Viewport } from 'next';
 import { buildLocaleMetadata, buildLocaleViewport } from '@/shared/config/metadata';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import PWAInstallProvider from '@/shared/providers/PWAInstallProvider';
@@ -36,8 +37,11 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
+  const messages = await getMessages();
+
   return (
-    <NextIntlClientProvider locale={locale}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
       <ServiceWorkerRegister />
       <Header />
       <Main>

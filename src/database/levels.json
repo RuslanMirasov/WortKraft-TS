@@ -1,6 +1,6 @@
 [
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e01",
+    "_id": "1",
     "level": "A1.1",
     "title": "Erste Schritte",
     "subtitle": null,
@@ -8,7 +8,7 @@
     "color": "#4DB314"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e02",
+    "_id": "2",
     "level": "A1.2",
     "title": "Im Alltag",
     "subtitle": null,
@@ -16,7 +16,7 @@
     "color": "#028BC3"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e03",
+    "_id": "3",
     "level": "A2.1",
     "title": "Wachsen",
     "subtitle": null,
@@ -24,7 +24,7 @@
     "color": "#FF122B"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e04",
+    "_id": "4",
     "level": "A2.2",
     "title": "Selbstständig",
     "subtitle": null,
@@ -32,7 +32,7 @@
     "color": "#FFA200"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e05",
+    "_id": "5",
     "level": "B1.1",
     "title": "Durchstarten",
     "subtitle": null,
@@ -40,7 +40,7 @@
     "color": "#94044E"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e06",
+    "_id": "6",
     "level": "B1.2",
     "title": "Auf dem Weg",
     "subtitle": null,
@@ -48,23 +48,23 @@
     "color": "#009DC0"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e07",
-    "level": "A2+B1",
+    "_id": "7",
+    "level": "B1-DTZ",
     "title": "Prüfungsfit",
     "subtitle": "DTZ",
     "image": "/img/levels/7.webp",
     "color": "#94044E"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e08",
-    "level": "B2",
+    "_id": "8",
+    "level": "B2-Beruf",
     "title": "Berufsdeutsch",
     "subtitle": "DTB",
     "image": "/img/levels/8.webp",
     "color": "#004C8A"
   },
   {
-    "_id": "68430a1b2f4e1a2b3c4d5e09",
+    "_id": "9",
     "level": "C1",
     "title": "Auf der Höhe",
     "subtitle": null,

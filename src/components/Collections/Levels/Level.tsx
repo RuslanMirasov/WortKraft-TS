@@ -18,12 +18,12 @@ const Level = ({ data, className }: Props) => {
   const t = useTranslations('main-page');
   const classes = clsx(css.Level, className);
 
-  const { _id, level, title, subtitle, image, color, categoryCount, wordCount, progressPercent } = data;
+  const { level, title, subtitle, image, color, categoryCount, wordCount, progressPercent } = data;
 
   return (
     <article className={classes} style={{ '--level-color': color } as React.CSSProperties}>
       <div className={css.Level__image}>
-        <Link href={`./levels/${_id}`}>
+        <Link href={`./levels/${level}`}>
           <Image src={image} alt={title} width="670" height="1005" loading="eager" />
         </Link>
       </div>
@@ -43,7 +43,7 @@ const Level = ({ data, className }: Props) => {
           <span>
             {wordCount} {t('words')}
           </span>
-          <Link href={`./levels/${_id}`} className={css.ToLevelButton}>
+          <Link href={`./levels/${level}`} className={css.ToLevelButton}>
             <Icon name="next" />
           </Link>
         </div>

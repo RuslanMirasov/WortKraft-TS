@@ -1,12 +1,15 @@
-import { getLevels } from '@/shared/lib/data';
+import { ILevelCard } from '@/types/dto';
 import { getTranslations } from 'next-intl/server';
 import { Title } from '@/components';
 import LevelFocus from './LevelFocus';
 import Level from './Level';
 import css from './Levels.module.scss';
 
-const Levels = async () => {
-  const levels = getLevels();
+interface LevelsProps {
+  levels: ILevelCard[];
+}
+
+const Levels = async ({ levels }: LevelsProps) => {
   const t = await getTranslations('main-page');
 
   return (

@@ -11,7 +11,7 @@ const ButtonProfile = () => {
   const { name, email, image, role } = session.user;
 
   return (
-    <Link href="./profile" className={css.ButtonProfile}>
+    <Link href="/profile" className={css.ButtonProfile}>
       <Avatar email={email ?? ''} name={name} image={image} role={role} />
       <div className={css.Texts}>
         <Text color="black">{name || email}</Text>

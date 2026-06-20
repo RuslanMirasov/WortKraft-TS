@@ -1,23 +1,26 @@
-'use client';
+import { notFound } from 'next/navigation';
+import { setRequestLocale } from 'next-intl/server';
+import { getCategory } from '@/shared/lib/data';
+import { CategorySingle, Button } from '@/components';
 
-import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
-import { GoBack, Hero, Title } from '@/components';
+interface Props {
+  params: Promise<{ locale: string; category: string }>;
+}
 
-export default function CategoryPage() {
-  const params = useParams();
-  const t = useTranslations('navigation');
+export default async function CategoryPage({ params }: Props) {
+  const { locale, category } = await params;
+  setRequestLocale(locale);
 
-  const { category } = params;
+  const categoryData = await getCategory(category);
+
+  if (!categoryData) notFound();
 
   return (
     <div className="container">
-      <Hero color="green">
-        <GoBack />
-        <Title tag="h1" size="h1">
-          {category}
-        </Title>
-      </Hero>
+      <CategorySingle data={categoryData} />
+      <Button size="normal" icon="arrow-right">
+        Start to learn
+      </Button>
     </div>
   );
 }

@@ -15,14 +15,30 @@ export interface ICategory {
   _id: string;
   level: string;
   name: string;
+  slug: string;
   color: string | null;
 }
 
 // --------- Words -------------
 
+type TranslationEntry = {
+  correct: string;
+  wrong: string[];
+};
+
 export interface IWord {
   _id: string;
-  level: string;
-  category: string;
-  name: string;
+  word: {
+    text: string;
+    slug: string;
+    color: string;
+    level: string;
+    category: string;
+    audio: string | null;
+  };
+  translations: Record<string, TranslationEntry>;
+  dialog: {
+    text: { speakerA: string; speakerB: string };
+    audio: { speakerA: string | null; speakerB: string | null };
+  };
 }

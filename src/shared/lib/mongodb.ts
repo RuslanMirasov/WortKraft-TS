@@ -2,33 +2,28 @@ import mongoose from 'mongoose';
 
 const MONGODB_URI = process.env.MONGODB_URI || '';
 
-if (!MONGODB_URI) throw new Error('[MONGODB CONNECTION] => MONGODB_URI is not defined in .env.local');
-
-declare global {
-  var mongooseConn:
-    | {
-        conn: typeof mongoose | null;
-        promise: Promise<typeof mongoose> | null;
-      }
-    | undefined;
-}
-
-global.mongooseConn = global.mongooseConn ?? {
-  conn: null,
-  promise: null,
+type MongooseCache = {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
 };
 
+const globalWithMongoose = global as typeof globalThis & { mongooseConn?: MongooseCache };
+
+if (!globalWithMongoose.mongooseConn) {
+  globalWithMongoose.mongooseConn = { conn: null, promise: null };
+}
+
+const cached = globalWithMongoose.mongooseConn;
+
 export async function dbConnect() {
-  console.log('[MONGODB CONNECTION] => DB Connection success!');
+  if (!MONGODB_URI) throw new Error('[MONGODB CONNECTION] => MONGODB_URI is not defined in .env.local');
 
-  if (global.mongooseConn!.conn) {
-    return global.mongooseConn!.conn;
+  if (cached.conn) return cached.conn;
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(MONGODB_URI);
   }
 
-  if (!global.mongooseConn!.promise) {
-    global.mongooseConn!.promise = mongoose.connect(MONGODB_URI).then(mongoose => mongoose);
-  }
-
-  global.mongooseConn!.conn = await global.mongooseConn!.promise;
-  return global.mongooseConn!.conn;
+  cached.conn = await cached.promise;
+  return cached.conn;
 }

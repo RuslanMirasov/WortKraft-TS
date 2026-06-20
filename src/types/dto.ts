@@ -14,5 +14,8 @@ export interface ICategoryCard {
   _id: string;
   level: string;
   name: string;
+  slug: string;
   color: string | null;
+  wordCount: number;
+  progressPercent?: number | null;
 }

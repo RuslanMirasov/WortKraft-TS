@@ -1,50 +1,72 @@
 [
   {
     "_id": "1",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Meine Wörter im Kurs",
+    "level": "A1.1",
+    "name": "Kurswörter",
+    "slug": "kurswoerter",
     "color": "#666666"
   },
   {
     "_id": "2",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Guten Tag. Mein Name ist...",
+    "level": "A1.1",
+    "name": "Hallo! Ich heiße...",
+    "slug": "hallo-ich-heisse",
     "color": "#58a4bc"
   },
   {
     "_id": "3",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Meine Familie",
+    "level": "A1.1",
+    "name": "Die Familie",
+    "slug": "die-familie",
     "color": "#85bc3c"
   },
   {
     "_id": "4",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Einkaufen",
+    "level": "A1.1",
+    "name": "Im Supermarkt",
+    "slug": "im-supermarkt",
     "color": "#f58347"
   },
   {
     "_id": "5",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Meine Wohnung",
+    "level": "A1.1",
+    "name": "Zu Hause",
+    "slug": "zu-hause",
     "color": "#e8a123"
   },
   {
     "_id": "6",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Mein Tag",
+    "level": "A1.1",
+    "name": "Der Alltag",
+    "slug": "der-alltag",
     "color": "#00a9a4"
   },
   {
     "_id": "7",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Freizeit",
+    "level": "A1.1",
+    "name": "Freizeit und Hobbys",
+    "slug": "freizeit-und-hobbys",
     "color": "#d21677"
   },
   {
     "_id": "8",
-    "level": "68430a1b2f4e1a2b3c4d5e01",
-    "name": "Kinder und Schule",
+    "level": "A1.1",
+    "name": "Schule und Kinder",
+    "slug": "schule-und-kinder",
     "color": "#8e54a1"
+  },
+  {
+    "_id": "9",
+    "level": "A1.2",
+    "name": "Test",
+    "slug": "test",
+    "color": "#000000"
+  },
+  {
+    "_id": "10",
+    "level": "A1.2",
+    "name": "Test 2",
+    "slug": "test2",
+    "color": "tomato"
   }
 ]
