@@ -13,6 +13,7 @@
     "please-login": "Bitte melden Sie sich an, \num diese Seite zu sehen."
   },
   "errors": {
+    "field-required": "Dieses Feld ist erforderlich",
     "accaunt-deleted-popup-error-title": "Konto wurde gelöscht",
     "AccauntDeleted": "Sie haben Ihr Konto gelöscht, aber der Zugriff kann innerhalb von 14 Tagen noch wiederhergestellt werden.",
     "AccauntDeletedBtn": "Wiederherstellen",

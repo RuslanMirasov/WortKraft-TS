@@ -1,6 +1,12 @@
 import { z } from 'zod';
 import { LANGUAGES } from '@/shared/config/user';
 
+const required = () => z.string().min(1, { message: 'field-required' });
+
+const word = required();
+const level = required();
+const category = required();
+
 const name = z
   .string()
   .optional()
@@ -43,6 +49,12 @@ const privacy = z.boolean().refine(value => value === true, {
 
 const terms = z.boolean().refine(value => value === true, {
   message: 'terms-required',
+});
+
+export const generateWordSchema = z.object({
+  word,
+  level,
+  category,
 });
 
 export const loginSchema = z.object({
@@ -104,3 +116,4 @@ export type PasswordFormData = z.input<typeof passwordSchema>;
 export type OnboardingFormData = z.input<typeof onboardingSchema>;
 export type ProfileUpdateFormData = z.input<typeof profileUpdateSchema>;
 export type PasswordUpdateFormData = z.input<typeof passwordUpdateSchema>;
+export type GenerateWordFormData = z.input<typeof generateWordSchema>;

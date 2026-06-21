@@ -59,6 +59,7 @@ export { default as AccountResetForm } from './Forms/AccountResetForm';
 export { default as OnboardingForm } from './Forms/OnboardingForm';
 export { default as ProfileUpdateForm } from './Forms/ProfileUpdateForm';
 export { default as PasswordUpdateForm } from './Forms/PasswordUpdateForm';
+export { default as GenerateWordForm } from './Forms/GenerateWordForm';
 
 // Typography
 export { default as Title } from './Title/Title';

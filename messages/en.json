@@ -13,6 +13,7 @@
     "please-login": "Please Sign In \nto access this page."
   },
   "errors": {
+    "field-required": "This field is required",
     "accaunt-deleted-popup-error-title": "Account deleted",
     "AccauntDeleted": "You deleted your account, but access can still be restored within 14 days.",
     "AccauntDeletedBtn": "Restore",

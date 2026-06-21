@@ -1,4 +1,4 @@
-import { GoBack, Hero, Title } from '@/components';
+import { GenerateWordForm, GoBack, Hero, Title } from '@/components';
 
 export default function AdminPage() {
   return (
@@ -6,9 +6,11 @@ export default function AdminPage() {
       <Hero>
         <GoBack />
         <Title tag="h1" size="h1">
-          Admin Panel
+          CMS-ка
         </Title>
       </Hero>
+
+      <GenerateWordForm />
     </div>
   );
 }
